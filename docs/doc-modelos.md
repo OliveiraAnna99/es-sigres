@@ -10,26 +10,65 @@ Para a modelagem pode se usar o Astah UML ou o BrModelo. Uma ferramenta interess
 
 ```mermaid
 classDiagram
-      Animal <|-- Duck
-      Animal <|-- Fish
-      Animal <|-- Zebra
-      Animal : +int age
-      Animal : +String gender
-      Animal: +isMammal()
-      Animal: +mate()
-      class Duck{
-          +String beakColor
-          +swim()
-          +quack()
-      }
-      class Fish{
-          -int sizeInFeet
-          -canEat()
-      }
-      class Zebra{
-          +bool is_wild
-          +run()
-      }
+
+    Funcionario <|-- Contato
+    Funcionario <|-- UsuarioLogin
+    Funcionario <|-- Endereco
+    Funcionario <|-- Pedido
+
+    Pedido <|-- ItensPedido
+    Pedido <|-- Pagamento
+
+    ItensPedido <|-- Prato
+
+    Prato <|-- PratoIngrediente
+
+    PratoIngrediente <|-- Ingrediente
+
+    class Funcionario{
+        +char nome
+        +char CPF
+        +Endereco endereco
+        +Contato contato
+        +char dataNascimento
+        +char rg
+        +char funcão
+        +UsuarioLogin login
+
+
+        -consultarFuncionario(char CPF) Funcionário
+        -adicionarFuncionario(Funcionario funcionario) void
+        -removerFuncionario(Funcionario funcionario) void
+        -editarFuncionario(Funcionario funcionario) void
+        -listarTodos() Funcionario
+        -realizarLogin(char login) UsuarioLogin
+        -validarCPF(char CPF) boolean
+    }
+
+    class Contato{
+        +char telefone
+        +char email
+
+        -atualizarContato(Contato contato) void
+    }
+
+    class UsuarioLogin{
+        +char login
+        +char senha
+
+        -realizarLogin(char login, char senha) boolean
+    }
+
+    class Endereco{
+        +char logradouro
+        +char bairro
+        +char cep
+        +int numeroCasa
+        +char complemento
+
+        -atualizarEndereco(Endereco enderedo) void
+    }
+
 ```
 
 ### Descrição das Entidades
@@ -53,7 +92,7 @@ Para criar modelos ER é possível usar o BrModelo e gerar uma imagem. Contudo, 
 title: Modelo de Dados - Sistemas de Restaurante
 ---
 erDiagram
-    
+
     Cardapio||--|{Item: possui
     Administrador ||--|{Cardapio: gerencia
     Venda ||--|{Item: possui
