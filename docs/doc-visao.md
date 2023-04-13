@@ -51,4 +51,16 @@ problemas causados pelos ruídos de comunicação provocados por falha humana.
 | ------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------- |
 | RNF001 - Quantidade de estações disponíveis | Estabelece um valor mínimo para a quantidade de estações onde o sistema será implantado para que ocorra um bom funcionamento. |
 | RNF002 - Quantidade de displays no ambiente | Determina que tenha ao menos um display para identificar os pedidos finalizados.                                              |
-|  |
+|                                             |
+
+## Riscos
+
+Tabela com o mapeamento dos riscos do projeto, as possíveis soluções e os responsáveis.
+
+| Data       | Risco                                                                 | Prioridade | Responsável | Status  | Providência/Solução                                                                     |
+| ---------- | --------------------------------------------------------------------- | ---------- | ----------- | ------- | --------------------------------------------------------------------------------------- |
+| 01/12/2022 | Divisão de tarefas mal sucedida                                       | Baixa      | Gerente     | Vigente | Acompanhar de perto o desenvolvimento de cada membro da equipe                          |
+| 01/12/2022 | Má gestão de tempo para cada tarefa                                   | Média      | Gerente     | Vigente | Acompanhar o desenvolvimento e prazo de cada tarefa.                                    |
+| 01/04/2023 | Não aprendizado das ferramentas utilizadas pelos componentes do grupo | Alta       | Todos       | Vigente | Reforçar estudos sobre as ferramentas e aulas com a integrante que conhece a ferramenta |
+
+### Referências
