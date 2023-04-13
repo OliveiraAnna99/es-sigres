@@ -1,0 +1,10 @@
+---
+title: Modelo de Dados - Sistemas de Restaurante
+---
+erDiagram
+    
+    Cardapio||--|{Item: possui
+    Administrador ||--|{Cardapio: gerencia
+    Venda ||--|{Item: possui
+    Item ||--O{Produto: possui
+    Estoque ||--O{Item: possui
