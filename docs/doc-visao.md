@@ -26,23 +26,29 @@ do tempo para a realização das atividades do processo, evitando deslocamentos 
 cessários do ambiente de atendimento ao cliente até a cozinha, bem como as possíveis
 problemas causados pelos ruídos de comunicação provocados por falha humana.
 
-
 ## Lista de Requisitos Funcionais
 
-Requisito                                 | Descrição   | Ator |
----------                                 | ----------- | ---------- |
-RF001 - Sistema Login     | O usuário realiza login no sistema de modo que este passa por um processo de validação dos campos e dos dados para assim dar acesso ao sistema | Administrador e Funcionário |
-RF002 - Adicionar Funcionário | O administrador adiciona um novo funcionário ao sistema informando dados como: nome, cpf, rg, email, login e senha | Administrador |
-RF003 - Alterar Funcionário | os dados anteriormente preenchidos durante o cadastro do usuário são atualizados | Administrador |
-RF004 - Excluir Funcionário | O funcionário anteriormente cadastrado no sistema é removido deste | Administrador |
-RF005 - Listar Funcionários | Uma lista com os funcionários cadastrados e que estão ativos no sistema é exibida | Administrador |
-RF006 - Realizar Pagamento| Após a solicitação da compra do produto, um boleto é gerado para que seja realizado o pagamento dos serviços fornecidos | Administrador |
-RF007 - Adicionar Cardápio | O administrador  ou funcionário adiciona um novo cardápio ao sistema informando dados que consistem em uma lista de itens que possuem: nome do prato, valor, descrição dos ingredientes | Administrador ou Funcionário |
-RF008 - Alterar Cardápio | Os dados de um cardápio anteriormente cadastrado são atualizados | Administrador |
-RF009 - Excluir Cardápio | Um cardápio anteriomente cadastrado é removido do sistema | Administrador |
-RF010 - Listar Cardápios | É feito uma listagem de cardápios que estão cadastrados no sistema e que se encontram ativos para aquele dia | Administrador ou Funcionário |
-RF011 - Adiconar Itens ao Estoque| Uma turma tem: código, professor, sala e horários (horário da turma). Uma turma é de um componente curricular. Uma turma tem um ou mais professores. Uma turma tem uma ou mais salas. Uma turma tem vários horários de aulas. | Chefes e Coordenadores |
-RF012 - Alterar Itens do Estoque | Uma turma tem: código, professor, sala e horários (horário da turma). Uma turma é de um componente curricular. Uma turma tem um ou mais professores. Uma turma tem uma ou mais salas. Uma turma tem vários horários de aulas. | Chefes e Coordenadores |
-RF013 - Remover Itens Cardápio | Uma turma tem: código, professor, sala e horários (horário da turma). Uma turma é de um componente curricular. Uma turma tem um ou mais professores. Uma turma tem uma ou mais salas. Uma turma tem vários horários de aulas. | Chefes e Coordenadores |
-RF014 - Listar Itens do Cardápio | Uma turma tem: código, professor, sala e horários (horário da turma). Uma turma é de um componente curricular. Uma turma tem um ou mais professores. Uma turma tem uma ou mais salas. Uma turma tem vários horários de aulas. | Chefes e Coordenadores |
+| Requisito                         | Descrição                                                                                                                                                                                                                     | Ator                         |
+| --------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------- |
+| RF001 - Sistema Login             | O usuário realiza login no sistema de modo que este passa por um processo de validação dos campos e dos dados para assim dar acesso ao sistema                                                                                | Administrador e Funcionário  |
+| RF002 - Adicionar Funcionário     | O administrador adiciona um novo funcionário ao sistema informando dados como: nome, cpf, rg, email, login e senha                                                                                                            | Administrador                |
+| RF003 - Alterar Funcionário       | os dados anteriormente preenchidos durante o cadastro do usuário são atualizados                                                                                                                                              | Administrador                |
+| RF004 - Excluir Funcionário       | O funcionário anteriormente cadastrado no sistema é removido deste                                                                                                                                                            | Administrador                |
+| RF005 - Listar Funcionários       | Uma lista com os funcionários cadastrados e que estão ativos no sistema é exibida                                                                                                                                             | Administrador                |
+| RF006 - Realizar Pagamento        | Após a solicitação da compra do produto, um boleto é gerado para que seja realizado o pagamento dos serviços fornecidos                                                                                                       | Administrador                |
+| RF007 - Adicionar Cardápio        | O administrador ou funcionário adiciona um novo cardápio ao sistema informando dados que consistem em uma lista de itens que possuem: nome do prato, valor, descrição dos ingredientes                                        | Administrador ou Funcionário |
+| RF008 - Alterar Cardápio          | Os dados de um cardápio anteriormente cadastrado são atualizados                                                                                                                                                              | Administrador                |
+| RF009 - Excluir Cardápio          | Um cardápio anteriomente cadastrado é removido do sistema                                                                                                                                                                     | Administrador                |
+| RF010 - Listar Cardápios          | É feito uma listagem de cardápios que estão cadastrados no sistema e que se encontram ativos para aquele dia                                                                                                                  | Administrador ou Funcionário |
+| RF011 - Adiconar Itens ao Estoque | Uma turma tem: código, professor, sala e horários (horário da turma). Uma turma é de um componente curricular. Uma turma tem um ou mais professores. Uma turma tem uma ou mais salas. Uma turma tem vários horários de aulas. | Chefes e Coordenadores       |
+| RF012 - Alterar Itens do Estoque  | Uma turma tem: código, professor, sala e horários (horário da turma). Uma turma é de um componente curricular. Uma turma tem um ou mais professores. Uma turma tem uma ou mais salas. Uma turma tem vários horários de aulas. | Chefes e Coordenadores       |
+| RF013 - Remover Itens Cardápio    | Uma turma tem: código, professor, sala e horários (horário da turma). Uma turma é de um componente curricular. Uma turma tem um ou mais professores. Uma turma tem uma ou mais salas. Uma turma tem vários horários de aulas. | Chefes e Coordenadores       |
+| RF014 - Listar Itens do Cardápio  | Uma turma tem: código, professor, sala e horários (horário da turma). Uma turma é de um componente curricular. Uma turma tem um ou mais professores. Uma turma tem uma ou mais salas. Uma turma tem vários horários de aulas. | Chefes e Coordenadores       |
 
+## Lista de Requisitos Não-Funcionais
+
+| Requisito                                   | Descrição                                                                                                                     |
+| ------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------- |
+| RNF001 - Quantidade de estações disponíveis | Estabelece um valor mínimo para a quantidade de estações onde o sistema será implantado para que ocorra um bom funcionamento. |
+| RNF002 - Quantidade de displays no ambiente | Determina que tenha ao menos um display para identificar os pedidos finalizados.                                              |
+|  |
