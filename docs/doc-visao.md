@@ -18,3 +18,10 @@
 | Isadora Azevedo | Desenvolvedor Front-end - JavaScript, React, React Native, Next.js, HTML, CSS                   |
 | Israel Costa    | Desenvolvedor Front-end/Mobile - JavaScript, HTML, CSS, Bootstrap, Next.js, React, React Native |
 | Jônatas Câmara  | Desenvolvedor Back-end/Game - Python, Unity                                                     |
+
+## Descrição do Projeto
+
+O presente projeto trata-se de um sistema de gerenciamento de pedidos de um restaurante. O software em questão surge com o objetivo de garantir uma maior otimização
+do tempo para a realização das atividades do processo, evitando deslocamentos desne-
+cessários do ambiente de atendimento ao cliente até a cozinha, bem como as possíveis
+problemas causados pelos ruídos de comunicação provocados por falha humana.
