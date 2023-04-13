@@ -12,10 +12,6 @@ no curso de Bacharelado em Sistemas da Informação, pela Universidade Federal d
 - [Isadora Luana](https://github.com/isazvdd)
 - [Jônatas Câmara](https://github.com/JohnnyAKing)
 
-## Protótipo
-
-[![Figma](https://img.shields.io/static/v1?label=Figma&message=Protótipo&color=e75524&style=for-the-badge&logo=figma)](https://www.figma.com/file/yQ4LBk7t10rKTwZchIPjFX/prot%C3%B3tipo---sigcli?node-id=0%3A1)
-
 ## Tecnologias utilizadas
 
 - ![PHP](https://img.shields.io/badge/PHP-F7DF1E?style=for-the-badge&logo=php&logoColor=black)
