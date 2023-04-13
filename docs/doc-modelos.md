@@ -48,15 +48,17 @@ Descrição sucinta das entidades presentes no sistema.
 Para criar modelos ER é possível usar o BrModelo e gerar uma imagem. Contudo, atualmente é possível criar modelos ER usando a ferramenta **Mermaid**, escrevendo o modelo diretamente em markdown. Acesse a documentação para escrever modelos [ER Diagram Mermaid](https://mermaid-js.github.io/mermaid/#/entityRelationshipDiagram).
 
 ```mermaid
+
+---
+title: Modelo de Dados - Sistemas de Restaurante
+---
 erDiagram
-    Departamento ||--o{ Laboratorio : labs
-    Departamento ||--|{ Docente : docentes
-    Docente ||--o| Laboratorio : coordenador
-    Docente ||--o| Laboratorio : vice-coordenador
-    Laboratorio ||--o{ Membro_Docente : membros
-    Docente ||--|{ Membro_Docente : ""
-    Laboratorio ||--o{ Membro_Discente : membros
-    Membro_Discente }|--|| Discente: ""
+    
+    Cardapio||--|{Item: possui
+    Administrador ||--|{Cardapio: gerencia
+    Venda ||--|{Item: possui
+    Item ||--O{Produto: possui
+    Estoque ||--O{Item: possui
 ```
 
 ### Dicionário de Dados
