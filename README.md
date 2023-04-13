@@ -23,8 +23,6 @@ no curso de Bacharelado em Sistemas da Informação, pela Universidade Federal d
 
 - [Documento de Visão](https://github.com/OliveiraAnna99/es-sigres/blob/main/docs/doc-visao.md)
 
-## Tutoriais
-
-### CRUD - Tutorial em inglês
+### CRUD - Tutorial
 
 - [Playlist CRUD Tutorial - PHP, Laravel](https://www.youtube.com/playlist?list=PLvZ08PHyHqDn1W1PKxpPIS7Bw0JqoRtB-)
