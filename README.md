@@ -1,4 +1,4 @@
-# Produto para gestão de clínica médica
+# Produto para gestão de Restaurante
 
 ## Sobre o projeto
 
