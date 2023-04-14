@@ -69,18 +69,81 @@ classDiagram
         -atualizarEndereco(Endereco enderedo) void
     }
 
+    class Pedido{
+        +int numPedido
+        +int mesa
+        +char data
+        +char data
+        +char hora
+        +char status
+        +ItensPedido pedido
+
+        -total() double
+        -atualizarPedido(Pedido pedido) void
+        -addPedido(Pedido pedido) void
+        -consultarPedido(numPedido int) void
+        -validarItensPedido(itensPedido ItensPedido) boolean
+    }
+
+    class ItensPedido{
+        +prato Prato
+        +int quantidade
+
+        -totalPrato() double
+        -addItensPedido(ItensPedido itensPedido) void
+        -consultarItensPedido(ItensPedido itensPedido) ItensPedido
+        -editarItensPedido(ItensPedido itensPedido) void
+        -removeItensPedido(ItensPedido itensPedido) void
+    }
+
+    class Prato{
+        +double preco
+        +char nome
+
+        -atualizarPrato(item Prato) void
+        -listarItens() Prato[]
+        -addPrato(Prato prato) void
+        -consultarPrato(prato char) Prato
+        -editarPrato(Prato prato) void
+        -removePrato(Prato prato) void
+        -validarNomePrato(char nome) boolean
+    }
+
+    class PratoIngrediente{
+        +Ingredites ingrediente
+        +Prato item
+        +int quantidade
+
+        -atualizarIngrediente(Ingredientes ingrediente) void
+        -atualizarPrato(Prato item) void
+        -atualizarQuantidade(int quantidade) void
+    }
+
+    class Ingredientes{
+        +char ingrediente
+        +int codigo
+
+        -atualizarIngrediente(int ingrediente) void
+        -atualizarCodigo(int codigo) void
+    }
+
 ```
 
 ### Descrição das Entidades
 
 Descrição sucinta das entidades presentes no sistema.
 
-| Entidade | Descrição                                                                                                                                |
-| -------- | ---------------------------------------------------------------------------------------------------------------------------------------- |
-| Animal   | Entidade abstrata para representar informações gerais dos Animais: age, gender, isMammal(), mate().                                      |
-| Duck     | Entidade que representa um Pato tem as informações: String beakColor, +swim(), +quack(). A classe Duck estende a classe abstrata Animal. |
-| Fish     | Entidade que representa um Peixe tem as informações: sizeInFeet, -canEat(). A classe Peixe estende a classe abstrata Animal.             |
-| Zebra    | Entidade que representa um Zebra tem as informações is_wild, run(). A classe Zebra estende a classe abstrata Animal.                     |
+| Entidade         | Descrição                                                                            |
+| ---------------- | ------------------------------------------------------------------------------------ |
+| Funcionario      | Entidade abstrata para representar informações gerais dos funcionarios.              |
+| Contato          | Entidade que representa um Contato dos funcionários.                                 |
+| UsuarioLogin     | Entidade que representa informações de login do usuário.                             |
+| Endereco         | Entidade que representa o endereco dos funcionarios.                                 |
+| Pedido           | Entidade que representa o pedido feito pelo cliente para ser enviado para a cozinha. |
+| ItensPedido      | Entidade que representa os itens adicionado ao pedido.                               |
+| Prato            | Entidade que representa a definição e o valor de um prato.                           |
+| PratoIngrediente | Entidade que representa a definição e descrição de um prato.                         |
+| Ingrediente      | Entidade que representa os ingredientes de cada prato.                               |
 
 ## Modelo de Dados (Entidade-Relacionamento)
 
