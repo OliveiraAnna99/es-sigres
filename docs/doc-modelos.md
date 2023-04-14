@@ -133,12 +133,17 @@ classDiagram
 
 Descrição sucinta das entidades presentes no sistema.
 
-| Entidade | Descrição                                                                                                                                |
-| -------- | ---------------------------------------------------------------------------------------------------------------------------------------- |
-| Animal   | Entidade abstrata para representar informações gerais dos Animais: age, gender, isMammal(), mate().                                      |
-| Duck     | Entidade que representa um Pato tem as informações: String beakColor, +swim(), +quack(). A classe Duck estende a classe abstrata Animal. |
-| Fish     | Entidade que representa um Peixe tem as informações: sizeInFeet, -canEat(). A classe Peixe estende a classe abstrata Animal.             |
-| Zebra    | Entidade que representa um Zebra tem as informações is_wild, run(). A classe Zebra estende a classe abstrata Animal.                     |
+| Entidade         | Descrição                                                                            |
+| ---------------- | ------------------------------------------------------------------------------------ |
+| Funcionario      | Entidade abstrata para representar informações gerais dos funcionarios.              |
+| Contato          | Entidade que representa um Contato dos funcionários.                                 |
+| UsuarioLogin     | Entidade que representa informações de login do usuário.                             |
+| Endereco         | Entidade que representa o endereco dos funcionarios.                                 |
+| Pedido           | Entidade que representa o pedido feito pelo cliente para ser enviado para a cozinha. |
+| ItensPedido      | Entidade que representa os itens adicionado ao pedido.                               |
+| Prato            | Entidade que representa a definição e o valor de um prato.                           |
+| PratoIngrediente | Entidade que representa a definição e descrição de um prato.                         |
+| Ingrediente      | Entidade que representa os ingredientes de cada prato.                               |
 
 ## Modelo de Dados (Entidade-Relacionamento)
 
