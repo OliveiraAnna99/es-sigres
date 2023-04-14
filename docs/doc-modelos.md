@@ -23,7 +23,7 @@ classDiagram
 
     Prato <|-- PratoIngrediente
 
-    PratoIngrediente <|-- Ingrediente
+    PratoIngrediente <|-- Ingredientes
 
     class Funcionario{
         +char nome
@@ -67,6 +67,64 @@ classDiagram
         +char complemento
 
         -atualizarEndereco(Endereco enderedo) void
+    }
+
+    class Pedido{
+        +int numPedido
+        +int mesa
+        +char data
+        +char data
+        +char hora
+        +char status
+        +ItensPedido pedido
+
+        -total() double
+        -atualizarPedido(Pedido pedido) void
+        -addPedido(Pedido pedido) void
+        -consultarPedido(numPedido int) void
+        -validarItensPedido(itensPedido ItensPedido) boolean
+    }
+
+    class ItensPedido{
+        +prato Prato
+        +int quantidade
+
+        -totalPrato() double
+        -addItensPedido(ItensPedido itensPedido) void
+        -consultarItensPedido(ItensPedido itensPedido) ItensPedido
+        -editarItensPedido(ItensPedido itensPedido) void
+        -removeItensPedido(ItensPedido itensPedido) void
+    }
+
+    class Prato{
+        +double preco
+        +char nome
+
+        -atualizarPrato(item Prato) void
+        -listarItens() Prato[]
+        -addPrato(Prato prato) void
+        -consultarPrato(prato char) Prato
+        -editarPrato(Prato prato) void
+        -removePrato(Prato prato) void
+        -validarNomePrato(char nome) boolean
+    }
+
+    class PratoIngrediente{
+        +Ingredites ingrediente
+        +Prato item
+        +int quantidade
+
+        -atualizarIngrediente(Ingredientes ingrediente) void
+        -atualizarPrato(Prato item) void
+        -atualizarQuantidade(int quantidade) void
+    }
+
+    class Ingredientes{
+        +char ingrediente
+        +int codigo
+
+        -atualizarIngrediente(int ingrediente) void
+        -atualizarCodigo(int codigo) void
     }
 
 ```
