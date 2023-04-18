@@ -163,23 +163,128 @@ erDiagram
     Estoque ||--O{Item: possui
 ```
 
-### Dicionário de Dados
+## Dicionário de Dados
 
-| Tabela     | Laboratório                                                                |
-| ---------- | -------------------------------------------------------------------------- |
-| Descrição  | Armazena as informações de um laboratório acadêmico.                       |
-| Observação | Laboratórios acadêmicos podem ser de Ensino, Pesquisa, Extensão, P&D, etc. |
+### Funcionário
 
-| Nome          | Descrição                        | Tipo de Dado | Tamanho | Restrições de Domínio |
-| ------------- | -------------------------------- | ------------ | ------- | --------------------- |
-| codigo        | identificador gerado pelo SGBD   | SERIAL       | ---     | PK / Identity         |
-| sigla         | representação em sigla do lab    | VARCHAR      | 15      | Unique / Not Null     |
-| nome          | nome do laboratório              | VARCHAR      | 150     | Not Null              |
-| descricao     | detalhes sobre o laboratório     | VARCHAR      | 250     | ---                   |
-| endereco      | endereço e localização do lab    | VARCHAR      | 150     | ---                   |
-| data_criacao  | data de criação do lab           | DATE         | ---     | Not Null              |
-| portaria      | portaria de criação do lab       | VARCHAR      | 50      | ---                   |
-| link_portaria | URL para a portaria (PDF)        | VARCHAR      | 150     | ---                   |
-| site          | URL para o site do laboratório   | VARCHAR      | 150     | ---                   |
-| e-mail        | e-mail de contato do laboratório | VARCHAR      | 150     | ---                   |
-| departamento  | departamento vinculado ao lab    | SERIAL       | ---     | FK / Not Null         |
+| Tabela    | Funcionário                                |
+| --------- | ------------------------------------------ |
+| Descrição | Armazena as informações de um funcionário. |
+
+| Nome           | Descrição                           | Tipo de Dado | Tamanho | Restrições de Domínio |
+| -------------- | ----------------------------------- | ------------ | ------- | --------------------- |
+| nome           | Nome do funcionário                 | VARCHAR      | 200     | Not Null              |
+| CPF            | Número de CPF do funcionário        | VARCHAR      | 11      | Unique / Not Null     |
+| endereco       | Endereço do funcionário             | Endereco     | ---     | ---                   |
+| contato        | Contato do funcionário              | Contato      | ---     | Not Null              |
+| dataNascimento | data de nascimento do funcionário   | DATE         | ---     | Not Null              |
+| rg             | Número de RG do funcionário         | VARCHAR      | 15      | PK/Identity           |
+| função         | URL para o site do laboratório      | VARCHAR      | 150     | Not Null              |
+| login          | Informações de login do funcionário | UsuarioLogin | ---     | FK / Not Null         |
+
+### Contato
+
+| Tabela    | Contato                         |
+| --------- | ------------------------------- |
+| Descrição | Armazena informações de contato |
+
+| Nome     | Descrição                         | Tipo de Dado | Tamanho | Restrições de Domínio |
+| -------- | --------------------------------- | ------------ | ------- | --------------------- |
+| telefone | Número de telefone do funcionário | VARCHAR      | 15      | Not Null              |
+| email    | E-mail oficial do funcionário     | VARCHAR      | 200     | ---                   |
+
+### Usuário Login
+
+| Tabela    | UsuarioLogin                             |
+| --------- | ---------------------------------------- |
+| Descrição | Armazena informações de login do usuário |
+
+| Nome  | Descrição                      | Tipo de Dado | Tamanho | Restrições de Domínio |
+| ----- | ------------------------------ | ------------ | ------- | --------------------- |
+| login | Informação de login do usuário | VARCHAR      | 30      | Not Null              |
+| senha | Informação de senha do usuário | VARCHAR      | 12      | Not Null              |
+
+### Endereço
+
+| Tabela    | Endereco                                        |
+| --------- | ----------------------------------------------- |
+| Descrição | Armazena informações de endereço do funcionário |
+
+| Nome        | Descrição                                                       | Tipo de Dado | Tamanho | Restrições de Domínio |
+| ----------- | --------------------------------------------------------------- | ------------ | ------- | --------------------- |
+| logradouro  | Armazena o nome da rua onde o funcionário reside                | VARCHAR      | 30      | ---                   |
+| bairro      | Armazena o nome do bairro onde o funcionário reside             | VARCHAR      | 30      | ---                   |
+| cep         | Representa o Código de Enderaçamento Postal                     | VARCHAR      | 12      | ---                   |
+| numeroCasa  | Representa o número da casa onde o funcionário reside           | INT          | ---     | ---                   |
+| complemento | Armazena informação adicional do endereço. Exemplo: Apartamento | VARCHAR      | 30      | ---                   |
+
+### Pedido
+
+| Tabela    | Pedido                                    |
+| --------- | ----------------------------------------- |
+| Descrição | Armazena informações do pedido do cliente |
+
+| Nome        | Descrição                                          | Tipo de Dado | Tamanho | Restrições de Domínio |
+| ----------- | -------------------------------------------------- | ------------ | ------- | --------------------- |
+| numPedido   | Representa o identificador do pedido               | INT          | ---     | PK/Identify           |
+| mesa        | Representa o número da mesa onde o cliente sentará | INT          | ---     | ---                   |
+| data        | Armazena a data que foi feito o pedido             | DATE         | ---     | Not Null              |
+| hora        | Representa a hora que foi feito o pedido           | DATE         | ---     | Not Null              |
+| status      | Representa o andamento da produção do pedido       | VARCHAR      | 30      | Not Null              |
+| itensPedido | Armazena os itens que estão no pedido              | ItensPedido  | ---     | Not Null              |
+
+### Itens Pedido
+
+| Tabela    | ItensPedido                              |
+| --------- | ---------------------------------------- |
+| Descrição | Armazena informações dos itens do pedido |
+
+| Nome       | Descrição                                      | Tipo de Dado | Tamanho | Restrições de Domínio |
+| ---------- | ---------------------------------------------- | ------------ | ------- | --------------------- |
+| prato      | Representa um Prato                            | Prato        | ---     | Not Null              |
+| quantidade | Representa a quantidade solicitada de tal item | INT          | ---     | ---                   |
+
+### Prato
+
+| Tabela    | Prato                           |
+| --------- | ------------------------------- |
+| Descrição | Armazena informações dos pratos |
+
+| Nome  | Descrição                   | Tipo de Dado | Tamanho | Restrições de Domínio |
+| ----- | --------------------------- | ------------ | ------- | --------------------- |
+| preco | Representa o preço do prato | DOUBLE       | ---     | Not Null              |
+| nome  | Representa o nome do prato  | VARCHAR      | 30      | Not Null              |
+
+### Prato
+
+| Tabela    | Prato                           |
+| --------- | ------------------------------- |
+| Descrição | Armazena informações dos pratos |
+
+| Nome  | Descrição                   | Tipo de Dado | Tamanho | Restrições de Domínio |
+| ----- | --------------------------- | ------------ | ------- | --------------------- |
+| preco | Representa o preço do prato | DOUBLE       | ---     | Not Null              |
+| nome  | Representa o nome do prato  | VARCHAR      | 30      | Not Null              |
+
+### PratoIngrediente
+
+| Tabela    | PratoIngrediente                                   |
+| --------- | -------------------------------------------------- |
+| Descrição | Representa uma relação entre pratos e ingredientes |
+
+| Nome        | Descrição                              | Tipo de Dado | Tamanho | Restrições de Domínio |
+| ----------- | -------------------------------------- | ------------ | ------- | --------------------- |
+| ingrediente | Representa os ingredientes de um prato | Ingrediente  | ---     | Not Null              |
+| prato       | Representa um prato                    | Prato        | ---     | Not Null              |
+| quantidade  | Representa uma quantidade              | INT          | ---     | Not Null              |
+
+### Ingrediente
+
+| Tabela    | PratoIngrediente                                   |
+| --------- | -------------------------------------------------- |
+| Descrição | Representa uma relação entre pratos e ingredientes |
+
+| Nome        | Descrição                                 | Tipo de Dado | Tamanho | Restrições de Domínio |
+| ----------- | ----------------------------------------- | ------------ | ------- | --------------------- |
+| ingrediente | Representa o nome do ingrediente          | Ingrediente  | ---     | Not Null              |
+| codigo      | Representa o identificador do ingrediente | INT          | ---     | PK/Identify           |
