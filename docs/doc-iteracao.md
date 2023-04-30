@@ -8,3 +8,9 @@
 | It2      | 04/05/2023  | 04/06/2023 | 04/06/2023   | Isadora Luana  | Detalhar User Stories, Implementar User Stories, Testar User Stories, Deploy da Iteração.         |
 | It3      | 05/06/2023  | 05/07/2023 | 05/07/2023   | Jônatas Câmara | Detalhar User Stories, Implementar User Stories, Testar User Stories, Deploy da Iteração.         |
 | It4      | 06/08/2023  | 06/08/2023 | 06/08/2023   | Anna Karoline  | Detalhar User Stories, Implementar User Stories, Testar User Stories, Deploy da Iteração.         |
+
+## Plano de Release
+
+| Release | Data início | Data Final | Gerente      | Detalhes                 |
+| ------- | ----------- | ---------- | ------------ | ------------------------ |
+| R01     | 13/04/2023  | 14/08/2023 | Israel Costa | Lista de funcionalidades |
