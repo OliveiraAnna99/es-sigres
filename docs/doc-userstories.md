@@ -140,3 +140,9 @@
 | **TA01.02**              | Descrever o teste de aceitação 02 do US04 |
 | **TA01.03**              | Descrever o teste de aceitação 03 do US04 |
 | **TA01.04**              | Descrever o teste de aceitação 04 do US04 |
+
+### User Story US05 - Manter Estoque
+
+|               |                                                                                                                                                                                                                                         |
+| ------------- | :-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **Descrição** | O sistema deverá fazer uma listagem automática da quantidade de itens ainda disponíveis no estoque, à medida que os pedidos forem entregues. Tem como tributo: itens do estoque, quantidade de itens, data de compra, data de validade. |
