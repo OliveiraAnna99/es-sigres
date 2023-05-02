@@ -40,6 +40,40 @@
 | **TA01.03**              | Descrever o teste de aceitação 03 do US01 |
 | **TA01.04**              | Descrever o teste de aceitação 04 do US01 |
 
+### User Story US02 - Manter Funcionário
+
+|               |                                                                                                                                                                                                                                                                                                                 |
+| ------------- | :-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **Descrição** | O sistema deve manter um cadastro de funcionário que tem acesso ao sistema via login e senha. Um funcionário tem os atributos nome, data de nascimento, endereço, telefone , CPF, RG, salário, função, login e senha. O login será no formato email e ele só pode ser registrado pelo Administrador do sistema. |
+
+| **Requisitos envolvidos** |                       |
+| ------------------------- | :-------------------- |
+| RF02                      | Adicionar Funcionário |
+| RF03                      | Alterar Funcionário   |
+| RF04                      | Excluir Funcionário   |
+| RF05                      | Listar Funcionário    |
+
+|                         |                |
+| ----------------------- | -------------- |
+| **Prioridade**          | Essencial      |
+| **Estimativa**          | 6 h            |
+| **Tempo Gasto (real):** |                |
+| **Tamanho Funcional**   | 7 PF           |
+| **Analista**            | Israel Costa   |
+| **Desenvolvedor**       | Isadora Luana  |
+| **Revisor**             | Anna Karoline  |
+| **Testador**            | Jônatas Câmara |
+
+| Testes de Aceitação (TA) |                                                                                                                                                                                                  |
+| ------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| **Código**               | **Descrição**                                                                                                                                                                                    |
+| **TA01.01**              | O usuário informa, na tela Registrar, todos os dados para registrar-se corretamente, ao clicar em Salvar ele é notificado com uma mensagem de sucesso. Mensagem: Cadastro realizado com sucesso. |
+| **TA01.02**              | Tentar cadastrar com erro, exibir a mensagem de erro: - MSG001: Preencha todos os campos; - MSG002: O campo {nomecampo} foi preenchido incorretamente.                                           |
+| **TA01.03**              | O usuário informa, na tela Editar, os dados que deseja alterar, ao clicar em Salvar ele é notificado com uma mensagem de sucesso. Mensagem: Dados do funcionário editados com sucesso.           |
+| **TA01.04**              | Tentar alterar com erro, exibir a mensagem de erro: - MSG001: Preencha todos os campos; - MSG002: O campo {nomecampo} foi preenchido incorretamente.                                             |
+| **TA01.05**              | O usuário tenta excluir o funcionário, ao obter sucesso, é exibido a mensagem: funcionário excluído com sucesso.                                                                                 |
+| **TA01.05**              | Pesquisar com sucesso. Exibição com sucesso e exibição vazio. Testar exibição com paginação.                                                                                                     |
+
 ### User Story US04 - Gerenciar Pedidos e Realizar Pagamento
 
 |               |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               |
