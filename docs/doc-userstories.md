@@ -64,6 +64,16 @@
 | **Revisor**             | Anna Karoline  |
 | **Testador**            | Jônatas Câmara |
 
+| Testes de Aceitação (TA) |                                                                                                                                                                                                  |
+| ------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| **Código**               | **Descrição**                                                                                                                                                                                    |
+| **TA01.01**              | O usuário informa, na tela Registrar, todos os dados para registrar-se corretamente, ao clicar em Salvar ele é notificado com uma mensagem de sucesso. Mensagem: Cadastro realizado com sucesso. |
+| **TA01.02**              | Tentar cadastrar com erro, exibir a mensagem de erro: - MSG001: Preencha todos os campos; - MSG002: O campo {nomecampo} foi preenchido incorretamente.                                           |
+| **TA01.03**              | O usuário informa, na tela Editar, os dados que deseja alterar, ao clicar em Salvar ele é notificado com uma mensagem de sucesso. Mensagem: Dados do funcionário editados com sucesso.           |
+| **TA01.04**              | Tentar alterar com erro, exibir a mensagem de erro: - MSG001: Preencha todos os campos; - MSG002: O campo {nomecampo} foi preenchido incorretamente.                                             |
+| **TA01.05**              | O usuário tenta excluir o funcionário, ao obter sucesso, é exibido a mensagem: funcionário excluído com sucesso.                                                                                 |
+| **TA01.05**              | Pesquisar com sucesso. Exibição com sucesso e exibição vazio. Testar exibição com paginação.                                                                                                     |
+
 ### User Story US04 - Gerenciar Pedidos e Realizar Pagamento
 
 |               |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               |
