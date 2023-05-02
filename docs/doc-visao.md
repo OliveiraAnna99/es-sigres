@@ -48,10 +48,11 @@ problemas causados pelos ruídos de comunicação provocados por falha humana.
 | RF008 - Alterar Cardápio          | Os dados de um cardápio anteriormente cadastrado são atualizados                                                                                                                       | Administrador                |
 | RF009 - Excluir Cardápio          | Um cardápio anteriomente cadastrado é removido do sistema                                                                                                                              | Administrador                |
 | RF010 - Listar Cardápios          | É feito uma listagem de cardápios que estão cadastrados no sistema e que se encontram ativos para aquele dia                                                                           | Administrador ou Funcionário |
-| RF011 - Adiconar Itens ao Estoque | O administrador ou funcionário adiciona um item ao sistema informando dados                                                                                                            | Chefes e Coordenadores       |
-| RF012 - Alterar Itens do Estoque  | Os dados de um item anteriormente cadastrado são atualizados                                                                                                                           | Chefes e Coordenadores       |
-| RF013 - Remover Itens do Estoque  | Um item anteriomente cadastrado é removido do sistema                                                                                                                                  | Chefes e Coordenadores       |
-| RF014 - Listar Itens do Estoque   | É feito uma listagem de itens que estão cadastrados no sistema                                                                                                                         | Chefes e Coordenadores       |
+| RF011 - Adiconar Itens ao Estoque | O administrador ou funcionário adiciona um item ao sistema informando dados                                                                                                            | Administrador ou Funcionário |
+| RF012 - Alterar Itens do Estoque  | Os dados de um item anteriormente cadastrado são atualizados                                                                                                                           | Administrador ou Funcionário |
+| RF013 - Remover Itens do Estoque  | Um item anteriomente cadastrado é removido do sistema                                                                                                                                  | Administrador ou Funcionário |
+| RF014 - Listar Itens do Estoque   | É feito uma listagem de itens que estão cadastrados no sistema                                                                                                                         | Administrador ou Funcionário |
+| RF015 - Realizar pagamento        | O sistema de pagamento contará com pix, cartão de débito ou crédito, e espécie.                                                                                                        | Cliente                      |
 
 ## Lista de Requisitos Não-Funcionais
 
