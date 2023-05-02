@@ -40,6 +40,12 @@
 | **TA01.03**              | Descrever o teste de aceitação 03 do US01 |
 | **TA01.04**              | Descrever o teste de aceitação 04 do US01 |
 
+### User Story US02 - Manter Funcionário
+
+|               |                                                                                                                                                                                                                                                                                                                 |
+| ------------- | :-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **Descrição** | O sistema deve manter um cadastro de funcionário que tem acesso ao sistema via login e senha. Um funcionário tem os atributos nome, data de nascimento, endereço, telefone , CPF, RG, salário, função, login e senha. O login será no formato email e ele só pode ser registrado pelo Administrador do sistema. |
+
 ### User Story US04 - Gerenciar Pedidos e Realizar Pagamento
 
 |               |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               |
