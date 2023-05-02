@@ -140,3 +140,36 @@
 | **TA01.02**              | Descrever o teste de aceitação 02 do US04 |
 | **TA01.03**              | Descrever o teste de aceitação 03 do US04 |
 | **TA01.04**              | Descrever o teste de aceitação 04 do US04 |
+
+### User Story US05 - Manter Estoque
+
+|               |                                                                                                                                                                                                                                         |
+| ------------- | :-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **Descrição** | O sistema deverá fazer uma listagem automática da quantidade de itens ainda disponíveis no estoque, à medida que os pedidos forem entregues. Tem como tributo: itens do estoque, quantidade de itens, data de compra, data de validade. |
+
+| **Requisitos envolvidos** |                      |
+| ------------------------- | :------------------- |
+| RF11                      | Adicionar do estoque |
+| RF12                      | Listar do estoque    |
+| RF13                      | Alterar do estoque   |
+| RF14                      | Remover do estoque   |
+
+|                         |                           |
+| ----------------------- | ------------------------- |
+| **Prioridade**          | Essencial                 |
+| **Estimativa**          | 6h                        |
+| **Tempo Gasto (real):** |                           |
+| **Tamanho Funcional**   | 7 PF                      |
+| **Analista**            | Jonatas Camara dos Santos |
+| **Desenvolvedor**       | Anna Karoline D. Oliveira |
+| **Revisor**             | Isadora Luana             |
+| **Testador**            | Israel                    |
+
+| Testes de Aceitação (TA) |                                                                                                                                                                                                |
+| ------------------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **Código**               | **Descrição**                                                                                                                                                                                  |
+| **TA 02.01**             | O administrador, na tela do estoque, tentará adicionar dados corretos do item, ao clicar em Cadastrar aparecerá uma notificação de mensagem de sucesso. Mensagem: Item adicionado com sucesso. |
+| **TA 02.02**             | Tentar cadastrar com erro, exibir a mensagem de erro: - MSG001: Preencha todos os campos. - MSG002: O campo {nomecampo} foi preenchido incorretamente.                                         |
+| **TA 02.03**             | Alterar com sucesso. Tentar alterar com erro.                                                                                                                                                  |
+| **TA 02.04**             | Excluir com sucesso. Tentar excluir com erro (sem permissão).                                                                                                                                  |
+| **TA 02.05**             | Pesquisar com sucesso. Exibição com sucesso e exibição vazio. Testar exibição com paginação.                                                                                                   |
