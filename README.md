@@ -22,6 +22,9 @@ no curso de Bacharelado em Sistemas da Informação, pela Universidade Federal d
 ## Documentação
 
 - [Documento de Visão](https://github.com/OliveiraAnna99/es-sigres/blob/main/docs/doc-visao.md)
+- [Documento de Modelos](https://github.com/OliveiraAnna99/es-sigres/blob/main/docs/doc-modelos.md)
+- [Plano de Iteração e Release](https://github.com/OliveiraAnna99/es-sigres/blob/main/docs/doc-iteracao.md)
+- [Lista de User Stories](https://github.com/OliveiraAnna99/es-sigres/blob/main/docs/doc-userstories.md)
 
 ### CRUD - Tutorial
 
