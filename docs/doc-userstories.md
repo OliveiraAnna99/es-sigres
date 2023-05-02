@@ -46,6 +46,24 @@
 | ------------- | :-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | **Descrição** | O sistema deve manter um cadastro de funcionário que tem acesso ao sistema via login e senha. Um funcionário tem os atributos nome, data de nascimento, endereço, telefone , CPF, RG, salário, função, login e senha. O login será no formato email e ele só pode ser registrado pelo Administrador do sistema. |
 
+| **Requisitos envolvidos** |                       |
+| ------------------------- | :-------------------- |
+| RF02                      | Adicionar Funcionário |
+| RF03                      | Alterar Funcionário   |
+| RF04                      | Excluir Funcionário   |
+| RF05                      | Listar Funcionário    |
+
+|                         |                |
+| ----------------------- | -------------- |
+| **Prioridade**          | Essencial      |
+| **Estimativa**          | 6 h            |
+| **Tempo Gasto (real):** |                |
+| **Tamanho Funcional**   | 7 PF           |
+| **Analista**            | Israel Costa   |
+| **Desenvolvedor**       | Isadora Luana  |
+| **Revisor**             | Anna Karoline  |
+| **Testador**            | Jônatas Câmara |
+
 ### User Story US04 - Gerenciar Pedidos e Realizar Pagamento
 
 |               |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               |
