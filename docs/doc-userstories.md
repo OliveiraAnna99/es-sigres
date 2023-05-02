@@ -8,7 +8,7 @@
 | 01/05/2023 | 0.0.2  | Detalhamento do User Story US04 | Anna Karoline |
 | 02/05/2023 | 0.0.3  | Detalhamento do User Story US02 | Israel Costa  |
 | 02/05/2023 | 0.0.4  | Detalhamento do User Story US03 | Isadora Luana |
-| 02/05/2023 | 0.0.5  | Detalhamento do User Story US03 | Israel Costa  |
+| 02/05/2023 | 0.0.5  | Detalhamento do User Story US05 | Israel Costa  |
 
 ### User Story US02 - Manter Funcionário
 
@@ -23,16 +23,16 @@
 | RF04                      | Excluir Funcionário   |
 | RF05                      | Listar Funcionário    |
 
-|                         |                |
-| ----------------------- | -------------- |
-| **Prioridade**          | Essencial      |
-| **Estimativa**          | 6 h            |
-| **Tempo Gasto (real):** |                |
-| **Tamanho Funcional**   | 7 PF           |
-| **Analista**            | Israel Costa   |
-| **Desenvolvedor**       | Isadora Luana  |
-| **Revisor**             | Anna Karoline  |
-| **Testador**            | Jônatas Câmara |
+|                         |              |
+| ----------------------- | ------------ |
+| **Prioridade**          | Essencial    |
+| **Estimativa**          | 6 h          |
+| **Tempo Gasto (real):** |              |
+| **Tamanho Funcional**   | 7 PF         |
+| **Analista**            | Israel Costa |
+| **Desenvolvedor**       | ---          |
+| **Revisor**             | ---          |
+| **Testador**            | ---          |
 
 | Testes de Aceitação (TA) |                                                                                                                                                                                                  |
 | ------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
@@ -57,16 +57,16 @@
 | RF09                      | Excluir Prato   |
 | RF010                     | Listar Prato    |
 
-|                         |                |
-| ----------------------- | -------------- |
-| **Prioridade**          | Importante     |
-| **Estimativa**          | 7 h            |
-| **Tempo Gasto (real):** |                |
-| **Tamanho Funcional**   | 7 PF           |
-| **Analista**            | Israel Costa   |
-| **Desenvolvedor**       | Isadora Luana  |
-| **Revisor**             | Anna Karoline  |
-| **Testador**            | Jônatas Câmara |
+|                         |               |
+| ----------------------- | ------------- |
+| **Prioridade**          | Importante    |
+| **Estimativa**          | 7 h           |
+| **Tempo Gasto (real):** |               |
+| **Tamanho Funcional**   | 7 PF          |
+| **Analista**            | Isadora Luana |
+| **Desenvolvedor**       | ---           |
+| **Revisor**             | ---           |
+| **Testador**            | ---           |
 
 | Testes de Aceitação (TA) |                                                                                                                                                                                                        |
 | ------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
@@ -90,16 +90,16 @@
 | RF14                      | Remover Itens do Pedido   |
 | RF15                      | Listae Itens do Pedido    |
 
-|                         |                           |
-| ----------------------- | ------------------------- |
-| **Prioridade**          | Importante                |
-| **Estimativa**          | 7h                        |
-| **Tempo Gasto (real):** |                           |
-| **Tamanho Funcional**   | 7 PF                      |
-| **Analista**            | Jonatas Camara dos Santos |
-| **Desenvolvedor**       | Anna Karoline D. Oliveira |
-| **Revisor**             | Isadora Luana             |
-| **Testador**            | Israel                    |
+|                         |               |
+| ----------------------- | ------------- |
+| **Prioridade**          | Importante    |
+| **Estimativa**          | 7h            |
+| **Tempo Gasto (real):** |               |
+| **Tamanho Funcional**   | 7 PF          |
+| **Analista**            | Anna Karoline |
+| **Desenvolvedor**       | ---           |
+| **Revisor**             | ---           |
+| **Testador**            | ---           |
 
 | Testes de Aceitação (TA) |                                           |
 | ------------------------ | ----------------------------------------- |
@@ -122,16 +122,16 @@
 | RF13                      | Alterar do estoque   |
 | RF14                      | Remover do estoque   |
 
-|                         |                           |
-| ----------------------- | ------------------------- |
-| **Prioridade**          | Essencial                 |
-| **Estimativa**          | 6h                        |
-| **Tempo Gasto (real):** |                           |
-| **Tamanho Funcional**   | 7 PF                      |
-| **Analista**            | Jonatas Camara dos Santos |
-| **Desenvolvedor**       | Anna Karoline D. Oliveira |
-| **Revisor**             | Isadora Luana             |
-| **Testador**            | Israel                    |
+|                         |              |
+| ----------------------- | ------------ |
+| **Prioridade**          | Essencial    |
+| **Estimativa**          | 6h           |
+| **Tempo Gasto (real):** |              |
+| **Tamanho Funcional**   | 7 PF         |
+| **Analista**            | Israel Costa |
+| **Desenvolvedor**       | ---          |
+| **Revisor**             | ---          |
+| **Testador**            | ---          |
 
 | Testes de Aceitação (TA) |                                                                                                                                                                                                |
 | ------------------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
