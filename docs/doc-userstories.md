@@ -8,6 +8,7 @@
 | 01/05/2023 | 0.0.2  | Detalhamento do User Story US04 | Anna Karoline |
 | 02/05/2023 | 0.0.3  | Detalhamento do User Story US02 | Israel Costa  |
 | 02/05/2023 | 0.0.4  | Detalhamento do User Story US03 | Isadora Luana |
+| 02/05/2023 | 0.0.5  | Detalhamento do User Story US03 | Israel Costa  |
 
 ### User Story US02 - Manter Funcionário
 
