@@ -146,3 +146,21 @@
 |               |                                                                                                                                                                                                                                         |
 | ------------- | :-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | **Descrição** | O sistema deverá fazer uma listagem automática da quantidade de itens ainda disponíveis no estoque, à medida que os pedidos forem entregues. Tem como tributo: itens do estoque, quantidade de itens, data de compra, data de validade. |
+
+| **Requisitos envolvidos** |                      |
+| ------------------------- | :------------------- |
+| RF11                      | Adicionar do estoque |
+| RF12                      | Listar do estoque    |
+| RF13                      | Alterar do estoque   |
+| RF14                      | Remover do estoque   |
+
+|                         |                           |
+| ----------------------- | ------------------------- |
+| **Prioridade**          | Essencial                 |
+| **Estimativa**          | 6h                        |
+| **Tempo Gasto (real):** |                           |
+| **Tamanho Funcional**   | 7 PF                      |
+| **Analista**            | Jonatas Camara dos Santos |
+| **Desenvolvedor**       | Anna Karoline D. Oliveira |
+| **Revisor**             | Isadora Luana             |
+| **Testador**            | Israel                    |
