@@ -6,6 +6,7 @@
 | :--------- | :----: | :-----------------------------: | :------------ |
 | 01/05/2023 | 0.0.1  |        Documento Inicial        | Israel Costa  |
 | 01/05/2023 | 0.0.2  | Detalhamento do User Story US04 | Anna Karoline |
+| 02/05/2023 | 0.0.3  | Detalhamento do User Story US03 | Isadora Luana |
 
 ### User Story US01 - Manter Usuário
 
@@ -73,6 +74,44 @@
 | **TA01.04**              | Tentar alterar com erro, exibir a mensagem de erro: - MSG001: Preencha todos os campos; - MSG002: O campo {nomecampo} foi preenchido incorretamente.                                             |
 | **TA01.05**              | O usuário tenta excluir o funcionário, ao obter sucesso, é exibido a mensagem: funcionário excluído com sucesso.                                                                                 |
 | **TA01.05**              | Pesquisar com sucesso. Exibição com sucesso e exibição vazio. Testar exibição com paginação.                                                                                                     |
+
+
+
+### User Story US03 - Manter Cardápio
+
+|               |                                                                                                                                                                                                                                                                                                                 |
+| ------------- | :-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **Descrição** | O sistema deve permitir adicionar, alterar, listar e deletar pratos ao cardápio. Os pratos tem como atributos: nome, ingredientes, valor, status e uma imagem do prato (Opcional). Apenas o administrador poderá realizar alteração e adição ao cardápio, funcionários podem realizar consulta. |
+
+| **Requisitos envolvidos** |                       |
+| ------------------------- | :-------------------- |
+| RF07                      | Adicionar Prato       |
+| RF08                      | Alterar Prato         |
+| RF09                      | Excluir Prato         |
+| RF010                     | Listar Prato          |
+
+|                         |                |
+| ----------------------- | -------------- |
+| **Prioridade**          | Importante     |
+| **Estimativa**          | 7 h            |
+| **Tempo Gasto (real):** |                |
+| **Tamanho Funcional**   | 7 PF           |
+| **Analista**            | Israel Costa   |
+| **Desenvolvedor**       | Isadora Luana  |
+| **Revisor**             | Anna Karoline  |
+| **Testador**            | Jônatas Câmara |
+
+| Testes de Aceitação (TA) |                                                                                                                                                                                                  |
+| ------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| **Código**               | **Descrição**                                                                                                                                                                                    |
+| **TA 02.01**              |O administrador, na tela do cardápio, tentará adicionar dados corretos do cardápio, ao clicar em Cadastrar aparecerá uma notificação de mensagem de sucesso. Mensagem: Cadastro realizado com sucesso. |
+| **TA 02.02**              | Tentar cadastrar com erro, exibir a mensagem de erro: - MSG001: Preencha todos os campos. - MSG002: O campo {nomecampo} foi preenchido incorretamente.                                           |
+| **TA 02.03**              | Alterar com sucesso. Tentar alterar com erro.           |
+| **TA 02.04**              | Excluir com sucesso. Tentar excluir com erro (sem permissão).                                          |
+| **TA 02.05**              | Pesquisar com sucesso. Exibição com sucesso e exibição vazio. Testar exibição com paginação.                                                                             |
+
+
+
 
 ### User Story US04 - Gerenciar Pedidos e Realizar Pagamento
 
