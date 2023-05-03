@@ -10,6 +10,33 @@
 | 02/05/2023 | 0.0.4  | Detalhamento do User Story US03 | Isadora Luana |
 | 02/05/2023 | 0.0.5  | Detalhamento do User Story US05 | Israel Costa  |
 
+### User Story US01 - Login
+
+|               |                                                                                                                                                                                                                                                                                                                 |
+| ------------- | :-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **Descrição** | Ato de logar-se no sistema para acesso de ações e funcionalidades embutidas no sistema. |
+
+| **Requisitos envolvidos** |                  |
+| ------------------------- | :--------------- |
+| RF01                      | Sistema de Login |
+
+|                         |              |
+| ----------------------- | ------------ |
+| **Prioridade**          | Essencial    |
+| **Estimativa**          | 3 h          |
+| **Tempo Gasto (real):** |              |
+| **Tamanho Funcional**   | 3 PF         |
+| **Analista**            | Jônatas      |
+| **Desenvolvedor**       | -Ana Karoline|
+| **Revisor**             | Jônatas      |
+| **Testador**            | Israel Costa |
+
+| Testes de Aceitação (TA) |                                                                                                                                                                                                  |
+| ------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| **Código**               | **Descrição**                                                                                                                                                                                    |
+| **TA01.01**              | O usuário informa, na tela de Login, os dados para logar incorretamente, ao clicar em Entrar, ele é notificado com uma mensagem de erro. Mensagem: Login ou senha inválidos |
+| **TA01.02**              | O usuário informa, na tela de Login, os dados para logar corretamente, ao clicar em Entrar, ele é encaminhado para a tela principal do sistema. É exibida a mensagem: Login realizado com sucesso.                                           |                                                                                                     |
+
 ### User Story US02 - Manter Funcionário
 
 |               |                                                                                                                                                                                                                                                                                                                 |
@@ -141,3 +168,22 @@
 | **TA 02.03**             | Alterar com sucesso. Tentar alterar com erro.                                                                                                                                                  |
 | **TA 02.04**             | Excluir com sucesso. Tentar excluir com erro (sem permissão).                                                                                                                                  |
 | **TA 02.05**             | Pesquisar com sucesso. Exibição com sucesso e exibição vazio. Testar exibição com paginação.                                                                                                   |
+
+## Lista de Requisitos Funcionais
+
+| Requisito                             | Descrição                                                                                                                                                                                                                      | Ator                                                        |
+| --------------------------------------|-------------------------------------------------------------| ---------------------------- |
+| **RF001 - Sistema Login**             | Permite acesso ao sistema.                                  | Administrador e Funcionário  |
+| **RF002 - Adicionar Funcionário**     | Um funcionário tem os atributos nome, data de nascimento, endereço, telefone, CPF, RG, salário, função, login e senha.                                                                                                | Administrador                |
+| **RF005 - Listar Funcionários**       | Permite a listagem dos atributos de funcionário.            | Administrador                |
+| **RF003 - Alterar Funcionário**       | Permite a alteração de um ou mais atributos de funcionário. | Administrador                |
+| **RF004 - Deletar Funcionário**       | Férias de tempo indefinido sem remuneração.                 | Administrador                |
+| **RF006 - Realizar Pagamento**        | Após a solicitação da compra do produto, um boleto é gerado para que seja realizado o pagamento dos serviços fornecidos.                                                                                           | Administrador                |
+| **RF007 - Adicionar Cardápio**        |  Permite adicionar pratos ao cardápio. Os pratos tem como atributos: nome, ingredientes, valor, status.                                                                                               | Administrador ou Funcionário |
+| **RF010 - Listar Cardápios**          | Permite listar os itens existentes no cardápio              | Administrador                |
+| **RF008 - Alterar Cardápio**          | Permite listar os itens existentes no cardápio              | Administrador                |
+| **RF009 - Deletar Cardápio**          | Permite a exclusão de pratos e itens.                       | Administrador ou Funcionário |
+| **RF011 - Adiconar Itens ao Estoque** | Permite o cadastro de itens no estoque.                     | Administrador ou Funcionário |
+| **RF014 - Listar Itens do Cardápio**  | Permite consultar os itens que possui no estoque.           | Administrador ou Funcionário |
+| **RF012 - Alterar Itens do Estoque**  | Permite alterar as informações dos itens do estoque.        | Administrador ou Funcionário |
+| **RF013 - Remover Itens Cardápio**    | Permite a remoção de itens do estoque.                      | Administrador ou Funcionário |
