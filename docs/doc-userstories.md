@@ -10,6 +10,33 @@
 | 02/05/2023 | 0.0.4  | Detalhamento do User Story US03 | Isadora Luana |
 | 02/05/2023 | 0.0.5  | Detalhamento do User Story US05 | Israel Costa  |
 
+### User Story US01 - Login
+
+|               |                                                                                                                                                                                                                                                                                                                 |
+| ------------- | :-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **Descrição** | Ato de logar-se no sistema para acesso de ações e funcionalidades embutidas no sistema. |
+
+| **Requisitos envolvidos** |                  |
+| ------------------------- | :--------------- |
+| RF01                      | Sistema de Login |
+
+|                         |              |
+| ----------------------- | ------------ |
+| **Prioridade**          | Essencial    |
+| **Estimativa**          | 3 h          |
+| **Tempo Gasto (real):** |              |
+| **Tamanho Funcional**   | 3 PF         |
+| **Analista**            | Jônatas      |
+| **Desenvolvedor**       | -Ana Karoline|
+| **Revisor**             | Jônatas      |
+| **Testador**            | Israel Costa |
+
+| Testes de Aceitação (TA) |                                                                                                                                                                                                  |
+| ------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| **Código**               | **Descrição**                                                                                                                                                                                    |
+| **TA01.01**              | O usuário informa, na tela de Login, os dados para logar incorretamente, ao clicar em Entrar, ele é notificado com uma mensagem de erro. Mensagem: Login ou senha inválidos |
+| **TA01.02**              | O usuário informa, na tela de Login, os dados para logar corretamente, ao clicar em Entrar, ele é encaminhado para a tela principal do sistema. É exibida a mensagem: Login realizado com sucesso.                                           |                                                                                                     |
+
 ### User Story US02 - Manter Funcionário
 
 |               |                                                                                                                                                                                                                                                                                                                 |
