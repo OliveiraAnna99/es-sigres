@@ -43,9 +43,7 @@
                         <td>{{ $funcionario->cpf }}</td>
                         <td>{{ $funcionario->funcao }}</td>
                         <td class="text-center">
-                            @can('view', $funcionario)
                                 <a href="{{ route('funcionarios.show', $funcionario) }}" id="show-funcionario-{{ $funcionario->id }}">{{ __('app.show') }}</a>
-                            @endcan
                         </td>
                     </tr>
                     @endforeach

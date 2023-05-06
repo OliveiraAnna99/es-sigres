@@ -22,9 +22,7 @@
                 </table>
             </div>
             <div class="card-footer">
-                @can('update', $funcionario)
                     <a href="{{ route('funcionarios.edit', $funcionario) }}" id="edit-funcionario-{{ $funcionario->id }}" class="btn btn-warning">{{ __('funcionario.edit') }}</a>
-                @endcan
                 <a href="{{ route('funcionarios.index') }}" class="btn btn-link">{{ __('funcionario.back_to_index') }}</a>
             </div>
         </div>
