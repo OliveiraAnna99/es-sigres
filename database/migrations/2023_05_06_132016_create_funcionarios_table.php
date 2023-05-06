@@ -16,7 +16,7 @@ class CreateFuncionariosTable extends Migration
         Schema::create('funcionarios', function (Blueprint $table) {
             $table->id();
             $table->string('nome', 200);
-            $table->string('cpf', 11)->unique();
+            $table->string('cpf', 14)->unique();
             $table->string('endereco');
             $table->string('contato');
             $table->timestamp('dataNascimento')->nullable();
