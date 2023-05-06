@@ -45,9 +45,9 @@ class FuncionarioController extends Controller
 
         $newFuncionario = $request->validate([
             'nome'                    => 'required|max:60',
-            'cpf'                     => 'required|min:11|max:14',
+            'cpf'                     => 'required|min:11|max:15',
             'endereco'                => 'required|max:200',
-            'contato'                 => 'required|max:14',
+            'contato'                 => 'required|max:15',
             'rg'                      => 'required|max:14',
             'dataNascimento'          => 'required|max:14',
             'funcao'                  => 'required|max:60',
@@ -97,9 +97,9 @@ class FuncionarioController extends Controller
 
         $funcionarioData = $request->validate([
             'nome'                    => 'required|max:60',
-            'cpf'                     => 'required|min:11|max:14',
+            'cpf'                     => 'required|min:11|max:15',
             'endereco'                => 'required|max:200',
-            'contato'                 => 'required|max:14',
+            'contato'                 => 'required|max:15',
             'rg'                      => 'required|max:14',
             'dataNascimento'          => 'required|max:14',
             'funcao'                  => 'required|max:60',
