@@ -97,3 +97,19 @@
 </div>
 @endif
 @endsection
+<script
+    src="https://code.jquery.com/jquery-3.3.1.min.js"
+    integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+    crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.15/jquery.mask.min.js" integrity="sha256-u7MY6EG5ass8JhTuxBek18r5YG6pllB9zLqE4vZyTn4=" crossorigin="anonymous"></script>
+
+<script type="text/javascript">
+    $(document).ready(function($){
+      
+        $('#cpf').mask('000.000.000-00');
+        $('#contato').mask('(00) 00000-0000');
+        $('#rg').mask('00.000.000-0');
+        
+      
+    });
+</script>
