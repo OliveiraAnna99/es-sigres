@@ -24,16 +24,16 @@
 | RF04                      | Excluir Funcionário   |
 | RF05                      | Listar Funcionário    |
 
-|                         |              |
-| ----------------------- | ------------ |
-| **Prioridade**          | Essencial    |
-| **Estimativa**          | 6 h          |
-| **Tempo Gasto (real):** |              |
-| **Tamanho Funcional**   | 7 PF         |
-| **Analista**            | Israel Costa |
-| **Desenvolvedor**       | ---          |
-| **Revisor**             | ---          |
-| **Testador**            | ---          |
+|                         |                |
+| ----------------------- | -------------- |
+| **Prioridade**          | Essencial      |
+| **Estimativa**          | 6 h            |
+| **Tempo Gasto (real):** |                |
+| **Tamanho Funcional**   | 7 PF           |
+| **Analista**            | Israel Costa   |
+| **Desenvolvedor**       | Anna Karoline  |
+| **Revisor**             | Isadora Luana  |
+| **Testador**            | Jônatas Câmara |
 
 | Testes de Aceitação (TA) |                                                                                                                                                                                                  |
 | ------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
