@@ -21,3 +21,7 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('home');
 });
+/*
+ * Funcionarios Routes
+ */
+Route::resource('funcionarios', App\Http\Controllers\FuncionarioController::class);
