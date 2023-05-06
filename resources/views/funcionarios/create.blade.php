@@ -18,7 +18,7 @@
                     </div>
                     <div class="form-group">
                         <label for="cpf" class="form-label">{{ __('funcionario.cpf') }} <span class="form-required">*</span></label>
-                        <input id="cpf" type="text" class="form-control{{ $errors->has('cpf') ? ' is-invalid' : '' }} " name="cpf" value="{{ old('cpf') }}" required>
+                        <input id="cpf" type="text" class="form-control{{ $errors->has('cpf') ? ' is-invalid' : '' }} " name="cpf" value="" required>
                         {!! $errors->first('cpf', '<span class="invalid-feedback" role="alert">:message</span>') !!}
                     </div>
                     <div class="form-group">
@@ -72,3 +72,17 @@
     </div>
 </div>
 @endsection
+<script
+    src="https://code.jquery.com/jquery-3.3.1.min.js"
+    integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+    crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.15/jquery.mask.min.js" integrity="sha256-u7MY6EG5ass8JhTuxBek18r5YG6pllB9zLqE4vZyTn4=" crossorigin="anonymous"></script>
+
+<script type="text/javascript">
+    $(document).ready(function($){
+      
+        $('#cpf').mask('000.000.000-00', {reverse: true});
+        
+      
+    });
+</script>
