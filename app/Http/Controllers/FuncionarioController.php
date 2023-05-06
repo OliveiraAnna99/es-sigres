@@ -44,13 +44,14 @@ class FuncionarioController extends Controller
         // $this->authorize('create', new Funcionario);
 
         $newFuncionario = $request->validate([
-            'nome'        => 'required|max:60',
-            'cpf'         => 'required|min:11|max:14',
-            'endereco'    => 'required|max:200',
-            'contato'     => 'required|max:14',
-            'rg'          => 'required|max:14',
-            'funcao'      => 'required|max:60',
-            'login'       => 'required|max:100',
+            'nome'                    => 'required|max:60',
+            'cpf'                     => 'required|min:11|max:14',
+            'endereco'                => 'required|max:200',
+            'contato'                 => 'required|max:14',
+            'rg'                      => 'required|max:14',
+            'dataNascimento'          => 'required|max:14',
+            'funcao'                  => 'required|max:60',
+            'login'                   => 'required|max:100',
         ]);
         $newFuncionario['creator_id'] = auth()->id();
 
@@ -95,13 +96,14 @@ class FuncionarioController extends Controller
         // $this->authorize('update', $funcionario);
 
         $funcionarioData = $request->validate([
-            'nome'        => 'required|max:60',
-            'cpf'         => 'required|min:11|max:14',
-            'endereco'    => 'required|max:200',
-            'contato'     => 'required|max:14',
-            'rg'          => 'required|max:14',
-            'funcao'      => 'required|max:60',
-            'login'       => 'required|max:100',
+            'nome'                    => 'required|max:60',
+            'cpf'                     => 'required|min:11|max:14',
+            'endereco'                => 'required|max:200',
+            'contato'                 => 'required|max:14',
+            'rg'                      => 'required|max:14',
+            'dataNascimento'          => 'required|max:14',
+            'funcao'                  => 'required|max:60',
+            'login'                   => 'required|max:100',
         ]);
         $funcionario->update($funcionarioData);
 
