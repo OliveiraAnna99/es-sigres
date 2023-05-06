@@ -30,7 +30,8 @@
                     <tr>
                         <th class="text-center">{{ __('app.table_no') }}</th>
                         <th>{{ __('funcionario.name') }}</th>
-                        <th>{{ __('funcionario.description') }}</th>
+                        <th>{{ __('funcionario.cpf') }}</th>
+                        <th>{{ __('funcionario.funcao') }}</th>
                         <th class="text-center">{{ __('app.action') }}</th>
                     </tr>
                 </thead>
@@ -38,8 +39,9 @@
                     @foreach($funcionarios as $key => $funcionario)
                     <tr>
                         <td class="text-center">{{ $funcionarios->firstItem() + $key }}</td>
-                        <td>{!! $funcionario->name_link !!}</td>
-                        <td>{{ $funcionario->description }}</td>
+                        <td>{!! $funcionario->nome !!}</td>
+                        <td>{{ $funcionario->cpf }}</td>
+                        <td>{{ $funcionario->funcao }}</td>
                         <td class="text-center">
                             @can('view', $funcionario)
                                 <a href="{{ route('funcionarios.show', $funcionario) }}" id="show-funcionario-{{ $funcionario->id }}">{{ __('app.show') }}</a>

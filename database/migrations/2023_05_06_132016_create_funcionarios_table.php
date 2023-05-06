@@ -14,11 +14,20 @@ class CreateFuncionariosTable extends Migration
     public function up()
     {
         Schema::create('funcionarios', function (Blueprint $table) {
-            $table->bigIncrements('id');
-            $table->string('name', 60);
-            $table->string('description')->nullable();
+            $table->id();
+            $table->string('nome', 200);
+            $table->string('cpf', 11)->unique();
+            $table->string('endereco');
+            $table->string('contato');
+            $table->timestamp('dataNascimento')->nullable();
+            $table->string('rg', 15);
+            $table->string('funcao', 150);
+            $table->foreignUuid('login');
+
+            // $table->string('description')->nullable();
             $table->timestamps();
 
+            // $table->foreign('creator_id')->references('id')->on('users');
         });
     }
 

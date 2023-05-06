@@ -10,7 +10,16 @@ class Funcionario extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['name', 'description'];
+    protected $fillable = [
+        'nome', 
+        'cpf',
+        'endereco',
+        'contato',
+        'dataNascimento',
+        'rg',
+        'funcao',
+        'login'
+    ];
 
     public function getNameLinkAttribute()
     {
