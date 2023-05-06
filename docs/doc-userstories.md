@@ -165,7 +165,7 @@
 | **Testador**            | Israel Costa  |
 
 | Testes de Aceitação (TA) |                                                                                                                                                                                                    |
-| ------------------------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --- |
+| ------------------------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | **Código**               | **Descrição**                                                                                                                                                                                      |
-| **TA01.01**              | O usuário informa, na tela de Login, os dados para logar incorretamente, ao clicar em Entrar, ele é notificado com uma mensagem de erro. Mensagem: Login ou senha inválidos                        |
-| **TA01.02**              | O usuário informa, na tela de Login, os dados para logar corretamente, ao clicar em Entrar, ele é encaminhado para a tela principal do sistema. É exibida a mensagem: Login realizado com sucesso. |     |
+| **TA01.01**              | O usuário informa, na tela de Login, os dados para logar incorretamente, ao clicar em Entrar, ele é notificado com uma mensagem de erro Mensagem: Login ou senha inválidos                         |
+| **TA01.02**              | O usuário informa, na tela de Login, os dados para logar corretamente, ao clicar em Entrar, ele é encaminhado para a tela principal do sistema. É exibida a mensagem: Login realizado com sucesso. |
