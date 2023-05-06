@@ -10,7 +10,7 @@ class Funcionario extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['name', 'description', 'creator_id'];
+    protected $fillable = ['name', 'description'];
 
     public function getNameLinkAttribute()
     {

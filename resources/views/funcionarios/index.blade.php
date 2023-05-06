@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('home')
 
 @section('title', __('funcionario.list'))
 
