@@ -2,7 +2,7 @@
 
 ## Sobre o projeto
 
-Este projeto está sendo desenvolvido durante o curso da disciplina Engenharia de Software II ministrada pelo professor Taciano
+Este projeto está sendo desenvolvido durante o curso de Sistemas da Informação, na disciplina de Engenharia de Software II ministrada pelo professor Taciano
 no curso de Bacharelado em Sistemas da Informação, pela Universidade Federal do Rio Grande do Norte / CERES - Caicó/RN.
 
 ## Desenvolvedores
