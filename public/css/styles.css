@@ -113,3 +113,56 @@ a {
     width: 80px;
     height: 30px;
 }
+
+/* Show funcionário */
+.showFuncContainer {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.cardShowFunc {
+    width: 1345px;
+    height: 835px;
+    background-color: #fff;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 8px;
+}
+
+.cardBody {
+    flex: 1;
+    margin-left: 20px;
+}
+
+.cardBody > div {
+    margin-top: 30px;
+    font-size: 16px;
+}
+
+.funcTitle {
+    font-size: 22px;
+}
+
+.cardFooter {
+    width: 100%;
+    display: flex;
+    margin-left: 45px;
+    margin-bottom: 40px;
+    gap: 10px;
+}
+
+.btnEdit {
+    width: 200px;
+    height: 40px;
+    background-color: #22252f;
+}
+
+.btnDelete {
+    width: 200px;
+    height: 40px;
+}
