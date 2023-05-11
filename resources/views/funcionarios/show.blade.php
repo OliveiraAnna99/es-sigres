@@ -44,10 +44,12 @@
             <a href="{{ route('funcionarios.edit', $funcionario) }}" class="btn btnSecondary">
                 <p>Editar Funcionário</p>
             </a>
-            <form method="POST" action="{{ route('funcionarios.destroy', $funcionario) }}" accept-charset="UTF-8" onsubmit="return confirm(&quot;{{ __('funcionario.delete_confirm') }}&quot;)" class="del-form float-right" style="display: inline;">
+            <form method="POST" action="{{ route('funcionarios.destroy', $funcionario) }}" accept-charset="UTF-8" class="del-form float-right" style="display: inline;">
                 {{ csrf_field() }} {{ method_field('delete') }}
+                <input name="funcionario_id" type="hidden" value="{{ $funcionario->id }}">
                 <button type="submit" class="btn btnPrimary">Excluir funcionário</button>
             </form>
+
         </div>
     </div>
 </div>
