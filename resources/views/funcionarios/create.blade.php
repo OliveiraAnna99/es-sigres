@@ -55,7 +55,7 @@
             </div>
             <div class="cardFooter">
                 <input type="submit" value="{{ __('funcionario.create') }}" class="btn btnSecondary">
-                <a href="{{ route('funcionarios.index') }}" class="btn btnPrimary">{{ __('app.cancel') }}</a>
+                <a href="{{ route('funcionarios.index') }}" class="btn btnPrimary">{{ __('app.cancelar') }}</a>
             </div>
         </form>
     </div>
@@ -69,7 +69,7 @@
 
         $('#cpf').mask('000.000.000-00');
         $('#contato').mask('(00) 00000-0000');
-        $('#rg').mask('00.000.000-0');
+        $('#rg').mask('000.000.000');
 
 
     });

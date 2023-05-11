@@ -3,6 +3,7 @@
 @section('title', __('funcionario.detail'))
 
 @section('content')
+
 <div class="cardContainer">
     <div class="cardContainerContent">
         <div class="cardBody">
@@ -43,9 +44,10 @@
             <a href="{{ route('funcionarios.edit', $funcionario) }}" class="btn btnSecondary">
                 <p>Editar Funcionário</p>
             </a>
-            <a href="{{ route('funcionarios.index') }}" class="btn btnPrimary">
-                <p>Excluir Funcionário</p>
-            </a>
+            <form method="POST" action="{{ route('funcionarios.destroy', $funcionario) }}" accept-charset="UTF-8" onsubmit="return confirm(&quot;{{ __('funcionario.delete_confirm') }}&quot;)" class="del-form float-right" style="display: inline;">
+                {{ csrf_field() }} {{ method_field('delete') }}
+                <button type="submit" class="btn btnPrimary">Excluir funcionário</button>
+            </form>
         </div>
     </div>
 </div>
