@@ -3,28 +3,51 @@
 @section('title', __('funcionario.detail'))
 
 @section('content')
-<div class="row justify-content-center">
-    <div class="col-md-12">
-        <div class="card">
-            <div class="card-header">{{ __('funcionario.detail') }}</div>
-            <div class="card-body">
-                <table class="table table-sm">
-                    <tbody>
-                        <tr><td>{{ __('funcionario.name') }}</td><td>{{ $funcionario->nome }}</td></tr>
-                        <tr><td>{{ __('funcionario.cpf') }}</td><td>{{ $funcionario->cpf }}</td></tr>
-                        <tr><td>{{ __('funcionario.endereco') }}</td><td>{{ $funcionario->endereco }}</td></tr>
-                        <tr><td>{{ __('funcionario.contato') }}</td><td>{{ $funcionario->contato }}</td></tr>
-                        <tr><td>{{ __('funcionario.dataNascimento') }}</td><td>{{ $funcionario->dataNascimento }}</td></tr>
-                        <tr><td>{{ __('funcionario.rg') }}</td><td>{{ $funcionario->rg }}</td></tr>
-                        <tr><td>{{ __('funcionario.funcao') }}</td><td>{{ $funcionario->funcao }}</td></tr>
-                        <tr><td>{{ __('funcionario.login') }}</td><td>{{ $funcionario->login }}</td></tr>
-                    </tbody>
-                </table>
+
+<div class="cardContainer">
+    <div class="cardContainerContent">
+        <div class="cardBody">
+            <div>
+                <p class="funcTitle">{{ __('funcionario.name') }}</p>
+                <p>{{ $funcionario->nome }}</p>
             </div>
-            <div class="card-footer">
-                    <a href="{{ route('funcionarios.edit', $funcionario) }}" id="edit-funcionario-{{ $funcionario->id }}" class="btn btn-warning">{{ __('funcionario.edit') }}</a>
-                <a href="{{ route('funcionarios.index') }}" class="btn btn-link">{{ __('funcionario.back_to_index') }}</a>
+            <div>
+                <p class="funcTitle">{{ __('funcionario.cpf') }}</p>
+                <p>{{ $funcionario->cpf }}</p>
             </div>
+            <div>
+                <p class="funcTitle">{{ __('funcionario.endereco') }}</p>
+                <p>{{ $funcionario->endereco }}</p>
+            </div>
+            <div>
+                <p class="funcTitle">{{ __('funcionario.contato') }}</p>
+                <p>{{ $funcionario->contato }}</p>
+            </div>
+            <div>
+                <p class="funcTitle">{{ __('funcionario.dataNascimento') }}</p>
+                <p>{{ $funcionario->dataNascimento }}</p>
+            </div>
+            <div>
+                <p class="funcTitle">{{ __('funcionario.rg') }}</p>
+                <p>{{ $funcionario->rg }}</p>
+            </div>
+            <div>
+                <p class="funcTitle">{{ __('funcionario.funcao') }}</p>
+                <p>{{ $funcionario->funcao }}</p>
+            </div>
+            <div>
+                <p class="funcTitle">{{ __('funcionario.login') }}</p>
+                <p>{{ $funcionario->login }}</p>
+            </div>
+        </div>
+        <div class="cardFooter">
+            <a href="{{ route('funcionarios.edit', $funcionario) }}" class="btn btnSecondary">
+                <p>Editar Funcionário</p>
+            </a>
+            <form method="POST" action="{{ route('funcionarios.destroy', $funcionario) }}" accept-charset="UTF-8" onsubmit="return confirm(&quot;{{ __('funcionario.delete_confirm') }}&quot;)" class="del-form float-right" style="display: inline;">
+                {{ csrf_field() }} {{ method_field('delete') }}
+                <button type="submit" class="btn btnPrimary">Excluir funcionário</button>
+            </form>
         </div>
     </div>
 </div>

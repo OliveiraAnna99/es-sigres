@@ -1,0 +1,210 @@
+/* Configuração global */
+* {
+    margin: 0;
+    padding: 0;
+    font-family: "Poppins", sans-serif;
+}
+
+body {
+    height: 100vh;
+    background-color: #ede5ed;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+button {
+    border: none;
+    font-size: 16px;
+}
+
+.btn {
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 8px;
+    transition: opacity 0.4s;
+    width: 200px;
+    height: 40px;
+    cursor: pointer;
+}
+
+.btn:hover {
+    opacity: 0.8;
+}
+
+.btnPrimary {
+    background-color: #ff3c3c;
+}
+
+.btnSecondary {
+    background-color: #22252f;
+}
+
+.icon {
+    margin-left: 20px;
+    width: 25px;
+    height: 25px;
+}
+
+.cardContainer {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.cardContainerContent {
+    width: 1345px;
+    height: 835px;
+    background-color: #fff;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 8px;
+}
+
+.cardBody {
+    flex: 1;
+    margin-left: 20px;
+    margin-bottom: 30px;
+}
+
+form {
+    width: 90%;
+    max-width: 90%;
+}
+
+label {
+    font-size: 22px;
+}
+input {
+    background-color: #ede5ed;
+    border: 0;
+    border-radius: 4px;
+    height: 30px;
+    outline: none;
+    padding: 0 8px;
+}
+/* Style página inicial */
+.container {
+    display: flex;
+    justify-content: space-between;
+    min-height: 100%;
+}
+
+/* Sidebar Component */
+.sidebarContainer {
+    width: 400px;
+    background-color: #22252f;
+}
+
+.profileSection {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    height: 110px;
+    color: #fff;
+    padding-left: 20px;
+    font-size: 24px;
+}
+
+.navContainer {
+    width: 400px;
+    height: 60px;
+    color: #fff;
+    background: red;
+    font-size: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 16px;
+    border-radius: 0;
+}
+
+/* Index Funcionário */
+.funcionarioSection {
+    width: 100%;
+    padding: 24px;
+}
+
+.card {
+    display: grid;
+    grid-gap: 10px;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+}
+
+.btnAddFunc {
+    width: 250px;
+    gap: 10px;
+    margin-bottom: 50px;
+    justify-content: flex-start;
+}
+
+.funcSection {
+    width: 265px;
+    height: 210px;
+    color: #000;
+    background-color: #fff;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 50px;
+    color: #22252f;
+}
+
+.funcName {
+    font-size: 20px;
+    font-weight: bold;
+    color: #000;
+}
+
+.btnShow {
+    width: 80px;
+    height: 30px;
+}
+
+/* Show funcionário */
+.showFuncContainer {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.cardBody > div {
+    margin-top: 30px;
+    font-size: 16px;
+}
+
+.funcTitle {
+    font-size: 22px;
+}
+
+.cardFooter {
+    width: 100%;
+    display: flex;
+    margin-left: 45px;
+    margin-bottom: 40px;
+    gap: 10px;
+}
+
+/* Create Funcionario */
+.cardCreate {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.formGroup {
+    display: flex;
+    flex-direction: column;
+}
