@@ -3,8 +3,8 @@
 @section('title', __('funcionario.detail'))
 
 @section('content')
-<div class="showFuncContainer">
-    <div class="cardShowFunc">
+<div class="cardContainer">
+    <div class="cardContainerContent">
         <div class="cardBody">
             <div>
                 <p class="funcTitle">{{ __('funcionario.name') }}</p>
@@ -40,10 +40,10 @@
             </div>
         </div>
         <div class="cardFooter">
-            <a href="{{ route('funcionarios.edit', $funcionario) }}" class="btn btnEdit">
+            <a href="{{ route('funcionarios.edit', $funcionario) }}" class="btn btnSecondary">
                 <p>Editar Funcionário</p>
             </a>
-            <a href="{{ route('funcionarios.index') }}" class="btn btnDelete">
+            <a href="{{ route('funcionarios.index') }}" class="btn btnPrimary">
                 <p>Excluir Funcionário</p>
             </a>
         </div>
