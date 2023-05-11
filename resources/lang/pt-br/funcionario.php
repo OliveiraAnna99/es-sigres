@@ -22,7 +22,7 @@ return [
     'update'         => 'Update Funcionario',
     'updated'        => 'Funcionario data has been updated.',
     'delete'         => 'Delete Funcionario',
-    'delete_confirm' => 'Are you sure to delete this Funcionario?',
+    'delete_confirm' => 'Tem certeza que deseja excluir este funcionário?',
     'deleted'        => 'Funcionario has been deleted.',
     'undeleted'      => 'Funcionario not deleted.',
     'undeleteable'   => 'Funcionario data cannot be deleted.',
