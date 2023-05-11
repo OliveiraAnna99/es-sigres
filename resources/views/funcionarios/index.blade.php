@@ -6,7 +6,7 @@
 
 <div class="funcionarioSection">
     <div class="topSection">
-        <a href="{{ route('funcionarios.create') }}" class="btnAddFunc">
+        <a href="{{ route('funcionarios.create') }}" class="btn btnAddFunc">
             <x-bi-plus-circle class="icon" />
             <p>Adicionar funcionário</p>
         </a>

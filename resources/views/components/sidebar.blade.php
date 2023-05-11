@@ -8,7 +8,7 @@
             <x-bi-cart-fill class="icon" />
             <p>Pedidos</p>
         </a>
-        <a class="navContainer" href="{{ route('funcionarios.index') }}">
+        <a class="btn navContainer" href="{{ route('funcionarios.index') }}">
             <x-bi-person-fill class="icon" />
             <p>Funcionários</p>
         </a>
