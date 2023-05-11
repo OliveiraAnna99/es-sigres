@@ -15,6 +15,11 @@ a {
     color: inherit;
 }
 
+button {
+    border: none;
+    font-size: 16px;
+}
+
 .btn {
     color: #fff;
     display: flex;
