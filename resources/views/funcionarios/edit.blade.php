@@ -56,16 +56,12 @@
             </div>
             <div class="cardFooter">
                 <input type="submit" value="{{ __('funcionario.update') }}" class="btn btnSecondary">
-                <a href="{{ route('funcionarios.show', $funcionario) }}" class="btn btnPrimary">{{ __('app.cancel') }}</a>
-                <form method="POST" action="{{ route('funcionarios.store') }}">
-                    <a href="{{ route('funcionarios.index', [$funcionario, 'action' => 'delete']) }}" class="btn btnPrimary">{{ __('app.delete') }}</a>
-                </form>
+                <a href="{{ route('funcionarios.show', $funcionario) }}" class="btn btnPrimary">{{ __('funcionario.cancel') }}</a>
             </div>
         </form>
     </div>
 </div>
 </div>
-@endif
 @endsection
 <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.15/jquery.mask.min.js" integrity="sha256-u7MY6EG5ass8JhTuxBek18r5YG6pllB9zLqE4vZyTn4=" crossorigin="anonymous"></script>
