@@ -55,7 +55,7 @@
             </div>
             <div class="cardFooter">
                 <input type="submit" value="{{ __('funcionario.create') }}" class="btn btnSecondary">
-                <a href="{{ route('funcionarios.index') }}" class="btn btnPrimary">{{ __('app.cancelar') }}</a>
+                <a href="{{ route('funcionarios.index') }}" class="btn btnPrimary">{{ __('funcionario.cancel') }}</a>
             </div>
         </form>
     </div>

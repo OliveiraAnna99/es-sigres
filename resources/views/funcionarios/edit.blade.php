@@ -56,10 +56,7 @@
             </div>
             <div class="cardFooter">
                 <input type="submit" value="{{ __('funcionario.update') }}" class="btn btnSecondary">
-                <a href="{{ route('funcionarios.show', $funcionario) }}" class="btn btnPrimary">{{ __('app.cancel') }}</a>
-                <form method="POST" action="{{ route('funcionarios.store') }}">
-                    <a href="{{ route('funcionarios.index', [$funcionario, 'action' => 'delete']) }}" class="btn btnPrimary">{{ __('app.delete') }}</a>
-                </form>
+                <a href="{{ route('funcionarios.show', $funcionario) }}" class="btn btnPrimary">{{ __('funcionario.cancel') }}</a>
             </div>
         </form>
     </div>
