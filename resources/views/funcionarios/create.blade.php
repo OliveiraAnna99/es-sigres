@@ -16,7 +16,7 @@
                 </div>
                 <div class="formGroup">
                     <label for="cpf">{{ __('funcionario.cpf') }} <span>*</span></label>
-                    <input id="cpf" type="text" class="form-control{{ $errors->has('cpf') ? ' is-invalid' : '' }} " name="cpf" value="" required>
+                    <input id="cpf" type="text" class="form-control{{ $errors->has('cpf') ? ' is-invalid' : '' }} " name="cpf" value="{{ old('cpf') }}" required>
                     {!! $errors->first('cpf', '<span class="invalid-feedback" role="alert">:message</span>') !!}
                 </div>
                 <div class="formGroup">
