@@ -28,16 +28,20 @@ os **ALI**s (Arquivos Lógicos Internos) com o valor de _35 PF_ cada e os **AIE*
 
 ### Contagem Detalhada (Cd)
 
-| Descrição             | Tipo     | RLR     | DER     | Complexidade     |   Tamanho em PF   |
-| --------------------- | -------- | ------- | ------- | ---------------- | :---------------: |
-| ALI Funcionário       | ALI      | 1       | 2       | Baixa            |       7 PF        |
-| ALI Estoque           | ALI      | 1       | 3       | Baixa            |       7 PF        |
-| ALI Pedidos           | ALI      | 1       | 3       | Baixa            |       7 PF        |
-| ALI Pagamento         | ALI      | 1       | 2       | Baixa            |       5 PF        |
-| ALI LOGIN             | ALI      | 1       | 2       | Baixa            |       5 PF        |
-| **Descrição**         | **Tipo** | **ALR** | **DER** | **Complexidade** | **Tamanho em PF** |
-| Adicionar Funcionário | EE       | 1       | 2       | Baixa            |       3 PF        |
-| Alterar Funcionário   | EE       | 1       | 2       | Baixa            |       3 PF        |
-| Excluir Funcionário   | EE       | 1       | 2       | Baixa            |       3 PF        |
-| Listar Funcionário    | CE       | 1       | 2       | Baixa            |       3 PF        |
-| **Total**             |          |         |         | **Cd**           |     **xx PF**     |
+| Descrição                  | Tipo     | RLR     | DER     | Complexidade     |   Tamanho em PF   |
+| -------------------------- | -------- | ------- | ------- | ---------------- | :---------------: |
+| ALI Funcionário            | ALI      | 1       | 2       | Baixa            |       7 PF        |
+| ALI Estoque                | ALI      | 1       | 3       | Baixa            |       7 PF        |
+| ALI Pedidos                | ALI      | 1       | 3       | Baixa            |       7 PF        |
+| ALI Pagamento              | ALI      | 1       | 2       | Baixa            |       5 PF        |
+| ALI LOGIN                  | ALI      | 1       | 2       | Baixa            |       5 PF        |
+| **Descrição**              | **Tipo** | **ALR** | **DER** | **Complexidade** | **Tamanho em PF** |
+| Adicionar Funcionário      | EE       | 1       | 2       | Baixa            |       3 PF        |
+| Alterar Funcionário        | EE       | 1       | 2       | Baixa            |       3 PF        |
+| Excluir Funcionário        | EE       | 1       | 2       | Baixa            |       3 PF        |
+| Listar Funcionário         | CE       | 1       | 2       | Baixa            |       3 PF        |
+| Adicionar Itens do Estoque | EE       | 1       | 3       | Média            |       3 PF        |
+| Listar Itens do Estoque    | CE       | 1       | 3       | Média            |       3 PF        |
+| Alterar Itens do Estoque   | EE       | 1       | 3       | Média            |       3 PF        |
+| Remover Itens do Estoque   | EE       | 1       | 3       | Média            |       4 PF        |
+| **Total**                  |          |         |         | **Cd**           |     **xx PF**     |
