@@ -28,18 +28,16 @@ os **ALI**s (Arquivos Lógicos Internos) com o valor de _35 PF_ cada e os **AIE*
 
 ### Contagem Detalhada (Cd)
 
-| Descrição         | Tipo     | RLR     | DER     | Complexidade     |   Tamanho em PF   |
-| ----------------- | -------- | ------- | ------- | ---------------- | :---------------: |
-| ALI Usuário       | ALI      | 2       | 11      | Baixa            |       7 PF        |
-| ALI Projeto       | ALI      |         |         |                  |        PF         |
-| ALI Laboratorio   | ALI      |         |         |                  |        PF         |
-| AIE Endereço      | AIE      |         |         |                  |        PF         |
-| **Descrição**     | **Tipo** | **ALR** | **DER** | **Complexidade** | **Tamanho em PF** |
-| Inserir Grupo     | EE       | 1       | 2       | Baixa            |       3 PF        |
-| Atualizar Grupo   | EE       | 1       | 2       | Baixa            |       3 PF        |
-| Consultar Grupo   | CE       | 1       | 2       | Baixa            |       3 PF        |
-| Inserir Usuário   | EE       | 2       | 9       | Média            |       4 PF        |
-| Atualizar Usuário | EE       | 2       | 9       | Média            |       4 PF        |
-| Consultar Usuário | CE       | 2       | 9       | Média            |       4 PF        |
-| Detalhar Usuário  | CE       | 2       | 9       | Média            |       4 PF        |
-| **Total**         |          |         |         | **Cd**           |     **xx PF**     |
+| Descrição             | Tipo     | RLR     | DER     | Complexidade     |   Tamanho em PF   |
+| --------------------- | -------- | ------- | ------- | ---------------- | :---------------: |
+| ALI Funcionário       | ALI      | 1       | 2       | Baixa            |       7 PF        |
+| ALI Estoque           | ALI      | 1       | 3       | Baixa            |       7 PF        |
+| ALI Pedidos           | ALI      | 1       | 3       | Baixa            |       7 PF        |
+| ALI Pagamento         | ALI      | 1       | 2       | Baixa            |       5 PF        |
+| ALI LOGIN             | ALI      | 1       | 2       | Baixa            |       5 PF        |
+| **Descrição**         | **Tipo** | **ALR** | **DER** | **Complexidade** | **Tamanho em PF** |
+| Adicionar Funcionário | EE       | 1       | 2       | Baixa            |       3 PF        |
+| Alterar Funcionário   | EE       | 1       | 2       | Baixa            |       3 PF        |
+| Excluir Funcionário   | EE       | 1       | 2       | Baixa            |       3 PF        |
+| Listar Funcionário    | CE       | 1       | 2       | Baixa            |       3 PF        |
+| **Total**             |          |         |         | **Cd**           |     **xx PF**     |
