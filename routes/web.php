@@ -25,3 +25,8 @@ Route::get('/', function () {
  * Funcionarios Routes
  */
 Route::resource('funcionarios', App\Http\Controllers\FuncionarioController::class);
+
+/*
+ * Estoques Routes
+ */
+Route::resource('estoques', App\Http\Controllers\EstoqueController::class);
