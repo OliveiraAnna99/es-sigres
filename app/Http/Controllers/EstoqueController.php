@@ -15,7 +15,7 @@ class EstoqueController extends Controller
     public function index()
     {
         $estoqueQuery = Estoque::query();
-        $estoqueQuery->where('name', 'like', '%'.request('q').'%');
+        $estoqueQuery->where('name', 'like', '%' . request('q') . '%');
         $estoques = $estoqueQuery->paginate(25);
 
         return view('estoques.index', compact('estoques'));
@@ -28,7 +28,7 @@ class EstoqueController extends Controller
      */
     public function create()
     {
-        $this->authorize('create', new Estoque);
+        // $this->authorize('create', new Estoque);
 
         return view('estoques.create');
     }
@@ -41,11 +41,13 @@ class EstoqueController extends Controller
      */
     public function store(Request $request)
     {
-        $this->authorize('create', new Estoque);
+        // $this->authorize('create', new Estoque);
 
         $newEstoque = $request->validate([
-            'name'        => 'required|max:60',
-            'description' => 'nullable|max:255',
+            'item'        => 'required|max:255',
+            'quant'        => 'required',
+            'date'        => 'required',
+
         ]);
         $newEstoque['creator_id'] = auth()->id();
 
@@ -73,7 +75,7 @@ class EstoqueController extends Controller
      */
     public function edit(Estoque $estoque)
     {
-        $this->authorize('update', $estoque);
+        // $this->authorize('update', $estoque);
 
         return view('estoques.edit', compact('estoque'));
     }
@@ -87,11 +89,12 @@ class EstoqueController extends Controller
      */
     public function update(Request $request, Estoque $estoque)
     {
-        $this->authorize('update', $estoque);
+        // $this->authorize('update', $estoque);
 
         $estoqueData = $request->validate([
-            'name'        => 'required|max:60',
-            'description' => 'nullable|max:255',
+            'item'        => 'required|max:255',
+            'quant'        => 'required',
+            'date'        => 'required',
         ]);
         $estoque->update($estoqueData);
 
@@ -107,7 +110,7 @@ class EstoqueController extends Controller
      */
     public function destroy(Request $request, Estoque $estoque)
     {
-        $this->authorize('delete', $estoque);
+        // $this->authorize('delete', $estoque);
 
         $request->validate(['estoque_id' => 'required']);
 

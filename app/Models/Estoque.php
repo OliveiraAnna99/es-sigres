@@ -10,15 +10,15 @@ class Estoque extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['name', 'description', 'creator_id'];
+    protected $fillable = ['item', 'quant', 'date'];
 
     public function getNameLinkAttribute()
     {
         $title = __('app.show_detail_title', [
             'name' => $this->name, 'type' => __('estoque.estoque'),
         ]);
-        $link = '<a href="'.route('estoques.show', $this).'"';
-        $link .= ' title="'.$title.'">';
+        $link = '<a href="' . route('estoques.show', $this) . '"';
+        $link .= ' title="' . $title . '">';
         $link .= $this->name;
         $link .= '</a>';
 

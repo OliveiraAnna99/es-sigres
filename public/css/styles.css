@@ -209,3 +209,13 @@ input {
     display: flex;
     flex-direction: column;
 }
+
+/* Estoque */
+.formGroup > div {
+    display: flex;
+    gap: 20px;
+}
+
+.formGroup > div input {
+    width: 44px;
+}

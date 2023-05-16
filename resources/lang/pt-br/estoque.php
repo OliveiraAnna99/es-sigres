@@ -2,7 +2,7 @@
 
 return [
     // Labels
-    'estoque'     => 'Estoque',
+    'estoque'        => 'Estoque',
     'list'           => 'Estoque List',
     'search'         => 'Search Estoque',
     'search_text'    => 'Name ...',
@@ -13,9 +13,13 @@ return [
     'empty'          => 'Estoque is empty.',
     'back_to_show'   => 'Back to Estoque Detail',
     'back_to_index'  => 'Back to Estoque List',
+    'item'           => 'Item',
+    'quant'          => 'Quantidade',
+    'date'           => 'Data de Validade',
+
 
     // Actions
-    'create'         => 'Create new Estoque',
+    'create'         => 'Adicionar ao estoque',
     'created'        => 'A new Estoque has been created.',
     'show'           => 'View Estoque Detail',
     'edit'           => 'Edit Estoque',
@@ -26,6 +30,7 @@ return [
     'deleted'        => 'Estoque has been deleted.',
     'undeleted'      => 'Estoque not deleted.',
     'undeleteable'   => 'Estoque data cannot be deleted.',
+    'cancel'         => 'Cancelar',
 
     // Attributes
     'name'           => 'Estoque Name',
