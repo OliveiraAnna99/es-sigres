@@ -15,12 +15,10 @@ class CreateEstoquesTable extends Migration
     {
         Schema::create('estoques', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('name', 60);
-            $table->string('description')->nullable();
-            $table->unsignedBigInteger('creator_id');
+            $table->string('item', 255);
+            $table->integer('quant');
+            $table->timestamp('date');
             $table->timestamps();
-
-            $table->foreign('creator_id')->references('id')->on('users')->onDelete('restrict');
         });
     }
 
