@@ -30,27 +30,42 @@
 
   <div>
     <div>
-      <div>
+      <div class="containerTable">
         <table class="table">
           <tr>
             <th>{{ __('estoque.item') }}</th>
             <th>{{ __('estoque.quant') }}</th>
             <th>{{ __('estoque.date') }}</th>
           </tr>
-          @foreach($estoques as $key => $estoque)
           <tr>
+            @foreach($estoques as $key => $estoque)
             <td>{{ $estoque->item }}</td>
             <td>{{ $estoque->quant }}</td>
             <td>{{ $estoque->date }}</td>
+            <td>
+              <div class="buttons">
+                <button class="btnSecondary">
+                  <a href="{{ route('estoques.edit', $estoque) }}">
+                    Editar
+                  </a>
+                </button>
+
+                <button class="btnPrimary">
+                  <a href="#">
+                    <x-bi-trash class="trash" />
+                  </a>
+                </button>
+              </div>
+            </td>
           </tr>
+          @endforeach
+
         </table>
-        <!-- <a href="{{ route('estoques.show', $estoque) }}" class="btn btnPrimary btnShow">
-          <p>ver</p>
-        </a> -->
       </div>
-      @endforeach
     </div>
   </div>
 </div>
+
+
 
 @endsection

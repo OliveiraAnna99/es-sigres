@@ -224,3 +224,38 @@ input {
 .formGroup > div input {
     width: 44px;
 }
+
+/* Index Estoque */
+.containerTable {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.table {
+    margin: 1rem;
+    background-color: #ffffff;
+    border-radius: 0.5rem;
+
+    font-size: 18px;
+}
+
+th,
+td {
+    border-bottom: 1px solid #ddd;
+    padding: 1rem;
+}
+
+tr:hover {
+    background-color: #dcd3dc;
+}
+
+button {
+    color: #ffffff;
+    border-radius: 8px;
+    padding: 10px;
+}
+
+.buttons {
+    margin: 0.5rem;
+}
