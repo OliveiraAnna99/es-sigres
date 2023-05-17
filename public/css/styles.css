@@ -228,7 +228,7 @@ input {
 /* Index Estoque */
 .containerTable {
     display: flex;
-    justify-content: center;
+    justify-content: flex-start;
     align-items: center;
 }
 
@@ -257,5 +257,7 @@ button {
 }
 
 .buttons {
-    margin: 0.5rem;
+    display: flex;
+    flex-direction: row;
+    gap: 2rem;
 }
