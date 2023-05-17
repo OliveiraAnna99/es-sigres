@@ -16,6 +16,7 @@ return [
     'item'           => 'Item',
     'quant'          => 'Quantidade',
     'date'           => 'Data de Validade',
+    'nameItem'       => 'Nome do produto',
 
 
     // Actions

@@ -25,14 +25,26 @@
           </tbody>
         </table>
       </div>
-      <!-- <div class="card-footer">
+      <div class="card-footer">
         @can('update', $estoque)
         <a href="{{ route('estoques.edit', $estoque) }}" id="edit-estoque-{{ $estoque->id }}"
           class="btn btn-warning">{{ __('estoque.edit') }}</a>
         @endcan
         <a href="{{ route('estoques.index') }}" class="btn btn-link">{{ __('estoque.back_to_index') }}</a>
-      </div> -->
+
+        <form method="POST" action="{{ route('estoques.destroy', $estoque) }}" accept-charset="UTF-8"
+          class="del-form float-right" style="display: inline;">
+          {{ csrf_field() }} {{ method_field('delete') }}
+          <input name="estoque_id" type="hidden" value="{{ $estoque->id }}">
+          <button type="submit" class="btn btnPrimary">{{__('estoque.delete')}}</button>
+        </form>
+      </div>
     </div>
   </div>
 </div>
+
+
+
+
+
 @endsection
