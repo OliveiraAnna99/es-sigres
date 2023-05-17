@@ -261,3 +261,7 @@ button {
     flex-direction: row;
     gap: 2rem;
 }
+
+.trash {
+    margin: 5px;
+}
