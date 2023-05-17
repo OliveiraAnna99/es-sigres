@@ -1,4 +1,4 @@
-x@extends('home')
+@extends('home')
 
 @section('title', __('funcionario.list'))
 
