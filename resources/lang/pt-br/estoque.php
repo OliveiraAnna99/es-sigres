@@ -15,7 +15,7 @@ return [
     'back_to_index'  => 'Back to Estoque List',
     'item'           => 'Item',
     'quant'          => 'Quantidade',
-    'date'           => 'Data de Validade',
+    'date'           => 'Data de validade',
     'nameItem'       => 'Nome do produto',
 
 
