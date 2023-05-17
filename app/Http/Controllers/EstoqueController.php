@@ -15,7 +15,7 @@ class EstoqueController extends Controller
     public function index()
     {
         $estoqueQuery = Estoque::query();
-        $estoqueQuery->where('name', 'like', '%' . request('q') . '%');
+        $estoqueQuery->where('item', 'like', '%' . request('q') . '%');
         $estoques = $estoqueQuery->paginate(25);
 
         return view('estoques.index', compact('estoques'));
