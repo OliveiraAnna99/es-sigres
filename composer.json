@@ -16,6 +16,7 @@
         "guzzlehttp/guzzle": "^7.0.1",
         "igorescobar/jquery-mask-plugin": "^1.14",
         "laravel/framework": "^8.12",
+        "laravel/sail": "^1.22",
         "laravel/tinker": "^2.5"
     },
     "require-dev": {
