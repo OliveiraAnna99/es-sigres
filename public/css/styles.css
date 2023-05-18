@@ -108,7 +108,6 @@ input {
 /* Style página inicial */
 .container {
     display: flex;
-    justify-content: space-between;
     min-height: 100%;
 }
 
@@ -270,4 +269,18 @@ button {
 
 .trash {
     margin: 5px;
+}
+
+/* Show Estoque */
+.containerShow {
+    display: flex;
+    flex-direction: column;
+}
+
+.btnShowStock {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
 }
