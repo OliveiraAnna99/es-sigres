@@ -18,6 +18,12 @@
             <x-bi-boxes class="icon" />
             <p>Estoques</p>
         </a>
+        <a class="btn navContainer" href="{{ route('cardapios.index') }}">
+            <!-- <x-bi-bag-fill class="icon" /> -->
+            <!-- <x-bi-box-fill class="icon" /> -->
+            <x-bi-book-fill class="icon" />
+            <p>Cardápios</p>
+        </a>
     </nav>
 
 </div>
