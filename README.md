@@ -62,6 +62,12 @@ docker run --rm \
 ```
 
 ### Inicialização
+(Caso a porta que utilizaremos no docker já estiver sendo usada pelo Apache)
+```
+sudo service apache2 stop
+```
+### Inicialização
+
 
 ```
 docker compose up -d
