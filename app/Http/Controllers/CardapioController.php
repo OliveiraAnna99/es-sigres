@@ -47,14 +47,21 @@ class CardapioController extends Controller
             'valor'        => 'required|regex:/\d{1,6}(\,\d{0,2})/',
             'ingredientes' => 'required|max:500',
             'status'       => 'required|in:pendente,pronto',
-            'imagem'       => 'nullable'
+            'imagem'       => 'required|mimes:jpeg,jpg,png',
+            // Adiciona a validação para imagem (opcional e tamanho máximo de 2MB)
         ]);
-    
+        
         $newCardapio['valor'] = str_replace(',', '.', $newCardapio['valor']);
-    
+        
+        if ($request->hasFile('imagem')) {
+            $imagemPath = $request->file('imagem')->store('imagens', 'public');
+            $newCardapio['imagem'] = $imagemPath;
+        }
+        
         $cardapio = Cardapio::create($newCardapio);
-    
+        
         return redirect()->route('cardapios.show', $cardapio);
+        
     }
     
 
@@ -89,23 +96,29 @@ class CardapioController extends Controller
      * @param  \App\Models\Cardapio  $cardapio
      * @return \Illuminate\Routing\Redirector
      */
+    
     public function update(Request $request, Cardapio $cardapio)
     {
-        //$this->authorize('update', $cardapio);
-
         $cardapioData = $request->validate([
             'nome'         => 'required|max:60',
             'valor'        => 'required|regex:/\d{1,6}(\,\d{0,2})/',
             'ingredientes' => 'required|max:500',
             'status'       => 'required|in:pendente,pronto',
-            'imagem'       => 'nullable'
+            'imagem'       => 'nullable|mimes:jpeg,jpg,png',
         ]);
+
         $cardapioData['valor'] = str_replace(',', '.', $cardapioData['valor']);
+
+        if ($request->hasFile('imagem')) {
+            $imagemPath = $request->file('imagem')->store('imagens', 'public');
+            $cardapioData['imagem'] = $imagemPath;
+        }
 
         $cardapio->update($cardapioData);
 
         return redirect()->route('cardapios.show', $cardapio);
     }
+
 
     /**
      * Remove the specified cardapio from storage.
