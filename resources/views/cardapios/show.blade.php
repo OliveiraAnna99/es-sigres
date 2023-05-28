@@ -9,9 +9,9 @@
         <div class="cardBody">
             <div>
                 <p class="funcTitle">{{ __('cardapio.imagem') }}</p>
-                <img src="{{ asset($cardapio->imagem) }}" alt="Imagem do Cardápio">
+                <img src="{{ asset('storage/' . $cardapio->imagem) }}" alt="Imagem do Cardápio"
+                    class="rounded-circle img-thumbnail mx-auto d-block" style="max-width: 200px;">
             </div>
-
             <div>
                 <p class="funcTitle">{{ __('cardapio.name') }}</p>
                 <p>{{ $cardapio->nome }}</p>

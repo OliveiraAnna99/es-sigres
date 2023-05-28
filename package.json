@@ -16,5 +16,8 @@
         "lodash": "^4.17.19",
         "resolve-url-loader": "^3.1.0",
         "vue-template-compiler": "^2.7.14"
+    },
+    "dependencies": {
+        "inputmask": "^5.0.8"
     }
 }

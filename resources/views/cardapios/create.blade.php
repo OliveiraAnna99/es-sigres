@@ -6,7 +6,7 @@
 
 <div class="cardContainer">
     <div class="cardContainerContent cardCreate">
-        <form method="POST" action="{{ route('cardapios.store') }}">
+        <form method="POST" enctype="multipart/form-data" action="{{ route('cardapios.store') }}">
             {{ csrf_field() }}
             <div class="cardBody">
                 <div class="formGroup">
@@ -17,7 +17,7 @@
                
                 <div class="formGroup">
                     <label for="valor">{{ __('cardapio.valor') }} <span>*</span></label>
-                    <input id="valor" type="text" class="form-control{{ $errors->has('valor') ? ' is-invalid' : '' }} " name="valor" value="{{ old('valor') }}" required>
+                    <input id="valor" data-inputmask="'alias': 'numeric', 'groupSeparator': ',', 'autoGroup': true, 'digits': 2, 'digitsOptional': false, 'placeholder': '0'"  type="text" class="form-control{{ $errors->has('valor') ? ' is-invalid' : '' }} " name="valor" value="{{ old('valor') }}" required>
                     {!! $errors->first('valor', '<span class="invalid-feedback" role="alert">:message</span>') !!}
                 </div>
 
@@ -36,7 +36,7 @@
 
                 <div class="formGroup">
                     <label for="imagem">{{ __('cardapio.imagem') }} <span>*</span></label>
-                    <input id="imagem" type="file" class="form-file{{ $errors->has('imagem') ? ' is-invalid' : '' }} " enctype="multipart/form-data" name="imagem" value="{{ old('imagem') }}" required>
+                    <input id="imagem" type="file" class="form-file{{ $errors->has('imagem') ? ' is-invalid' : '' }} "  name="imagem" value="{{ old('imagem') }}" required>
                     {!! $errors->first('imagem', '<span class="invalid-feedback" role="alert">:message</span>') !!}
                 </div>
                 <div class="formGroup">
@@ -54,14 +54,9 @@
     </div>
 </div>
 @endsection
-<script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.15/jquery.mask.min.js" integrity="sha256-u7MY6EG5ass8JhTuxBek18r5YG6pllB9zLqE4vZyTn4=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.inputmask/5.0.6/jquery.inputmask.min.js"></script>
+
 <script>
-    $(document).ready(function() {
-        $('#valor').maskMoney({
-            prefix: 'R$ ',
-            thousands: '.',
-            decimal: ','
-        });
-    });
+   
 </script>
