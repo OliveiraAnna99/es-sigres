@@ -31,7 +31,7 @@ problemas causados pelos ruídos de comunicação provocados por falha humana.
 | Usuários    | Descrição                                                                                                                                                                                                                   |
 | ----------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | Gerente     | Esse usuário terá total acesso às diversas funcionalidades do sistema, sendo capaz de adicionar novos funcionários ao sistema, adicionar novos cardápios, bem como adicionar novos itens que estarão presentes no cardápio. |
-| Funcionário | Esse usuário terá acesso privilegiado a algumas ações do sistema, sendo responsável pela gerência de pedidos, podendo adicionar ou cancelar pedidos, além de efetuar o pagamento.                                           |
+| Funcionário | Esse usuário terá acesso privilegiado a algumas ações do sistema, sendo responsável pela gerência de pedidos, podendo adicionar ou cancelar pedidos.                                           |
 | Cliente     | Esse usuário não terá interação com o sistema.                                                                                                                                                                              |
 
 ## Lista de Requisitos Funcionais
@@ -55,7 +55,7 @@ problemas causados pelos ruídos de comunicação provocados por falha humana.
 | RF015 - Excluir Pedido            | Os dados de um item anteriormente cadastrado é removido do sistema                                                                                                               | Gerente ou Funcionário |
 | RF016 - Listar Pedidos            | É feito uma listagem de pedidos que estão cadastrados no sistema                                                                                                                 | Gerente ou Funcionário |
 | RF017 - Sistema Login             | O usuário realiza login no sistema de modo que este passa por um processo de validação dos campos e dos dados para assim dar acesso ao sistema                                   | Gerente e Funcionário  |
-| RF018 - Realizar Pagamento        | Após a solicitação da compra do produto, um boleto é gerado para que seja realizado o pagamento dos serviços fornecidos                                                          | Gerente                |
+
 
 ## Lista de Requisitos Não-Funcionais
 
