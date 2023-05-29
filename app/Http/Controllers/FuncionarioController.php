@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\Funcionario;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Validator;
+use Illuminate\Validation\Rule;
 
 class FuncionarioController extends Controller
 {
@@ -15,7 +17,7 @@ class FuncionarioController extends Controller
     public function index()
     {
         $funcionarioQuery = Funcionario::query();
-        $funcionarioQuery->where('nome', 'like', '%'.request('q').'%');
+        $funcionarioQuery->where('nome', 'like', '%' . request('q') . '%');
         $funcionarios = $funcionarioQuery->paginate(25);
 
         return view('funcionarios.index', compact('funcionarios'));
@@ -39,20 +41,72 @@ class FuncionarioController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Routing\Redirector
      */
+
     public function store(Request $request)
     {
-        // $this->authorize('create', new Funcionario);
+        /**
+         * Valida um CPF.
+         *
+         * @param string $cpf O CPF a ser validado
+         * @return bool True se o CPF for válido, False caso contrário
+         */
+        function validarCPF($cpf)
+        {
+            $cpf = preg_replace('/[^0-9]/', '', $cpf);
 
-        $newFuncionario = $request->validate([
-            'nome'                    => 'required|max:60',
-            'cpf'                     => 'required|min:11|max:16',
-            'endereco'                => 'required|max:200',
-            'contato'                 => 'required|max:15',
-            'rg'                      => 'required|max:14',
-            'dataNascimento'          => 'required|max:14',
-            'funcao'                  => 'required|max:60',
-            'login'                   => 'required|max:100',
+            if (strlen($cpf) !== 11 || preg_match('/^(\d)\1+$/', $cpf)) {
+                return false;
+            }
+
+            for ($i = 9; $i < 11; $i++) {
+                for ($j = 0, $digit = 0; $j < $i; $j++) {
+                    $digit += $cpf[$j] * (($i + 1) - $j);
+                }
+                $digit = ((10 * $digit) % 11) % 10;
+                if ($cpf[$j] != $digit) {
+                    return false;
+                }
+            }
+
+            return true;
+        }
+
+
+
+        $request->validate([
+            'nome'             => 'required|max:60',
+            'cpf'              => 'required|min:11|max:14',
+            'endereco'         => 'required|max:200',
+            'contato'          => 'required|max:15',
+            'rg'               => 'required|max:14',
+            'dataNascimento'   => 'required|max:14',
+            'funcao'           => 'required|max:60',
+            'login'            => 'required|max:100',
         ]);
+
+        $validator = Validator::make($request->all(), [
+            'cpf' => [
+                'required',
+                'string',
+                'max:14',
+                Rule::unique('funcionarios')->where(function ($query) use ($request) {
+                    return $query->where('cpf', preg_replace('/[^0-9]/', '', $request->cpf));
+                }),
+                function ($attribute, $value, $fail) {
+                    $cpf = preg_replace('/[^0-9]/', '', $value);
+
+                    if (strlen($cpf) !== 11 || !validarCPF($cpf)) {
+                        $fail('CPF inválido ou já cadastrado.');
+                    }
+                },
+            ],
+        ]);
+
+        if ($validator->fails()) {
+            return redirect()->back()->withErrors($validator)->withInput();
+        }
+
+        $newFuncionario = $request->all();
         $newFuncionario['creator_id'] = auth()->id();
 
         $funcionario = Funcionario::create($newFuncionario);
