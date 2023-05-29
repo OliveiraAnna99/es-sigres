@@ -30,11 +30,11 @@ return [
 
     // Attributes
     'name'           => 'Nome ',
-    'cpf'           => 'CPF ',
-    'rg'           => 'RG ',
-    'endereco'           => 'Endereço ',
-    'contato'           => 'Contato ',
-    'funcao'           => 'Cargo ',
-    'login'           => 'Login ',
-    'dataNascimento'           => 'Data de Nascimento ',
+    'cpf'            => 'CPF ',
+    'rg'             => 'RG ',
+    'endereco'       => 'Endereço ',
+    'contato'        => 'Contato ',
+    'funcao'         => 'Cargo ',
+    'login'          => 'Login ',
+    'dataNascimento' => 'Data de Nascimento ',
 ];
