@@ -5,7 +5,7 @@
 @section('content')
 
 <div class="cardContainer">
-    <div class="cardContainerContent cardCreate">
+    <div class="cardContainerContent">
         <form method="POST" action="{{ route('funcionarios.store') }}">
             {{ csrf_field() }}
             <div class="cardBody">
@@ -67,7 +67,7 @@
 <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.15/jquery.mask.min.js" integrity="sha256-u7MY6EG5ass8JhTuxBek18r5YG6pllB9zLqE4vZyTn4=" crossorigin="anonymous"></script>
 
-<script>
+<script type="text/javascript">
     function validarCPF(cpf) {
         cpf = cpf.replace(/[^\d]/g, '');
 
