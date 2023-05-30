@@ -122,7 +122,11 @@
 | RF11                      | Adicionar Itens ao Pedido |
 | RF12                      | Alterar Itens do Pedido   |
 | RF14                      | Remover Itens do Pedido   |
-| RF15                      | Listae Itens do Pedido    |
+| RF15                      | Listar Itens do Pedido    |
+| RF16                      | Realizar Integração do Sistema com API de pagamentos (opcional)    |
+| RF17                      | Ajustar API para realizar o pagamento via cartão (opcional)        |
+| RF18                      | Ajustar API para realizar o pagamento via pix (opcional)           |
+| RF19                      | Ajustar API para realizar o pagamento via boleto (opcional)        |
 
 |                         |               |
 | ----------------------- | ------------- |
