@@ -72,8 +72,10 @@ button {
 }
 
 .cardContainerContent {
-    width: 1345px;
-    height: 835px;
+    width: 90%;
+    max-width: 1200px;
+    height: 90%;
+    max-height: 990px;
     background-color: #fff;
     display: flex;
     flex-direction: column;
@@ -85,17 +87,20 @@ button {
 
 .cardBody {
     flex: 1;
-    margin-left: 20px;
-    margin-bottom: 30px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
 }
 
 form {
     width: 90%;
-    max-width: 90%;
+    height: 90%;
+    display: flex;
+    flex-direction: column;
 }
 
 label {
-    font-size: 22px;
+    font-size: 18px;
 }
 input {
     background-color: #ede5ed;
@@ -113,7 +118,7 @@ input {
 
 /* Sidebar Component */
 .sidebarContainer {
-    width: 400px;
+    width: 25%;
     background-color: #22252f;
 }
 
@@ -128,7 +133,6 @@ input {
 }
 
 .navContainer {
-    width: 400px;
     height: 60px;
     color: #fff;
     background: red;
@@ -186,11 +190,6 @@ input {
     justify-content: center;
 }
 
-.cardBody > div {
-    margin-top: 30px;
-    font-size: 16px;
-}
-
 .funcTitle {
     font-size: 22px;
 }
@@ -198,8 +197,6 @@ input {
 .cardFooter {
     width: 100%;
     display: flex;
-    margin-left: 45px;
-    margin-bottom: 40px;
     gap: 10px;
 }
 
@@ -283,4 +280,25 @@ button {
     justify-content: center;
     align-items: center;
     gap: 2rem;
+}
+
+@media (max-width: 900px) {
+    .navContainer p {
+        opacity: 0;
+        display: none;
+    }
+    .profileSection {
+        display: none;
+    }
+
+    .navContainer .icon {
+        margin-right: 20px;
+    }
+}
+
+@media (max-height: 700px) {
+    .formGroup {
+        flex-direction: row;
+        gap: 10px;
+    }
 }
