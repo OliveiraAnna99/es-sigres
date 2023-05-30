@@ -8,17 +8,17 @@
             <x-bi-cart-fill class="icon" />
             <p>Pedidos</p>
         </a>
-        <a class="btn navContainer" href="{{ route('funcionarios.index') }}">
+        <a class="navContainer" href="{{ route('funcionarios.index') }}">
             <x-bi-person-fill class="icon" />
             <p>Funcionários</p>
         </a>
-        <a class="btn navContainer" href="{{ route('estoques.index') }}">
+        <a class="navContainer" href="{{ route('estoques.index') }}">
             <!-- <x-bi-bag-fill class="icon" /> -->
             <!-- <x-bi-box-fill class="icon" /> -->
             <x-bi-boxes class="icon" />
             <p>Estoques</p>
         </a>
-        <a class="btn navContainer" href="{{ route('cardapios.index') }}">
+        <a class="navContainer" href="{{ route('cardapios.index') }}">
             <!-- <x-bi-bag-fill class="icon" /> -->
             <!-- <x-bi-box-fill class="icon" /> -->
             <x-bi-book-fill class="icon" />
