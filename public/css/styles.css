@@ -151,9 +151,9 @@ input {
 
 /* Index Funcionário */
 .card {
-    display: grid;
-    grid-gap: 10px;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
 }
 
 .funcSection {
