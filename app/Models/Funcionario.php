@@ -11,7 +11,7 @@ class Funcionario extends Model
     use HasFactory;
 
     protected $fillable = [
-        'nome', 
+        'nome',
         'cpf',
         'endereco',
         'contato',
@@ -20,22 +20,4 @@ class Funcionario extends Model
         'funcao',
         'login'
     ];
-
-    public function getNameLinkAttribute()
-    {
-        $title = __('app.show_detail_title', [
-            'name' => $this->name, 'type' => __('funcionario.funcionario'),
-        ]);
-        $link = '<a href="'.route('funcionarios.show', $this).'"';
-        $link .= ' title="'.$title.'">';
-        $link .= $this->name;
-        $link .= '</a>';
-
-        return $link;
-    }
-
-    public function creator()
-    {
-        return $this->belongsTo(User::class);
-    }
 }
