@@ -35,4 +35,4 @@ Route::middleware('auth')->group(function () {
     Route::resource('cardapios', App\Http\Controllers\CardapioController::class);
 });
 
-require __DIR__.'/auth.php';
+require_once __DIR__ . '/auth.php';
