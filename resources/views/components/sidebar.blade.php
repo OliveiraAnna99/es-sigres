@@ -24,6 +24,18 @@
             <x-bi-book-fill class="icon" />
             <p>Cardápios</p>
         </a>
+        
+        <form method="POST" action="{{ route('logout') }}">
+            @csrf
+            <a class="navContainer" href="route('logout')"
+                onclick="event.preventDefault();
+                this.closest('form').submit();">
+               <x-bi-door-closed-fill  class="icon"/>
+
+                <p> Sair </p>
+            </a>
+        </form>
+        
     </nav>
 
 </div>
