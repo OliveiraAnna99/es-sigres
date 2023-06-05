@@ -30,7 +30,7 @@ class FuncionarioController extends Controller
      */
     public function create()
     {
-        // $this->authorize('create', new Funcionario);
+        $this->authorize('create', new Funcionario);
 
         return view('funcionarios.create');
     }
@@ -133,7 +133,7 @@ class FuncionarioController extends Controller
      */
     public function edit(Funcionario $funcionario)
     {
-        // $this->authorize('update', $funcionario);
+        $this->authorize('update', $funcionario);
 
         return view('funcionarios.edit', compact('funcionario'));
     }
@@ -147,7 +147,7 @@ class FuncionarioController extends Controller
      */
     public function update(Request $request, Funcionario $funcionario)
     {
-        // $this->authorize('update', $funcionario);
+         $this->authorize('update', $funcionario);
 
         $funcionarioData = $request->validate([
             'nome'                    => 'required|max:60',
@@ -173,7 +173,7 @@ class FuncionarioController extends Controller
      */
     public function destroy(Request $request, Funcionario $funcionario)
     {
-        // $this->authorize('delete', $funcionario);
+        $this->authorize('delete', $funcionario);
 
         $request->validate(['funcionario_id' => 'required']);
 

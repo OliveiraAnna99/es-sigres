@@ -13,34 +13,26 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-// Route::get('/', function () {
-//     return view('welcome');
-// });
-
 Route::get('/', function () {
-    return view('home');
+    return view('auth.login');
 });
 
-/*
- * Funcionarios Routes
- */
-Route::resource('funcionarios', App\Http\Controllers\FuncionarioController::class)->except('store'); // Remova a rota padrão de criação
 
-Route::post('funcionarios', [App\Http\Controllers\FuncionarioController::class, 'store'])->name('funcionarios.store'); // Adicione uma nova rota personalizada para o método store
 
-/*
- * Estoques Routes
- */
-Route::resource('estoques', App\Http\Controllers\EstoqueController::class);
+Route::get('/dashboard', function () {
+    return view('dashboard');
+})->middleware(['auth', 'verified'])->name('dashboard');
 
-/*
- * Cardapios Routes
- */
-Route::resource('cardapios', App\Http\Controllers\CardapioController::class);
 
-/*
- * Página de Error Routes
- */
-Route::get('/error', function () {
-    return view('error');
-})->name('error');
+
+
+Route::middleware('auth')->group(function () {
+    /*Funcionarios Routes*/
+    Route::resource('funcionarios', App\Http\Controllers\FuncionarioController::class);
+    /* Estoques Routes*/
+    Route::resource('estoques', App\Http\Controllers\EstoqueController::class);
+    /*Cardapios Routes*/
+    Route::resource('cardapios', App\Http\Controllers\CardapioController::class);
+});
+
+require __DIR__.'/auth.php';
