@@ -1,4 +1,6 @@
 
+<?php
+use App\Models\User;
 function createUserForTesting($permission = null)
 {
     $user = User::factory()->create([
