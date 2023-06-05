@@ -50,7 +50,9 @@ class FuncionarioController extends Controller
          * @param string $cpf O CPF a ser validado
          * @return bool True se o CPF for válido, False caso contrário
          */
-        function validarCPF($cpf)
+        
+        /*
+         function validarCPF($cpf)
         {
             $cpf = preg_replace('/[^0-9]/', '', $cpf);
 
@@ -71,7 +73,7 @@ class FuncionarioController extends Controller
             return true;
         }
 
-
+*/
 
         $request->validate([
             'nome'             => 'required|max:60',
