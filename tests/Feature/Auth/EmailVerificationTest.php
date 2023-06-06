@@ -1,65 +1,96 @@
 <?php
 
-// namespace Tests\Feature\Auth;
+namespace Tests\Feature\Controllers\Auth;
 
-// use App\Models\User;
-// use App\Providers\RouteServiceProvider;
-// use Illuminate\Auth\Events\Verified;
-// use Illuminate\Foundation\Testing\RefreshDatabase;
-// use Illuminate\Support\Facades\Event;
-// use Illuminate\Support\Facades\URL;
-// use Tests\TestCase;
+use App\Http\Controllers\Auth\VerifyEmailController;
+use App\Providers\RouteServiceProvider;
+use Illuminate\Auth\Events\Verified;
+use Illuminate\Foundation\Testing\RefreshDatabase;
+use Illuminate\Foundation\Testing\WithFaker;
+use Illuminate\Foundation\Testing\WithoutMiddleware;
+use Illuminate\Support\Facades\Event;
+use Illuminate\Support\Facades\Redirect;
+use Illuminate\Support\Facades\URL;
+use Tests\TestCase;
 
-// class EmailVerificationTest extends TestCase
-// {
-//     use RefreshDatabase;
+class VerifyEmailControllerTest extends TestCase
+{
+    use RefreshDatabase, WithFaker, WithoutMiddleware;
 
-//     public function test_email_verification_screen_can_be_rendered()
-//     {
-//         $user = User::factory()->create([
-//             'email_verified_at' => null,
-//         ]);
+    /**
+     * Test if email is marked as verified for a user.
+     *
+     * @return void
+     */
+    public function testMarkEmailAsVerified()
+    {
+        Event::fake();
 
-//         $response = $this->actingAs($user)->get('/verify-email');
+        $user = $this->createUser(['email_verified_at' => null]);
 
-//         $response->assertStatus(200);
-//     }
+        $request = $this->createEmailVerificationRequest($user);
 
-//     public function test_email_can_be_verified()
-//     {
-//         $user = User::factory()->create([
-//             'email_verified_at' => null,
-//         ]);
+        $controller = new VerifyEmailController();
 
-//         Event::fake();
+        $response = $controller->__invoke($request);
 
-//         $verificationUrl = URL::temporarySignedRoute(
-//             'verification.verify',
-//             now()->addMinutes(60),
-//             ['id' => $user->id, 'hash' => sha1($user->email)]
-//         );
+        $this->assertNotNull($user->fresh()->email_verified_at);
+        $this->assertTrue($user->fresh()->hasVerifiedEmail());
+        Event::assertDispatched(Verified::class, function ($e) use ($user) {
+            return $e->user->id === $user->id;
+        });
+        $response->assertRedirect(RouteServiceProvider::HOME.'?verified=1');
+    }
 
-//         $response = $this->actingAs($user)->get($verificationUrl);
+    /**
+     * Test if email is already verified for a user.
+     *
+     * @return void
+     */
+    public function testAlreadyVerifiedEmail()
+    {
+        $user = $this->createUser(['email_verified_at' => now()]);
 
-//         Event::assertDispatched(Verified::class);
-//         $this->assertTrue($user->fresh()->hasVerifiedEmail());
-//         $response->assertRedirect(RouteServiceProvider::HOME.'?verified=1');
-//     }
+        $request = $this->createEmailVerificationRequest($user);
 
-//     public function test_email_is_not_verified_with_invalid_hash()
-//     {
-//         $user = User::factory()->create([
-//             'email_verified_at' => null,
-//         ]);
+        $controller = new VerifyEmailController();
 
-//         $verificationUrl = URL::temporarySignedRoute(
-//             'verification.verify',
-//             now()->addMinutes(60),
-//             ['id' => $user->id, 'hash' => sha1('wrong-email')]
-//         );
+        $response = $controller->__invoke($request);
 
-//         $this->actingAs($user)->get($verificationUrl);
+        $this->assertTrue($user->fresh()->hasVerifiedEmail());
+        $response->assertRedirect(RouteServiceProvider::HOME.'?verified=1');
+    }
 
-//         $this->assertFalse($user->fresh()->hasVerifiedEmail());
-//     }
-// }
+    /**
+     * Create a new EmailVerificationRequest instance.
+     *
+     * @param  \App\Models\User  $user
+     * @return \Illuminate\Foundation\Auth\EmailVerificationRequest
+     */
+    protected function createEmailVerificationRequest($user)
+    {
+        $url = URL::temporarySignedRoute(
+            'verification.verify',
+            now()->addMinutes(60),
+            ['id' => $user->id, 'hash' => sha1($user->getEmailForVerification())]
+        );
+
+        return new \Illuminate\Foundation\Auth\EmailVerificationRequest([
+            'id' => $user->id,
+            'hash' => sha1($user->getEmailForVerification()),
+            'url' => $url,
+        ]);
+    }
+
+    /**
+     * Create a new user.
+     *
+     * @param  array  $overrides
+     * @return \App\Models\User
+     */
+    protected function createUser(array $overrides = [])
+    {
+        return User::factory()->create($overrides);
+    }
+}
+
