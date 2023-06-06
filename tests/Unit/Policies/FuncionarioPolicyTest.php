@@ -6,43 +6,60 @@ use Illuminate\Foundation\Testing\RefreshDatabase;
 
 uses(Tests\TestCase::class, RefreshDatabase::class);
 
+it('store a funcionario with permission', function () {
+    $user = User::factory()->create();
+    $this->actingAs($user)
+        ->post(route('funcionarios.store', [
+            'nome' => 'Funcionario Teste',
+            'cpf' => '12345678901',
+            'endereco' => 'Endereco Teste',
+            'contato' => '123456789',
+            'rg' => '12345678',
+            'dataNascimento' => '1990-01-01',
+            'funcao' => 'Funcao Teste',
+            'login' => $user->id,
+        ]))
+        ->assertRedirect(route('funcionarios.show', Funcionario::latest('id')->first()));
+});
+
 it('list funcionarios with permission', function () {
-    $user = createUserForTesting();
-
-    $response = $this->actingAs($user)->get(route('funcionarios.index'));
-
-    $response->assertStatus(200);
+    $user = User::factory()->create();
+    $this->actingAs($user)->get(route('funcionarios.index'))
+        ->assertStatus(200);
 });
 
-it('access funcionarios create page with permission', function () {
-    $user = createUserForTesting('funcionarios.create');
-
-    $response = $this->actingAs($user)->get(route('funcionarios.create'));
-
-    $response->assertStatus(200);
-});
-
-it('store a funcionarios with permission', function () {
-    $user = createUserForTesting('funcionarios.create');
-
-    $funcionarioData = [
-        'nome' => 'John Doe',
-        'cpf' => '123.456.789-00',
-        'endereco' => '123 Main St',
-        'contato' => 'john@example.com',
+it('update a funcionario with permission', function () {
+    $user = User::factory()->create();
+    $funcionario = Funcionario::factory()->create();
+    $this->actingAs($user)->put(route('funcionarios.update', $funcionario), [
+        'nome' => 'Novo nome',
+        'cpf' => '12345678901',
+        'endereco' => 'Novo endereco',
+        'contato' => '123456789',
+        'rg' => '12345678',
         'dataNascimento' => '1990-01-01',
-        'rg' => '003.396.363',
-        'funcao' => 'Employee',
-        'login' => 'johndoe',
-    ];
-
-    $response = $this->actingAs($user)->post(route('funcionarios.store'), $funcionarioData);
-
-    $response->assertRedirect();
-
-    // You can add additional assertions to check if the funcionario was stored successfully
+        'funcao' => 'Nova funcao',
+        'login' => $user->id,
+    ])->assertRedirect(route('funcionarios.show', $funcionario));
 });
 
-// ... Other test cases ...
+it('show a funcionario with permission', function () {
+    $user = User::factory()->create();
+    $funcionario = Funcionario::factory()->create();
+    $this->actingAs($user)->get(route('funcionarios.show', $funcionario->id))
+        ->assertStatus(200);
+});
 
+it('show a not found funcionario', function () {
+    $user = User::factory()->create();
+    $notFoundFuncionarioId = Funcionario::latest('id')->first()?->id + 100;
+    $this->actingAs($user)->get(route('funcionarios.show', $notFoundFuncionarioId))
+        ->assertStatus(404);
+});
 
+it('delete a funcionario with permission', function () {
+    $user = User::factory()->create();
+    $funcionario = Funcionario::factory()->create();
+    $this->actingAs($user)->delete(route('funcionarios.destroy', $funcionario))
+        ->assertRedirect(route('funcionarios.index'));
+});

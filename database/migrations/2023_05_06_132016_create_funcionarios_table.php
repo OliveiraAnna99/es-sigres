@@ -23,11 +23,7 @@ class CreateFuncionariosTable extends Migration
             $table->string('rg', 15);
             $table->string('funcao', 150);
             $table->foreignUuid('login');
-
-            // $table->string('description')->nullable();
             $table->timestamps();
-
-            // $table->foreign('creator_id')->references('id')->on('users');
         });
     }
 
