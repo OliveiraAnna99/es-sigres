@@ -44,37 +44,6 @@ class FuncionarioController extends Controller
 
     public function store(Request $request)
     {
-        /**
-         * Valida um CPF.
-         *
-         * @param string $cpf O CPF a ser validado
-         * @return bool True se o CPF for válido, False caso contrário
-         */
-        
-        /*
-         function validarCPF($cpf)
-        {
-            $cpf = preg_replace('/[^0-9]/', '', $cpf);
-
-            if (strlen($cpf) !== 11 || preg_match('/^(\d)\1+$/', $cpf)) {
-                return false;
-            }
-
-            for ($i = 9; $i < 11; $i++) {
-                for ($j = 0, $digit = 0; $j < $i; $j++) {
-                    $digit += $cpf[$j] * (($i + 1) - $j);
-                }
-                $digit = ((10 * $digit) % 11) % 10;
-                if ($cpf[$j] != $digit) {
-                    return false;
-                }
-            }
-
-            return true;
-        }
-
-*/
-
         $request->validate([
             'nome'             => 'required|max:60',
             'cpf'              => 'required|min:11|max:14',
@@ -97,7 +66,7 @@ class FuncionarioController extends Controller
                 function ($attribute, $value, $fail) {
                     $cpf = preg_replace('/[^0-9]/', '', $value);
 
-                    if (strlen($cpf) !== 11 || !validarCPF($cpf)) {
+                    if (strlen($cpf) !== 11 || !($cpf)) {
                         $fail('CPF inválido ou já cadastrado.');
                     }
                 },
@@ -149,7 +118,7 @@ class FuncionarioController extends Controller
      */
     public function update(Request $request, Funcionario $funcionario)
     {
-         $this->authorize('update', $funcionario);
+        $this->authorize('update', $funcionario);
 
         $funcionarioData = $request->validate([
             'nome'                    => 'required|max:60',
