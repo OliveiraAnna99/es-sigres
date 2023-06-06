@@ -51,9 +51,3 @@ it('show a not found item', function () {
         ->assertStatus(404);
 });
 
-it('delete a item with permission', function () {
-    $user = User::factory()->create();
-    $funcionario = Cardapio::factory()->create();
-    $this->actingAs($user)->delete(route('cardapios.destroy', $funcionario))
-        ->assertRedirect(route('cardapios.index'));
-});

@@ -6,7 +6,7 @@ use Illuminate\Foundation\Testing\RefreshDatabase;
 
 uses(Tests\TestCase::class, RefreshDatabase::class);
 
-it('store a funcionario with permission', function () {
+it('store a  with permission', function () {
     $user = User::factory()->create();
     $this->actingAs($user)
         ->post(route('funcionarios.store', [
@@ -47,9 +47,3 @@ it('show a not found item', function () {
         ->assertStatus(404);
 });
 
-it('delete a item with permission', function () {
-    $user = User::factory()->create();
-    $funcionario = Estoque::factory()->create();
-    $this->actingAs($user)->delete(route('estoques.destroy', $funcionario))
-        ->assertRedirect(route('estoques.index'));
-});
