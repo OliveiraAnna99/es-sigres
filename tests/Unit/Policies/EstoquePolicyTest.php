@@ -12,7 +12,7 @@ it('store a funcionario with permission', function () {
         ->post(route('funcionarios.store', [
             'item' => 'Item Teste',
             'quant' => 10,
-            'date' => '1990-01-01'
+            'dataNascimento' => '1990-01-01'
         ]))
         ->assertRedirect(route('estoques.show', Estoque::latest('id')->first()));
 });
