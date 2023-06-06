@@ -93,3 +93,4 @@ class VerifyEmailControllerTest extends TestCase
         return User::factory()->create($overrides);
     }
 }
+

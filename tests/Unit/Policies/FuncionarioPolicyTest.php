@@ -57,3 +57,9 @@ it('show a not found funcionario', function () {
         ->assertStatus(404);
 });
 
+it('delete a funcionario with permission', function () {
+    $user = User::factory()->create();
+    $funcionario = Funcionario::factory()->create();
+    $this->actingAs($user)->delete(route('funcionarios.destroy', $funcionario))
+        ->assertRedirect(route('funcionarios.index'));
+});
