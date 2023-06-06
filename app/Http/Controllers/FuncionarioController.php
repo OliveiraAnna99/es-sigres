@@ -51,29 +51,6 @@ class FuncionarioController extends Controller
          * @return bool True se o CPF for válido, False caso contrário
          */
 
-        /*
-         function validarCPF($cpf)
-        {
-            $cpf = preg_replace('/[^0-9]/', '', $cpf);
-
-            if (strlen($cpf) !== 11 || preg_match('/^(\d)\1+$/', $cpf)) {
-                return false;
-            }
-
-            for ($i = 9; $i < 11; $i++) {
-                for ($j = 0, $digit = 0; $j < $i; $j++) {
-                    $digit += $cpf[$j] * (($i + 1) - $j);
-                }
-                $digit = ((10 * $digit) % 11) % 10;
-                if ($cpf[$j] != $digit) {
-                    return false;
-                }
-            }
-
-            return true;
-        }
-
-*/
 
         $request->validate([
             'nome'             => 'required|max:60',
@@ -86,27 +63,6 @@ class FuncionarioController extends Controller
             'login'            => 'required|max:100',
         ]);
 
-        $validator = Validator::make($request->all(), [
-            'cpf' => [
-                'required',
-                'string',
-                'max:14',
-                Rule::unique('funcionarios')->where(function ($query) use ($request) {
-                    return $query->where('cpf', preg_replace('/[^0-9]/', '', $request->cpf));
-                }),
-                function ($attribute, $value, $fail) {
-                    $cpf = preg_replace('/[^0-9]/', '', $value);
-
-                    if (strlen($cpf) !== 11) {
-                        $fail('CPF inválido ou já cadastrado.');
-                    }
-                },
-            ],
-        ]);
-
-        if ($validator->fails()) {
-            return redirect()->back()->withErrors($validator)->withInput();
-        }
 
         $newFuncionario = $request->all();
         $newFuncionario['creator_id'] = auth()->id();
