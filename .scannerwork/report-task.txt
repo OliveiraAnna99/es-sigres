@@ -2,5 +2,5 @@ projectKey=es-sigres
 serverUrl=http://labens.dct.ufrn.br/sonarqube
 serverVersion=9.9.1.69595
 dashboardUrl=http://labens.dct.ufrn.br/sonarqube/dashboard?id=es-sigres
-ceTaskId=AYiS4T53wG3jQ3pSZJag
-ceTaskUrl=http://labens.dct.ufrn.br/sonarqube/api/ce/task?id=AYiS4T53wG3jQ3pSZJag
+ceTaskId=AYiSvzG3wG3jQ3pSZJae
+ceTaskUrl=http://labens.dct.ufrn.br/sonarqube/api/ce/task?id=AYiSvzG3wG3jQ3pSZJae

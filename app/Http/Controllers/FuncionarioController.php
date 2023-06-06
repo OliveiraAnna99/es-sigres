@@ -64,6 +64,7 @@ class FuncionarioController extends Controller
         ]);
 
 
+
         $newFuncionario = $request->all();
         $newFuncionario['creator_id'] = auth()->id();
 
