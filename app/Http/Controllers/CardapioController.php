@@ -15,7 +15,7 @@ class CardapioController extends Controller
     public function index()
     {
         $cardapioQuery = Cardapio::query();
-        $cardapioQuery->where('nome', 'like', '%'.request('q').'%');
+        $cardapioQuery->where('nome', 'like', '%' . request('q') . '%');
         $cardapios = $cardapioQuery->paginate(25);
 
         return view('cardapios.index', compact('cardapios'));
@@ -50,20 +50,19 @@ class CardapioController extends Controller
             'imagem'       => 'required|mimes:jpeg,jpg,png',
             // Adiciona a validação para imagem (opcional e tamanho máximo de 2MB)
         ]);
-        
+
         $newCardapio['valor'] = str_replace(',', '.', $newCardapio['valor']);
-        
+
         if ($request->hasFile('imagem')) {
             $imagemPath = $request->file('imagem')->store('imagens', 'public');
             $newCardapio['imagem'] = $imagemPath;
         }
-        
+
         $cardapio = Cardapio::create($newCardapio);
-        
+
         return redirect()->route('cardapios.show', $cardapio);
-        
     }
-    
+
 
     /**
      * Display the specified cardapio.
@@ -96,7 +95,7 @@ class CardapioController extends Controller
      * @param  \App\Models\Cardapio  $cardapio
      * @return \Illuminate\Routing\Redirector
      */
-    
+
     public function update(Request $request, Cardapio $cardapio)
     {
         $cardapioData = $request->validate([
