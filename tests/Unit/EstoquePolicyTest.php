@@ -1,7 +1,6 @@
 <?php
 
 use App\Models\Estoque;
-use App\Models\Funcionario;
 use App\Models\User;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 
