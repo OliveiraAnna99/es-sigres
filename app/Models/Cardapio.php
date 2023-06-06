@@ -17,8 +17,8 @@ class Cardapio extends Model
         $title = __('app.show_detail_title', [
             'name' => $this->name, 'type' => __('cardapio.cardapio'),
         ]);
-        $link = '<a href="'.route('cardapios.show', $this).'"';
-        $link .= ' title="'.$title.'">';
+        $link = '<a href="' . route('cardapios.show', $this) . '"';
+        $link .= ' title="' . $title . '">';
         $link .= $this->name;
         $link .= '</a>';
 

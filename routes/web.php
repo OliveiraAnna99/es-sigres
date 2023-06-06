@@ -14,7 +14,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('auth.login');
+    return view('home');
 });
 
 
@@ -26,13 +26,9 @@ Route::get('/dashboard', function () {
 
 
 
-Route::middleware('auth')->group(function () {
-    /*Funcionarios Routes*/
-    Route::resource('funcionarios', App\Http\Controllers\FuncionarioController::class);
-    /* Estoques Routes*/
-    Route::resource('estoques', App\Http\Controllers\EstoqueController::class);
-    /*Cardapios Routes*/
-    Route::resource('cardapios', App\Http\Controllers\CardapioController::class);
-});
-
-require __DIR__.'/auth.php';
+/*Funcionarios Routes*/
+Route::resource('funcionarios', App\Http\Controllers\FuncionarioController::class);
+/* Estoques Routes*/
+Route::resource('estoques', App\Http\Controllers\EstoqueController::class);
+/*Cardapios Routes*/
+Route::resource('cardapios', App\Http\Controllers\CardapioController::class);

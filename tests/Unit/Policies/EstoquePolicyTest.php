@@ -1,43 +1,55 @@
 <?php
 
-namespace Tests\Unit\Policies;
-
 use App\Models\Estoque;
+use App\Models\User;
 use Illuminate\Foundation\Testing\RefreshDatabase;
-use Tests\BrowserKitTest as TestCase;
 
-class EstoquePolicyTest extends TestCase
-{
-    use RefreshDatabase;
+uses(Tests\TestCase::class, RefreshDatabase::class);
 
-    /** @test */
-    public function user_can_create_estoque()
-    {
-        $user = $this->createUser();
-        $this->assertTrue($user->can('create', new Estoque));
-    }
+it('store a funcionario with permission', function () {
+    $user = User::factory()->create();
+    $this->actingAs($user)
+        ->post(route('funcionarios.store', [
+            'item' => 'Item Teste',
+            'quant' => 10,
+            'date' => '1990-01-01'
+        ]))
+        ->assertRedirect(route('estoques.show', Estoque::latest('id')->first()));
+});
 
-    /** @test */
-    public function user_can_view_estoque()
-    {
-        $user = $this->createUser();
-        $estoque = Estoque::factory()->create();
-        $this->assertTrue($user->can('view', $estoque));
-    }
+it('list itens with permission', function () {
+    $user = User::factory()->create();
+    $this->actingAs($user)->get(route('estoques.index'))
+        ->assertStatus(200);
+});
 
-    /** @test */
-    public function user_can_update_estoque()
-    {
-        $user = $this->createUser();
-        $estoque = Estoque::factory()->create();
-        $this->assertTrue($user->can('update', $estoque));
-    }
+it('update a item with permission', function () {
+    $user = User::factory()->create();
+    $estoque = Estoque::factory()->create();
+    $this->actingAs($user)->put(route('estoques.update', $estoque), [
+        'item' => 'Novo item',
+        'quant' => '20',
+        'date' => '1990-01-01'
+    ])->assertRedirect(route('estoques.show', $estoque));
+});
 
-    /** @test */
-    public function user_can_delete_estoque()
-    {
-        $user = $this->createUser();
-        $estoque = Estoque::factory()->create();
-        $this->assertTrue($user->can('delete', $estoque));
-    }
-}
+it('show item with permission', function () {
+    $user = User::factory()->create();
+    $funcionario = Estoque::factory()->create();
+    $this->actingAs($user)->get(route('estoques.show', $funcionario->id))
+        ->assertStatus(200);
+});
+
+it('show a not found item', function () {
+    $user = User::factory()->create();
+    $notFoundFuncionarioId = Estoque::latest('id')->first()?->id + 100;
+    $this->actingAs($user)->get(route('estoques.show', $notFoundFuncionarioId))
+        ->assertStatus(404);
+});
+
+it('delete a item with permission', function () {
+    $user = User::factory()->create();
+    $funcionario = Estoque::factory()->create();
+    $this->actingAs($user)->delete(route('estoques.destroy', $funcionario))
+        ->assertRedirect(route('estoques.index'));
+});

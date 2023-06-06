@@ -13,11 +13,11 @@ class CardapioFactory extends Factory
     public function definition()
     {
         return [
-            'name'        => $this->faker->word,
-            'description' => $this->faker->sentence,
-            'creator_id'  => function () {
-                return User::factory()->create()->id;
-            },
+            'nome'        => "Pizza de Calabresa",
+            'valor' => 30,
+            'ingredientes' => 'Calabresa, molho de tomate, queijo mussarela',
+            'status'  => 'pendente',
+            'imagem' => "",
         ];
     }
 }

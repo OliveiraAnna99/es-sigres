@@ -10,7 +10,7 @@
             {{ csrf_field() }}
             <div class="cardBody">
                 <div class="formGroup">
-                    <label for="nome">{{ __('funcionario.name') }} <span>*</span></label>
+                    <label for="nome">{{ __('funcionario.nome') }} <span>*</span></label>
                     <input id="nome" type="text" class="form-control{{ $errors->has('nome') ? ' is-invalid' : '' }}" name="nome" value="{{ old('nome') }}" required>
                     {!! $errors->first('nome', '<span class="invalid-feedback" role="alert">:message</span>') !!}
                 </div>
