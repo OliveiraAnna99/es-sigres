@@ -13,11 +13,14 @@ class FuncionarioFactory extends Factory
     public function definition()
     {
         return [
-            'name'        => $this->faker->word,
-            'description' => $this->faker->sentence,
-            'creator_id'  => function () {
-                return User::factory()->create()->id;
-            },
+            'nome' => 'Novo nome',
+            'cpf' => '12345678901',
+            'endereco' => 'Novo endereco',
+            'contato' => '123456789',
+            'rg' => '12345678',
+            'dataNascimento' => '1990-01-01',
+            'funcao' => 'Nova funcao',
+            'login' => 'israel',
         ];
     }
 }
