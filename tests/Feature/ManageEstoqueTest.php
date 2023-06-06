@@ -17,14 +17,15 @@ class ManageEstoqueTest extends TestCase
 
         $this->loginAsUser();
         $this->visitRoute('estoques.index');
-        $this->see($estoque->name);
+        $this->see($estoque->item);
     }
 
     private function getCreateFields(array $overrides = [])
     {
         return array_merge([
-            'name'        => 'Estoque 1 name',
-            'description' => 'Estoque 1 description',
+            'item'        => 'Item 1',
+            'quant'       => 10,
+            'date'        => '2023-06-06',
         ], $overrides);
     }
 
@@ -45,44 +46,51 @@ class ManageEstoqueTest extends TestCase
     }
 
     /** @test */
-    public function validate_estoque_name_is_required()
+    public function validate_estoque_item_is_required()
     {
         $this->loginAsUser();
 
-        // name empty
-        $this->post(route('estoques.store'), $this->getCreateFields(['name' => '']));
-        $this->assertSessionHasErrors('name');
+        // item empty
+        $this->post(route('estoques.store'), $this->getCreateFields(['item' => '']));
+        $this->assertSessionHasErrors('item');
     }
 
     /** @test */
-    public function validate_estoque_name_is_not_more_than_60_characters()
+    public function validate_estoque_quant_is_required()
     {
         $this->loginAsUser();
 
-        // name 70 characters
-        $this->post(route('estoques.store'), $this->getCreateFields([
-            'name' => str_repeat('Test Title', 7),
-        ]));
-        $this->assertSessionHasErrors('name');
+        // quant empty
+        $this->post(route('estoques.store'), $this->getCreateFields(['quant' => '']));
+        $this->assertSessionHasErrors('quant');
     }
 
     /** @test */
-    public function validate_estoque_description_is_not_more_than_255_characters()
+    public function validate_estoque_quant_is_numeric()
     {
         $this->loginAsUser();
 
-        // description 256 characters
-        $this->post(route('estoques.store'), $this->getCreateFields([
-            'description' => str_repeat('Long description', 16),
-        ]));
-        $this->assertSessionHasErrors('description');
+        // quant non-numeric
+        $this->post(route('estoques.store'), $this->getCreateFields(['quant' => 'abc']));
+        $this->assertSessionHasErrors('quant');
+    }
+
+    /** @test */
+    public function validate_estoque_date_is_required()
+    {
+        $this->loginAsUser();
+
+        // date empty
+        $this->post(route('estoques.store'), $this->getCreateFields(['date' => '']));
+        $this->assertSessionHasErrors('date');
     }
 
     private function getEditFields(array $overrides = [])
     {
         return array_merge([
-            'name'        => 'Estoque 1 name',
-            'description' => 'Estoque 1 description',
+            'item'        => 'Item 1',
+            'quant'       => 10,
+            'date'        => '2023-06-06',
         ], $overrides);
     }
 
@@ -90,7 +98,7 @@ class ManageEstoqueTest extends TestCase
     public function user_can_edit_a_estoque()
     {
         $this->loginAsUser();
-        $estoque = Estoque::factory()->create(['name' => 'Testing 123']);
+        $estoque = Estoque::factory()->create(['item' => 'Testing 123']);
 
         $this->visitRoute('estoques.show', $estoque);
         $this->click('edit-estoque-'.$estoque->id);
@@ -106,40 +114,47 @@ class ManageEstoqueTest extends TestCase
     }
 
     /** @test */
-    public function validate_estoque_name_update_is_required()
+    public function validate_estoque_item_update_is_required()
     {
         $this->loginAsUser();
-        $estoque = Estoque::factory()->create(['name' => 'Testing 123']);
+        $estoque = Estoque::factory()->create(['item' => 'Testing 123']);
 
-        // name empty
-        $this->patch(route('estoques.update', $estoque), $this->getEditFields(['name' => '']));
-        $this->assertSessionHasErrors('name');
+        // item empty
+        $this->patch(route('estoques.update', $estoque), $this->getEditFields(['item' => '']));
+        $this->assertSessionHasErrors('item');
     }
 
     /** @test */
-    public function validate_estoque_name_update_is_not_more_than_60_characters()
+    public function validate_estoque_quant_update_is_required()
     {
         $this->loginAsUser();
-        $estoque = Estoque::factory()->create(['name' => 'Testing 123']);
+        $estoque = Estoque::factory()->create(['item' => 'Testing 123']);
 
-        // name 70 characters
-        $this->patch(route('estoques.update', $estoque), $this->getEditFields([
-            'name' => str_repeat('Test Title', 7),
-        ]));
-        $this->assertSessionHasErrors('name');
+        // quant empty
+        $this->patch(route('estoques.update', $estoque), $this->getEditFields(['quant' => '']));
+        $this->assertSessionHasErrors('quant');
     }
 
     /** @test */
-    public function validate_estoque_description_update_is_not_more_than_255_characters()
+    public function validate_estoque_quant_update_is_numeric()
     {
         $this->loginAsUser();
-        $estoque = Estoque::factory()->create(['name' => 'Testing 123']);
+        $estoque = Estoque::factory()->create(['item' => 'Testing 123']);
 
-        // description 256 characters
-        $this->patch(route('estoques.update', $estoque), $this->getEditFields([
-            'description' => str_repeat('Long description', 16),
-        ]));
-        $this->assertSessionHasErrors('description');
+        // quant non-numeric
+        $this->patch(route('estoques.update', $estoque), $this->getEditFields(['quant' => 'abc']));
+        $this->assertSessionHasErrors('quant');
+    }
+
+    /** @test */
+    public function validate_estoque_date_update_is_required()
+    {
+        $this->loginAsUser();
+        $estoque = Estoque::factory()->create(['item' => 'Testing 123']);
+
+        // date empty
+        $this->patch(route('estoques.update', $estoque), $this->getEditFields(['date' => '']));
+        $this->assertSessionHasErrors('date');
     }
 
     /** @test */

@@ -1,38 +1,63 @@
 <?php
 
-namespace Tests\Unit\Models;
+namespace Tests\Unit;
 
-use App\Models\User;
+use Tests\TestCase;
 use App\Models\Estoque;
+use App\Models\User;
 use Illuminate\Foundation\Testing\RefreshDatabase;
-use Tests\BrowserKitTest as TestCase;
 
 class EstoqueTest extends TestCase
 {
     use RefreshDatabase;
 
     /** @test */
-    public function a_estoque_has_name_link_attribute()
+    public function it_can_create_a_funcionario()
     {
-        $estoque = Estoque::factory()->create();
+        
 
-        $title = __('app.show_detail_title', [
-            'name' => $estoque->name, 'type' => __('estoque.estoque'),
-        ]);
-        $link = '<a href="'.route('estoques.show', $estoque).'"';
-        $link .= ' title="'.$title.'">';
-        $link .= $estoque->name;
-        $link .= '</a>';
+        $data = [
+            'item' => 'Item Teste',
+            'quant' => 10,
+            'dataNascimento' => '1990-01-01'
+        ];
 
-        $this->assertEquals($link, $estoque->name_link);
+        $estoque = Estoque::create($data);
+
+        $this->assertInstanceOf(Estoque::class, $estoque);
+        $this->assertEquals($data['item'], $estoque->item);
+        $this->assertEquals($data['quant'], $estoque->quant);
+        $this->assertEquals($data['dataNascimento'], $estoque->dataNascimento);
+     
+
     }
 
     /** @test */
-    public function a_estoque_has_belongs_to_creator_relation()
+    public function it_can_update_a_funcionario()
     {
-        $estoque = Estoque::factory()->make();
+        $estoque = Estoque::factory()->create();
 
-        $this->assertInstanceOf(User::class, $estoque->creator);
-        $this->assertEquals($estoque->creator_id, $estoque->creator->id);
+        $data = [
+            'item' => 'Item Teste',
+            'quant' => 10,
+            'dataNascimento' => '1990-01-01'
+        ];
+
+        $estoque->update($data);
+
+        $this->assertEquals($data['item'], $estoque->item);
+        $this->assertEquals($data['quant'], $estoque->quant);
+        $this->assertEquals($data['dataNascimento'], $estoque->dataNascimento);
+     
+    }
+
+    /** @test */
+    public function it_can_delete_a_funcionario()
+    {
+        $estoque = Estoque::factory()->create();
+
+        $estoque->delete();
+
+        $this->assertDeleted($estoque);
     }
 }

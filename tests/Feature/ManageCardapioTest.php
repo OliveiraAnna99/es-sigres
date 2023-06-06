@@ -17,14 +17,17 @@ class ManageCardapioTest extends TestCase
 
         $this->loginAsUser();
         $this->visitRoute('cardapios.index');
-        $this->see($cardapio->name);
+        $this->see($cardapio->nome);
     }
 
     private function getCreateFields(array $overrides = [])
     {
         return array_merge([
-            'name'        => 'Cardapio 1 name',
-            'description' => 'Cardapio 1 description',
+            'nome'        => 'Cardapio 1 nome',
+            'valor'       => 'Cardapio 1 valor',
+            'ingredientes' => 'Cardapio 1 ingredientes',
+            'status'      => 'Cardapio 1 status',
+            'imagem'      => 'Cardapio 1 imagem',
         ], $overrides);
     }
 
@@ -45,44 +48,143 @@ class ManageCardapioTest extends TestCase
     }
 
     /** @test */
-    public function validate_cardapio_name_is_required()
+    public function validate_cardapio_nome_is_required()
     {
         $this->loginAsUser();
 
-        // name empty
-        $this->post(route('cardapios.store'), $this->getCreateFields(['name' => '']));
-        $this->assertSessionHasErrors('name');
+        // nome empty
+        $this->post(route('cardapios.store'), $this->getCreateFields(['nome' => '']));
+        $this->assertSessionHasErrors('nome');
     }
 
     /** @test */
-    public function validate_cardapio_name_is_not_more_than_60_characters()
+    public function validate_cardapio_nome_is_not_more_than_60_characters()
     {
         $this->loginAsUser();
 
-        // name 70 characters
+        // nome 70 characters
         $this->post(route('cardapios.store'), $this->getCreateFields([
-            'name' => str_repeat('Test Title', 7),
+            'nome' => str_repeat('Test Title', 7),
         ]));
-        $this->assertSessionHasErrors('name');
+        $this->assertSessionHasErrors('nome');
     }
 
     /** @test */
-    public function validate_cardapio_description_is_not_more_than_255_characters()
+    public function validate_cardapio_valor_is_required()
     {
         $this->loginAsUser();
 
-        // description 256 characters
-        $this->post(route('cardapios.store'), $this->getCreateFields([
-            'description' => str_repeat('Long description', 16),
+        // valor empty
+        $this->post(route('cardapios.store'), $this->getCreateFields(['valor' => '']));
+        $this->assertSessionHasErrors('valor');
+    }
+
+    /** @test */
+    public function validate_cardapio_ingredientes_is_required()
+    {
+        $this->loginAsUser();
+
+        // ingredientes empty
+        $this->post(route('cardapios.store'), $this->getCreateFields(['ingredientes' => '']));
+        $this->assertSessionHasErrors('ingredientes');
+    }
+
+    /** @test */
+    public function validate_cardapio_status_is_required()
+    {
+        $this->loginAsUser();
+
+        // status empty
+        $this->post(route('cardapios.store'), $this->getCreateFields(['status' => '']));
+        $this->assertSessionHasErrors('status');
+    }
+
+    /** @test */
+    public function validate_cardapio_imagem_is_required()
+    {
+        $this->loginAsUser();
+
+        // imagem empty
+        $this->post(route('cardapios.store'), $this->getCreateFields(['imagem' => '']));
+        $this->assertSessionHasErrors('imagem');
+    }
+
+    /** @test */
+    public function validate_cardapio_nome_update_is_required()
+    {
+        $this->loginAsUser();
+        $cardapio = Cardapio::factory()->create(['nome' => 'Testing 123']);
+
+        // nome empty
+        $this->patch(route('cardapios.update', $cardapio), $this->getCreateFields(['nome' => '']));
+        $this->assertSessionHasErrors('nome');
+    }
+
+    /** @test */
+    public function validate_cardapio_nome_update_is_not_more_than_60_characters()
+    {
+        $this->loginAsUser();
+        $cardapio = Cardapio::factory()->create(['nome' => 'Testing 123']);
+
+        // nome 70 characters
+        $this->patch(route('cardapios.update', $cardapio), $this->getCreateFields([
+            'nome' => str_repeat('Test Title', 7),
         ]));
-        $this->assertSessionHasErrors('description');
+        $this->assertSessionHasErrors('nome');
+    }
+
+    /** @test */
+    public function validate_cardapio_valor_update_is_required()
+    {
+        $this->loginAsUser();
+        $cardapio = Cardapio::factory()->create(['nome' => 'Testing 123']);
+
+        // valor empty
+        $this->patch(route('cardapios.update', $cardapio), $this->getCreateFields(['valor' => '']));
+        $this->assertSessionHasErrors('valor');
+    }
+
+    /** @test */
+    public function validate_cardapio_ingredientes_update_is_required()
+    {
+        $this->loginAsUser();
+        $cardapio = Cardapio::factory()->create(['nome' => 'Testing 123']);
+
+        // ingredientes empty
+        $this->patch(route('cardapios.update', $cardapio), $this->getCreateFields(['ingredientes' => '']));
+        $this->assertSessionHasErrors('ingredientes');
+    }
+
+    /** @test */
+    public function validate_cardapio_status_update_is_required()
+    {
+        $this->loginAsUser();
+        $cardapio = Cardapio::factory()->create(['nome' => 'Testing 123']);
+
+        // status empty
+        $this->patch(route('cardapios.update', $cardapio), $this->getCreateFields(['status' => '']));
+        $this->assertSessionHasErrors('status');
+    }
+
+    /** @test */
+    public function validate_cardapio_imagem_update_is_required()
+    {
+        $this->loginAsUser();
+        $cardapio = Cardapio::factory()->create(['nome' => 'Testing 123']);
+
+        // imagem empty
+        $this->patch(route('cardapios.update', $cardapio), $this->getCreateFields(['imagem' => '']));
+        $this->assertSessionHasErrors('imagem');
     }
 
     private function getEditFields(array $overrides = [])
     {
         return array_merge([
-            'name'        => 'Cardapio 1 name',
-            'description' => 'Cardapio 1 description',
+            'nome'        => 'Cardapio 1 nome',
+            'valor'       => 'Cardapio 1 valor',
+            'ingredientes' => 'Cardapio 1 ingredientes',
+            'status'      => 'Cardapio 1 status',
+            'imagem'      => 'Cardapio 1 imagem',
         ], $overrides);
     }
 
@@ -90,7 +192,7 @@ class ManageCardapioTest extends TestCase
     public function user_can_edit_a_cardapio()
     {
         $this->loginAsUser();
-        $cardapio = Cardapio::factory()->create(['name' => 'Testing 123']);
+        $cardapio = Cardapio::factory()->create(['nome' => 'Testing 123']);
 
         $this->visitRoute('cardapios.show', $cardapio);
         $this->click('edit-cardapio-'.$cardapio->id);
@@ -103,43 +205,6 @@ class ManageCardapioTest extends TestCase
         $this->seeInDatabase('cardapios', $this->getEditFields([
             'id' => $cardapio->id,
         ]));
-    }
-
-    /** @test */
-    public function validate_cardapio_name_update_is_required()
-    {
-        $this->loginAsUser();
-        $cardapio = Cardapio::factory()->create(['name' => 'Testing 123']);
-
-        // name empty
-        $this->patch(route('cardapios.update', $cardapio), $this->getEditFields(['name' => '']));
-        $this->assertSessionHasErrors('name');
-    }
-
-    /** @test */
-    public function validate_cardapio_name_update_is_not_more_than_60_characters()
-    {
-        $this->loginAsUser();
-        $cardapio = Cardapio::factory()->create(['name' => 'Testing 123']);
-
-        // name 70 characters
-        $this->patch(route('cardapios.update', $cardapio), $this->getEditFields([
-            'name' => str_repeat('Test Title', 7),
-        ]));
-        $this->assertSessionHasErrors('name');
-    }
-
-    /** @test */
-    public function validate_cardapio_description_update_is_not_more_than_255_characters()
-    {
-        $this->loginAsUser();
-        $cardapio = Cardapio::factory()->create(['name' => 'Testing 123']);
-
-        // description 256 characters
-        $this->patch(route('cardapios.update', $cardapio), $this->getEditFields([
-            'description' => str_repeat('Long description', 16),
-        ]));
-        $this->assertSessionHasErrors('description');
     }
 
     /** @test */
