@@ -1,13 +1,17 @@
 <?php
-use Tests\TestCase;
+
 use App\Http\Requests\Auth\LoginRequest;
+use Illuminate\Auth\Events\Lockout;
+use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\RateLimiter;
-use Illuminate\Auth\Events\Lockout;
 use Illuminate\Validation\ValidationException;
+use Tests\TestCase;
 
 class LoginRequestTest extends TestCase
 {
+    use RefreshDatabase;
+
     public function testValidationRules()
     {
         $request = new LoginRequest();
@@ -27,9 +31,10 @@ class LoginRequestTest extends TestCase
 
     public function testAuthenticate()
     {
-        // Simule a autenticação bem-sucedida
-        Auth::shouldReceive('attempt')->once()->andReturn(true);
-        RateLimiter::shouldReceive('clear')->once();
+        $user = User::factory()->create([
+            'email' => 'test@example.com',
+            'password' => bcrypt('password123'),
+        ]);
 
         $request = new LoginRequest();
         $request->merge([
@@ -40,15 +45,12 @@ class LoginRequestTest extends TestCase
 
         $request->authenticate();
 
-        // Faça asserções adicionais conforme necessário
+        $this->assertAuthenticatedAs($user);
     }
 
     public function testAuthenticateFailed()
     {
-        // Simule a autenticação falha
-        Auth::shouldReceive('attempt')->once()->andReturn(false);
-        RateLimiter::shouldReceive('hit')->once();
-        RateLimiter::shouldReceive('availableIn')->once()->andReturn(60);
+        $this->expectException(ValidationException::class);
 
         $request = new LoginRequest();
         $request->merge([
@@ -57,14 +59,11 @@ class LoginRequestTest extends TestCase
             'remember' => false,
         ]);
 
-        $this->expectException(ValidationException::class);
-
         $request->authenticate();
     }
 
     public function testEnsureIsNotRateLimited()
     {
-        // Simule que a requisição não esteja limitada
         RateLimiter::shouldReceive('tooManyAttempts')->once()->andReturn(false);
 
         $request = new LoginRequest();
@@ -75,22 +74,21 @@ class LoginRequestTest extends TestCase
 
         $request->ensureIsNotRateLimited();
 
-        // Faça asserções adicionais conforme necessário
+        $this->assertTrue(true); // Apenas para verificar que não houve exceção
     }
 
     public function testEnsureIsRateLimited()
     {
-        // Simule que a requisição esteja limitada
         RateLimiter::shouldReceive('tooManyAttempts')->once()->andReturn(true);
         RateLimiter::shouldReceive('availableIn')->once()->andReturn(60);
+
+        $this->expectException(ValidationException::class);
 
         $request = new LoginRequest();
         $request->merge([
             'email' => 'test@example.com',
             'password' => 'password123',
         ]);
-
-        $this->expectException(ValidationException::class);
 
         $request->ensureIsNotRateLimited();
     }
@@ -104,6 +102,8 @@ class LoginRequestTest extends TestCase
 
         $throttleKey = $request->throttleKey();
 
-        // Faça asserções sobre o valor esperado do throttleKey
+        $expectedKey = 'test@example.com|127.0.0.1';
+
+        $this->assertEquals($expectedKey, $throttleKey);
     }
 }

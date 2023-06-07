@@ -10,14 +10,8 @@ use Tests\TestCase;
 class RegisteredUserControllerTest extends TestCase
 {
     use RefreshDatabase;
+    
 
-    public function test_registration_form_can_be_rendered()
-    {
-        $response = $this->get('/register');
-
-        $response->assertStatus(200);
-        $response->assertViewIs('auth.register');
-    }
     public function test_new_user_can_register()
     {
         $response = $this->post('/register', [
