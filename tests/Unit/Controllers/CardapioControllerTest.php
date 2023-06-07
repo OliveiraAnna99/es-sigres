@@ -59,4 +59,20 @@ class CardapioControllerTest extends TestCase
     // Adicione os outros métodos de teste (store, show, edit, update, destroy) conforme necessário
 
     // ...
+
+    
+
+    public function test_delete_cardapio()
+    {
+        $cardapio = Cardapio::factory()->create();
+
+        $response = $this->delete(route('cardapios.destroy', $cardapio), [
+            'cardapio_id' => $cardapio->id,
+        ]);
+
+        $response->assertRedirect(route('cardapios.index'));
+        $this->assertDeleted($cardapio);
+    }
+    
 }
+

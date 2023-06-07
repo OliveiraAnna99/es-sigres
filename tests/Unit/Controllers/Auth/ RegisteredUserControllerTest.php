@@ -11,21 +11,18 @@ class RegisteredUserControllerTest extends TestCase
 {
     use RefreshDatabase;
 
-    public function test_registration_view_can_be_rendered()
+    public function test_registration_form_can_be_rendered()
     {
         $response = $this->get('/register');
 
         $response->assertStatus(200);
         $response->assertViewIs('auth.register');
     }
-
-    public function test_new_users_can_register()
+    public function test_new_user_can_register()
     {
-        Notification::fake();
-
         $response = $this->post('/register', [
             'name' => 'John Doe',
-            'email' => 'johndoe@example.com',
+            'email' => 'john@example.com',
             'password' => 'password',
             'password_confirmation' => 'password',
         ]);
@@ -34,9 +31,16 @@ class RegisteredUserControllerTest extends TestCase
 
         $this->assertDatabaseHas('users', [
             'name' => 'John Doe',
-            'email' => 'johndoe@example.com',
+            'email' => 'john@example.com',
         ]);
 
-        $this->assertTrue(Auth::check());
+        $this->assertTrue(Hash::check('password', User::where('email', 'john@example.com')->first()->password));
+    }
+
+    public function test_registration_requires_name_email_and_password()
+    {
+        $response = $this->post('/register', []);
+
+        $response->assertSessionHasErrors(['name', 'email', 'password']);
     }
 }
