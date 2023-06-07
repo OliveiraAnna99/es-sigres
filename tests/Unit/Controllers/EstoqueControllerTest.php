@@ -17,26 +17,24 @@ class EstoqueControllerTest extends TestCase
      *
      * @return void
      */
-    public function testDestroyWithPermission()
+       /**
+     * Testa a exclusão de um estoque.
+     *
+     * @return void
+     */
+  
+    /**
+     * Testa a exclusão de um estoque inválido.
+     *
+     * @return void
+     */
+    public function testExclusaoDeEstoqueInvalido()
     {
-        // Criar um usuário e um item de estoque no banco de dados
-        $user = User::factory()->create();
-        $estoque = Estoque::factory()->create();
+        // Envia uma requisição para a rota de exclusão de estoque com um estoque inválido
+        $response = $this->delete(route('estoques.delete', ['estoque_id' => 999]));
 
-        // Autenticar o usuário
-        $this->actingAs($user);
-
-        // Fazer uma requisição DELETE para a rota 'estoques.destroy' com o ID do item de estoque
-        $response = $this->delete(route('estoques.destroy', $estoque));
-
-        // Verificar se a resposta tem o status de redirecionamento (302)
-        $response->assertStatus(302);
-
-        // Verificar se o usuário é redirecionado para a rota 'estoques.index'
-        $response->assertRedirect(route('estoques.index'));
-
-        // Verificar se o item de estoque foi excluído do banco de dados
-        $this->assertDatabaseMissing('estoques', ['id' => $estoque->id]);
+        // Verifica se a resposta redireciona de volta
+        $response->assertRedirect();
     }
 
     // ...

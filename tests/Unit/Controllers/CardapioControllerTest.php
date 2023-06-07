@@ -44,23 +44,30 @@ class CardapioControllerTest extends TestCase
      *
      * @return void
      */
-    public function testCreate()
+
+        public function test_new_cardapio_can_be_created()
     {
-        // Fazer uma requisição GET para a rota 'cardapios.create'
-        $response = $this->get(route('cardapios.create'));
+        $data = [
+            'nome' => 'Novo Cardápio',
+            'valor' => '10.99',
+            'ingredientes' => 'Ingrediente 1, Ingrediente 2',
+            'status' => 'pendente',
+            'imagem' => UploadedFile::fake()->image('cardapio.jpg'),
+        ];
 
-        // Verificar se a resposta tem o status de sucesso (200)
-        $response->assertStatus(200);
+        $response = $this->post('/cardapios', $data);
 
-        // Verificar se a view 'cardapios.create' está sendo retornada
-        $response->assertViewIs('cardapios.create');
+        $response->assertStatus(302);
+        $response->assertRedirect('/cardapios/1');
+
+        $this->assertDatabaseHas('cardapios', [
+            'nome' => 'Novo Cardápio',
+            'valor' => '10.99',
+            'ingredientes' => 'Ingrediente 1, Ingrediente 2',
+            'status' => 'pendente',
+        ]);
     }
 
-    // Adicione os outros métodos de teste (store, show, edit, update, destroy) conforme necessário
-
-    // ...
-
-    
 
     public function test_delete_cardapio()
     {
@@ -74,5 +81,13 @@ class CardapioControllerTest extends TestCase
         $this->assertDeleted($cardapio);
     }
     
+    public function test_create_form_can_be_rendered()
+    {
+        $response = $this->get('/cardapios/create');
+
+        $response->assertStatus(200);
+        $response->assertViewIs('cardapios.create');
+    }
+
 }
 
