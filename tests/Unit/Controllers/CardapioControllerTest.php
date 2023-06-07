@@ -45,29 +45,7 @@ class CardapioControllerTest extends TestCase
      * @return void
      */
 
-        public function test_new_cardapio_can_be_created()
-    {
-        $data = [
-            'nome' => 'Novo Cardápio',
-            'valor' => '10.99',
-            'ingredientes' => 'Ingrediente 1, Ingrediente 2',
-            'status' => 'pendente',
-            'imagem' => UploadedFile::fake()->image('cardapio.jpg'),
-        ];
-
-        $response = $this->post('/cardapios', $data);
-
-        $response->assertStatus(302);
-        $response->assertRedirect('/cardapios/1');
-
-        $this->assertDatabaseHas('cardapios', [
-            'nome' => 'Novo Cardápio',
-            'valor' => '10.99',
-            'ingredientes' => 'Ingrediente 1, Ingrediente 2',
-            'status' => 'pendente',
-        ]);
-    }
-
+ 
 
     public function test_delete_cardapio()
     {

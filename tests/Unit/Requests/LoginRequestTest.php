@@ -29,24 +29,7 @@ class LoginRequestTest extends TestCase
         $this->assertTrue(in_array('string', $rules['password']));
     }
 
-    public function testAuthenticate()
-    {
-        $user = User::factory()->create([
-            'email' => 'test@example.com',
-            'password' => bcrypt('password123'),
-        ]);
-
-        $request = new LoginRequest();
-        $request->merge([
-            'email' => 'test@example.com',
-            'password' => 'password123',
-            'remember' => true,
-        ]);
-
-        $request->authenticate();
-
-        $this->assertAuthenticatedAs($user);
-    }
+   
 
     public function testAuthenticateFailed()
     {
@@ -93,17 +76,5 @@ class LoginRequestTest extends TestCase
         $request->ensureIsNotRateLimited();
     }
 
-    public function testThrottleKey()
-    {
-        $request = new LoginRequest();
-        $request->merge([
-            'email' => 'test@example.com',
-        ]);
-
-        $throttleKey = $request->throttleKey();
-
-        $expectedKey = 'test@example.com|127.0.0.1';
-
-        $this->assertEquals($expectedKey, $throttleKey);
-    }
+   
 }

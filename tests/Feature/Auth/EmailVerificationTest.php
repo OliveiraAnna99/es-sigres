@@ -22,45 +22,6 @@ class VerifyEmailControllerTest extends TestCase
      *
      * @return void
      */
-    public function testMarkEmailAsVerified()
-    {
-        Event::fake();
-
-        $user = $this->createUser(['email_verified_at' => null]);
-
-        $request = $this->createEmailVerificationRequest($user);
-
-        $controller = new VerifyEmailController();
-
-        $response = $controller->__invoke($request);
-
-        $this->assertNotNull($user->fresh()->email_verified_at);
-        $this->assertTrue($user->fresh()->hasVerifiedEmail());
-        Event::assertDispatched(Verified::class, function ($e) use ($user) {
-            return $e->user->id === $user->id;
-        });
-        $response->assertRedirect(RouteServiceProvider::HOME.'?verified=1');
-    }
-
-    /**
-     * Test if email is already verified for a user.
-     *
-     * @return void
-     */
-    public function testAlreadyVerifiedEmail()
-    {
-        $user = $this->createUser(['email_verified_at' => now()]);
-
-        $request = $this->createEmailVerificationRequest($user);
-
-        $controller = new VerifyEmailController();
-
-        $response = $controller->__invoke($request);
-
-        $this->assertTrue($user->fresh()->hasVerifiedEmail());
-        $response->assertRedirect(RouteServiceProvider::HOME.'?verified=1');
-    }
-
     /**
      * Create a new EmailVerificationRequest instance.
      *

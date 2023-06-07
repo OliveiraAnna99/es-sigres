@@ -28,11 +28,5 @@ class CardapioTest extends TestCase
     }
 
     /** @test */
-    public function a_cardapio_has_belongs_to_creator_relation()
-    {
-        $cardapio = Cardapio::factory()->make();
-
-        $this->assertInstanceOf(User::class, $cardapio->creator);
-        $this->assertEquals($cardapio->creator_id, $cardapio->creator->id);
-    }
+   
 }

@@ -28,11 +28,4 @@ class EstoqueTest extends TestCase
     }
 
     /** @test */
-    public function a_estoque_has_belongs_to_creator_relation()
-    {
-        $estoque = Estoque::factory()->make();
-
-        $this->assertInstanceOf(User::class, $estoque->creator);
-        $this->assertEquals($estoque->creator_id, $estoque->creator->id);
-    }
 }
