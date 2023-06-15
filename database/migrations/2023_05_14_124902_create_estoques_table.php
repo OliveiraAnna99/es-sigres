@@ -19,6 +19,7 @@ class CreateEstoquesTable extends Migration
             $table->integer('quant');
             $table->timestamp('date');
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 
