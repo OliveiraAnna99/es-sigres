@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateEstoquesTable extends Migration
+class CreatePedidosTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,12 +13,14 @@ class CreateEstoquesTable extends Migration
      */
     public function up()
     {
-        Schema::create('estoques', function (Blueprint $table) {
-            $table->bigIncrements('id');
-            $table->string('item', 255);
-            $table->integer('quant');
-            $table->timestamp('date');
+        Schema::create('pedidos', function (Blueprint $table) {
+            $table->id();
+            $table->integer('numero_mesa');
+            $table->integer('status');
+            $table->unsignedBigInteger('cardapio_id');
             $table->timestamps();
+
+            $table->foreign('cardapio_id')->references('id')->on('cardapios');
         });
     }
 
@@ -29,6 +31,6 @@ class CreateEstoquesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('estoques');
+        Schema::dropIfExists('pedidos');
     }
 }
