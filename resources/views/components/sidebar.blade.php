@@ -4,8 +4,8 @@
     </div>
 
     <nav class="selectContainer">
-        <a class="navContainer">
-            <x-bi-cart-fill class="icon" />
+        <a class="navContainer"  href="{{ route('pedidos.index') }}">
+            <x-bi-cart-fill class="icon"  />
             <p>Pedidos</p>
         </a>
         <a class="navContainer" href="{{ route('funcionarios.index') }}">
@@ -24,7 +24,7 @@
             <x-bi-book-fill class="icon" />
             <p>Cardápios</p>
         </a>
-
+       
     </nav>
 
 </div>
