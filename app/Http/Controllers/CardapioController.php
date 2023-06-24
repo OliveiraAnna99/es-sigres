@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Cardapio;
 use Illuminate\Http\Request;
-use App\Http\Requests\CardapioRequest;
+
 class CardapioController extends Controller
 {
     
@@ -25,9 +25,14 @@ class CardapioController extends Controller
     }
 
    
-    public function store(CardapioRequest $request)
+    public function store(Request $request)
     {
-        $newCardapio = $request->validated();
+        $newCardapio = $request->validate([
+            'nome'         => 'required|max:60',
+            'valor'        => 'required|regex:/\d{1,6}(\,\d{0,2})/',
+            'ingredientes' => 'required|max:500',
+            'status'       => 'required|in:pendente,pronto',
+        ]);
         
         $newCardapio['valor'] = str_replace(',', '.', $newCardapio['valor']);
         $cardapio = Cardapio::create($newCardapio);
@@ -49,11 +54,18 @@ class CardapioController extends Controller
     }
 
 
-    public function update(CardapioRequest $request, Cardapio $cardapio)
+    public function update(Request $request, Cardapio $cardapio)
     {
-        
-        $cardapioData = $request->validated();
+        $cardapioData = $request->validate([
+            'nome'         => 'required|max:60',
+            'valor'        => 'required|regex:/\d{1,6}(\,\d{0,2})/',
+            'ingredientes' => 'required|max:500',
+            'status'       => 'required|in:pendente,pronto',
+        ]);
+
         $cardapioData['valor'] = str_replace(',', '.', $cardapioData['valor']);
+
+      
 
         $cardapio->update($cardapioData);
 
@@ -63,6 +75,7 @@ class CardapioController extends Controller
 
     public function destroy(Request $request, Cardapio $cardapio)
     {
+        //$this->authorize('delete', $cardapio);
 
         $request->validate(['cardapio_id' => 'required']);
 
