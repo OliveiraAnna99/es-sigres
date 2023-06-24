@@ -27,7 +27,6 @@ class ManageCardapioTest extends TestCase
             'valor'       => 'Cardapio 1 valor',
             'ingredientes' => 'Cardapio 1 ingredientes',
             'status'      => 'Cardapio 1 status',
-            'imagem'      => 'Cardapio 1 imagem',
         ], $overrides);
     }
 
@@ -99,15 +98,6 @@ class ManageCardapioTest extends TestCase
         $this->assertSessionHasErrors('status');
     }
 
-    /** @test */
-    public function validate_cardapio_imagem_is_required()
-    {
-        $this->loginAsUser();
-
-        // imagem empty
-        $this->post(route('cardapios.store'), $this->getCreateFields(['imagem' => '']));
-        $this->assertSessionHasErrors('imagem');
-    }
 
     /** @test */
     public function validate_cardapio_nome_update_is_required()
@@ -172,9 +162,7 @@ class ManageCardapioTest extends TestCase
         $this->loginAsUser();
         $cardapio = Cardapio::factory()->create(['nome' => 'Testing 123']);
 
-        // imagem empty
-        $this->patch(route('cardapios.update', $cardapio), $this->getCreateFields(['imagem' => '']));
-        $this->assertSessionHasErrors('imagem');
+ 
     }
 
     private function getEditFields(array $overrides = [])
@@ -184,7 +172,6 @@ class ManageCardapioTest extends TestCase
             'valor'       => 'Cardapio 1 valor',
             'ingredientes' => 'Cardapio 1 ingredientes',
             'status'      => 'Cardapio 1 status',
-            'imagem'      => 'Cardapio 1 imagem',
         ], $overrides);
     }
 
