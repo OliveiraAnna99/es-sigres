@@ -8,14 +8,15 @@ uses(Tests\TestCase::class, RefreshDatabase::class);
 
 it('store a  with permission', function () {
     $user = User::factory()->create();
-    $this->actingAs($user)
-        ->post(route('funcionarios.store', [
+    $estoque = Estoque::factory()->create();
+    $this->actingAs($user)->post(route('estoques.store', $estoque), [
             'item' => 'Item Teste',
             'quant' => 10,
             'dataNascimento' => '1990-01-01'
-        ]))
-        ->assertRedirect(route('estoques.show', Estoque::latest('id')->first()));
+        ])->assertRedirect(route('estoques.show', $estoque));
 });
+
+
 
 it('list itens with permission', function () {
     $user = User::factory()->create();
