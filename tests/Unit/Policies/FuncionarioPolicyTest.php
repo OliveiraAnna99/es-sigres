@@ -33,7 +33,7 @@ it('update a funcionario with permission', function () {
     $funcionario = Funcionario::factory()->create();
     $this->actingAs($user)->put(route('funcionarios.update', $funcionario), [
         'nome' => 'Novo nome',
-        'cpf' => '12345678901',
+        'cpf' => '405.488.850-01',
         'endereco' => 'Novo endereco',
         'contato' => '123456789',
         'rg' => '12345678',
@@ -58,8 +58,13 @@ it('show a not found funcionario', function () {
 });
 
 it('delete a funcionario with permission', function () {
-    $user = User::factory()->create();
-    $funcionario = Funcionario::factory()->create();
-    $this->actingAs($user)->delete(route('funcionarios.destroy', $funcionario))
-        ->assertRedirect(route('funcionarios.index'));
+  
+        $funcionario = Funcionario::factory()->create();
+
+        $response = $this->delete(route('funcionarios.destroy', $funcionario), [
+            'funcionario_id' => $funcionario->id,
+        ]);
+
+        $response->assertRedirect(route('funcionarios.index'));
+        $this->assertDatabaseMissing('funcionarios', ['id' => $funcionario->id]);
 });

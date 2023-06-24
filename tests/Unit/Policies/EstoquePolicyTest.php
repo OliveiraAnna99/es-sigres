@@ -6,14 +6,15 @@ use Illuminate\Foundation\Testing\RefreshDatabase;
 
 uses(Tests\TestCase::class, RefreshDatabase::class);
 
-it('store a  with permission', function () {
+it('store a with permission', function () {
     $user = User::factory()->create();
-    $estoque = Estoque::factory()->create();
-    $this->actingAs($user)->post(route('estoques.store', $estoque), [
+
+    $this->actingAs($user)
+        ->post(route('estoques.store',[
             'item' => 'Item Teste',
             'quant' => 10,
-            'dataNascimento' => '1990-01-01'
-        ])->assertRedirect(route('estoques.show', $estoque));
+            'date' => '2023-06-23 00:00:00'
+        ]))->assertRedirect(route('estoques.show', Estoque::latest('id')->first()));
 });
 
 
