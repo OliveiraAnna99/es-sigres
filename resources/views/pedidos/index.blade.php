@@ -24,8 +24,24 @@
           </tr>
           <tr>
             @foreach($pedidos as $pedido)
-            <td>{{ $pedido->cardapio_id}}</td>
-            <td>{{ $pedido->status }}</td>
+            <td>
+        
+              @foreach($cardapios as $cardapio)
+                  @if($cardapio->id == $pedido->cardapio_id)
+                  {{ $cardapio->nome}}
+                  @endif
+              @endforeach
+            </td>
+            <td>
+              @if($pedido->status == 1)
+                  Em Andamento
+              @elseif($pedido->status == 2)
+                  Concluído
+              @else
+                  Não Encontrado
+              @endif
+          </td>
+
             <td>{{ $pedido->numero_mesa }}</td>
             <td>
               <div class="buttons">
