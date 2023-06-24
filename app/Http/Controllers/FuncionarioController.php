@@ -30,7 +30,7 @@ class FuncionarioController extends Controller
      */
     public function create()
     {
-        $this->authorize('create', new Funcionario);
+       // $this->authorize('create', new Funcionario);
 
         return view('funcionarios.create');
     }
@@ -44,14 +44,7 @@ class FuncionarioController extends Controller
 
     public function store(Request $request)
     {
-        /**
-         * Valida um CPF.
-         *
-         * @param string $cpf O CPF a ser validado
-         * @return bool True se o CPF for válido, False caso contrário
-         */
-
-
+     
         $request->validate([
             'nome'             => 'required|max:60',
             'cpf'              => 'required|min:11|max:14',
@@ -92,7 +85,7 @@ class FuncionarioController extends Controller
      */
     public function edit(Funcionario $funcionario)
     {
-        $this->authorize('update', $funcionario);
+        //$this->authorize('update', $funcionario);
 
         return view('funcionarios.edit', compact('funcionario'));
     }
@@ -106,7 +99,7 @@ class FuncionarioController extends Controller
      */
     public function update(Request $request, Funcionario $funcionario)
     {
-        $this->authorize('update', $funcionario);
+        //$this->authorize('update', $funcionario);
 
         $funcionarioData = $request->validate([
             'nome'                    => 'required|max:60',
@@ -132,7 +125,7 @@ class FuncionarioController extends Controller
      */
     public function destroy(Request $request, Funcionario $funcionario)
     {
-        $this->authorize('delete', $funcionario);
+        //$this->authorize('delete', $funcionario);
 
         $request->validate(['funcionario_id' => 'required']);
 

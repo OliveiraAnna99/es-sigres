@@ -15,7 +15,7 @@ return [
     'back_to_index'  => 'Back to Pedidos List',
 
     // Actions
-    'create'         => 'Create new Pedidos',
+    'create'         => 'Cadastrar Pedido',
     'created'        => 'A new Pedidos has been created.',
     'show'           => 'View Pedidos Detail',
     'edit'           => 'Edit Pedidos',
@@ -26,8 +26,14 @@ return [
     'deleted'        => 'Pedidos has been deleted.',
     'undeleted'      => 'Pedidos not deleted.',
     'undeleteable'   => 'Pedidos data cannot be deleted.',
-
-    // Attributes
+    'cancel'         => 'Cancelar',
+    // Attribute    s
     'name'           => 'Pedidos Name',
     'description'    => 'Pedidos Description',
+
+    'item'           => 'Item',
+    'status'         => 'Status',
+    'numero_mesa'    => 'Nº da Mesa',
+    'cardapio_id'    => 'Item',
+
 ];

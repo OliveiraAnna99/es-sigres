@@ -30,6 +30,7 @@ return [
 
     // Attributes
     'name'           => 'Nome ',
+    'nome'           => 'Nome ',
     'cpf'            => 'CPF ',
     'rg'             => 'RG ',
     'endereco'       => 'Endereço ',

@@ -16,8 +16,9 @@ class PedidosController extends Controller
     public function index()
     {
         $pedidos = Pedidos::all();
+        $cardapios = Cardapio::all();
 
-        return view('pedidos.index', compact('pedidos'));
+        return view('pedidos.index', compact('pedidos', 'cardapios'));
     }
 
     /**
@@ -64,7 +65,8 @@ class PedidosController extends Controller
      */
     public function show(Pedidos $pedido)
     {
-        return view('pedidos.show', compact('pedido'));
+        $cardapios = Cardapio::all();
+        return view('pedidos.show', compact('pedido', 'cardapios'));
     }
 
     /**
