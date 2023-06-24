@@ -32,12 +32,6 @@
                     @enderror
                 </div>
 
-
-                <div class="formGroup">
-                    <label for="imagem">{{ __('cardapio.imagem') }} <span>*</span></label>
-                    <input id="imagem" type="file" class="form-file{{ $errors->has('imagem') ? ' is-invalid' : '' }} " enctype="multipart/form-data" name="imagem" value="{{ old('imagem') }}" required>
-                    {!! $errors->first('imagem', '<span class="invalid-feedback" role="alert">:message</span>') !!}
-                </div>
                 <div class="formGroup">
                     <label for="ingredientes">{{ __('cardapio.ingredientes') }} <span>*</span></label>
                     <input id="ingredientes" type="text" class="form-control {{ $errors->has('ingredientes') ? ' is-invalid' : '' }}" name="ingredientes" value="{{ old('ingredientes',  $cardapio->ingredientes) }}" required>
