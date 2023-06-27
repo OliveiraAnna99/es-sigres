@@ -38,13 +38,16 @@
       </table>
     </div>
     <div class="btnShowStock">
-      @can('update', $pedido)
+      @can('pedido.update')
       <a href="{{ route('pedidos.edit', $pedido) }}" id="edit-pedido-{{ $pedido->id }}"
         class="btn">{{ __('pedido.edit') }}</a>
       @endcan
+      @can('pedido.read')
+
       <a href="{{ route('pedidos.index') }}" class="btn btnSecondary">{{ __('Voltar') }}</a>
+      @endcan
 
-
+  @can('pedido.delete')
   <form method="POST" action="{{ route('pedidos.destroy', $pedido) }}" accept-charset="UTF-8"
     class="del-form float-right">
     {{ csrf_field() }}
@@ -52,6 +55,7 @@
     <input name="pedido_id" type="hidden" value="{{ $pedido->id }}">
     <button type="submit" class="btn btnPrimary">Deletar</button>
   </form>
+  @endcan
 </div>
 
   </div>

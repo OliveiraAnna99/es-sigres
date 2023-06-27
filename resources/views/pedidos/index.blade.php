@@ -47,13 +47,15 @@
             <td>{{ $pedido->numero_mesa }}</td>
             <td>
               <div class="buttons">
+                @can('pedido.update')
                 <button class="btnSecondary">
                   <a href="{{ route('pedidos.edit', $pedido) }}">
                     Editar
                   </a>
                 </button>
+                @endcan
 
-
+                @can('pedido.delete')
 
                 <form method="POST" action="{{ route('pedidos.destroy', $pedido) }}" accept-charset="UTF-8">
                   {{ csrf_field() }} {{ method_field('delete') }}
@@ -62,7 +64,7 @@
                     <x-bi-trash class="trash" />
                   </button>
                 </form>
-
+                @endcan
               </div>
             </td>
           </tr>
