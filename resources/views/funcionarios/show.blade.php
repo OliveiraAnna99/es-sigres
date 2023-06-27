@@ -42,14 +42,18 @@
                 </div>
             </div>
             <div class="cardFooter">
-                <a href="{{ route('funcionarios.edit', $funcionario) }}" class="btn btnSecondary">
-                    <p>{{__('funcionario.edit')}}</p>
-                </a>
+                @can('funcionario.update')
+                    <a href="{{ route('funcionarios.edit', $funcionario) }}" class="btn btnSecondary">
+                        <p>{{__('funcionario.edit')}}</p>
+                    </a>
+                @endcan
+                @can('funcionario.delete')
                 <form method="POST" action="{{ route('funcionarios.destroy', $funcionario) }}" accept-charset="UTF-8" class="del-form float-right" style="display: inline;">
                     {{ csrf_field() }} {{ method_field('delete') }}
                     <input name="funcionario_id" type="hidden" value="{{ $funcionario->id }}">
                     <button type="submit" class="btn btnPrimary">{{__('funcionario.delete')}}</button>
                 </form>
+                @endcan
             </div>
         </div>
     </div>

@@ -30,13 +30,15 @@
             <td>{{ $estoque->date }}</td>
             <td>
               <div class="buttons">
+                @can('estoque.update')
                 <button class="btnSecondary">
                   <a href="{{ route('estoques.edit', $estoque) }}">
                     Editar
                   </a>
                 </button>
+                @endcan
 
-
+                @can('estoque.delete')
 
                 <form method="POST" action="{{ route('estoques.destroy', $estoque) }}" accept-charset="UTF-8">
                   {{ csrf_field() }} {{ method_field('delete') }}
@@ -45,6 +47,7 @@
                     <x-bi-trash class="trash" />
                   </button>
                 </form>
+                @endcan
 
               </div>
             </td>
