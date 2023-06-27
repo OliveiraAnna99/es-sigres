@@ -13,9 +13,9 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('home');
-});
+use App\Http\Controllers\Auth\AuthenticatedSessionController;
+
+Route::get('/', [AuthenticatedSessionController::class, 'create']);
 
 
 
@@ -37,3 +37,6 @@ Route::resource('cardapios', App\Http\Controllers\CardapioController::class);
  * Pedidos Routes
  */
 Route::resource('pedidos', App\Http\Controllers\PedidosController::class);
+
+
+require_once __DIR__ . '/auth.php';
