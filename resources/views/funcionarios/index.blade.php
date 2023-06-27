@@ -6,10 +6,12 @@
 
 <div class="section">
   <div class="topSection">
+    @can('funcionario.create')
     <a href="{{ route('funcionarios.create') }}" class="btn btnPrimary btnAdd">
       <x-bi-plus-circle class="icon" />
       <p>Adicionar funcionário</p>
     </a>
+    @endcan
   </div>
   <div class="card">
     @foreach($funcionarios as $key => $funcionario)

@@ -4,27 +4,34 @@
     </div>
 
     <nav class="selectContainer">
+        @can('pedido.all')
         <a class="navContainer"  href="{{ route('pedidos.index') }}">
             <x-bi-cart-fill class="icon"  />
             <p>Pedidos</p>
         </a>
+        @endcan
+        @can('funcionario.all')
         <a class="navContainer" href="{{ route('funcionarios.index') }}">
             <x-bi-person-fill class="icon" />
             <p>Funcionários</p>
         </a>
+        @endcan
+        @can('estoque.all')
         <a class="navContainer" href="{{ route('estoques.index') }}">
             <!-- <x-bi-bag-fill class="icon" /> -->
             <!-- <x-bi-box-fill class="icon" /> -->
             <x-bi-boxes class="icon" />
             <p>Estoques</p>
         </a>
+        @endcan
+        @can('cardapio.all')
         <a class="navContainer" href="{{ route('cardapios.index') }}">
             <!-- <x-bi-bag-fill class="icon" /> -->
             <!-- <x-bi-box-fill class="icon" /> -->
             <x-bi-book-fill class="icon" />
             <p>Cardápios</p>
         </a>
-
+        @endcan
         <a class="navContainer" href="{{ route('logout') }}"  onclick="event.preventDefault();
                 document.getElementById('logout-form').submit();">
             <x-bi-door-closed-fill class="icon" />

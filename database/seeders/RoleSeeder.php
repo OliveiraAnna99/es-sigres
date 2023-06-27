@@ -39,9 +39,14 @@ class RoleSeeder extends Seeder
             'name' => 'Funcionario',
             'permissions' => [
                 'cardapio.all',
-                'cardapio.read',
                 'estoque.all',
+                'funcionario.all',
+                'pedido.all',
+
+                'cardapio.read',
                 'estoque.read',
+                'funcionario.read',
+                'pedido.read',
             ]
         ],
         
