@@ -4,12 +4,15 @@
 
 @section('content')
 
+@can('cardapio.read')
 <div class="section">
   <div class="topSection">
+    @can('cardapio.create')
     <a href="{{ route('cardapios.create') }}" class="btn btnPrimary btnAdd">
       <x-bi-plus-circle class="icon" />
       <p>Adicionar cardápio</p>
     </a>
+    @endcan
   </div>
   <div class="card">
     @foreach($cardapios as $key => $cardapio)
@@ -23,5 +26,6 @@
     @endforeach
   </div>
 </div>
+@endcan
 
 @endsection

@@ -6,11 +6,13 @@
 
 <div class="section">
   <div>
+    @can('pedido.create')
     <a href="{{ route('pedidos.create') }}" class="btn btnPrimary btnAdd">
       <x-bi-plus-circle class="icon" />
       <p> Realizar pedido
       </p>
     </a>
+    @endcan
   </div>
 
   <div>
