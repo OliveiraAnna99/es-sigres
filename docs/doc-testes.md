@@ -4,87 +4,90 @@
 ### Teste 01:Adicionar funcionário
 | Descrição                                             | Especificação 								   |
 | ----------------------------------------------------- | ------------------------------------------------ |
-| A1-Lista funcionários com permissão                   | Especificação OK                                 |
-| A2-Lista funcionários com permissão                   | Especificação OK                                 |
-| A3-Usuário pode ver lista de funcionários             | Especificação OK                                 |
-| A4-Usúario não pode adicionar funcionário             | Especificação OK								   |
-| A5-Nome e CPF são necessários                         | Especificação OK                                 |
-| A6-Nome e CPF devem ser validos                       | Especificação OK                                 |
-| A7-Informações são salvas no banco de dados           | Especificação OK                                 |
-| Resultado:                                            | Adicionar funcionário OK                         |
+| A1-Ator preenche os dados requeridos                  | A função deve adicionar um funcionário ao sistema|
+| A2-Ator seleciona a opção "Cadastrar"                 | com seus dados válidos, como, CPF, número, idade,|
+| A3-O sistema salva os dados                           | endereço e nome.                                 |
+| A4-O sistema retorna para a pagina "Funcionários"     |                                                  |
+| A5-Fim do fluxo                                       | A especificação está de acordo com o UserStorie. |
+| Resultado:                                            | Funcionário adicionado                           |
 
 ### Teste 02:Alterar funcionário
 | Descrição                                             | Especificação 						           |
 | ----------------------------------------------------- | ------------------------------------------------ |
-| B1-Usúario não pode alterar funcionário               | Especificação OK                                 |
-| B2-Novos dados devem ser validos                      | Especificação OK                                 |
-| B3-Alterações são salvas no banco de dados            | Especificação OK                                 |
-| Resultado:                                            | Alterar funcionário OK                           |
+| B1-Ator seleciona o funcionário para alteração        | A função deve alterar os dados de um funcionário |
+| B2-Ator edita os campos requeridos para alteração     | já existente de forma que seus dados continuem   |
+| B3-O sistema salva os dados alterados                 | válidos.                                         |
+| B4-O sistema retorna para a pagina "Funcionários"     |                                                  |
+| B5-Fim do fluxo                                       | A especificação está de acordo com o UserStorie. |
+| Resultado:                                            | Funcionário alterado                             |
 
 ### Teste 03:Excluir funcionário
 | Descrição                                             | Especificação 							   	   |
 | ----------------------------------------------------- | ------------------------------------------------ |
-| C1-Usúario não pode deletar funcionário               | Especificação OK                                 |
-| C2-Alterações salvas no banco de dados                | Especificação OK                                 |
-| Resultado:                                            | Deletar funcionário OK                           |
+| C1-Ator executa o fluxo de Listar funcionários        | A função deve excluir um funcionário já existente|
+| C2-Ator seleciona a opção "Excluir"                   | no sistema.                                      |
+| C3-O sistema rtorna a pagina "Funcionários"           |                                                  |
+| C5-Fim do fluxo                                       | A especificação está de acordo com o UserStorie. |
+| Resultado:                                            | Funcionário excluido                             |
 
 
 ## US002-Manter Cardápio
 ### Teste 01:Adicionar cardápio
-| Descrição                                                     | Especificação 								   |
-| ------------------------------------------------------------- | ------------------------------------------------ |
-| A1-Lista itens com permissão                                  | Especificação OK                                 |
-| A2-Mostra itens com permissão                                 | Especificação OK                                 |
-| A3-Usúario pode ver cardápio                                  | Especificação OK                                 |
-| A4-Usúario não pode adicionar itens                           | Especificação OK								   |
-| A5-Nome, ingredientes, valor, imagem e status são necessários | Especificação OK                                 |
-| A6-Nome deve cónter menos de 60 caracteres                    | Especificação OK                                 |
-| A7-Informações são salvas no banco de dados                   | Especificação OK                                 |
-| Resultado:                                                    | Adicionar cardápio Ok                            |
+| Descrição                                             | Especificação 								   |
+| ----------------------------------------------------- | ------------------------------------------------ |
+| A1-Ator preenche os dados requeridos                  | A função deve adicionar um prato no cardápio do  |
+| A2-Ator seleciona a opção "Adicionar"                 | sistema, com preço, imagem, igrendientes e nome. |
+| A3-O sistema salva os dados                           |                                                  |
+| A4-O sistema retorna para a pagina "Cardápio"         |                                                  |
+| A5-Fim do fluxo                                       | A especificação está de acordo com o UserStorie. |
+| Resultado:                                            | Cardápio adicionado                              |
 
 ### Teste 01:Alterar cardápio
-| Descrição                                                     | Especificação 								   |
-| ------------------------------------------------------------- | ------------------------------------------------ |
-| B1-usúario não pode alterar cardápio                          | Especificação OK								   |
-| B2-Nome, ingredientes, valor e status devem ser atualizados   | Especificação OK                                 |
-| B3-Nome deve cónter menos de 60 caracteres                    | Especificação OK                                 |
-| B4-Alterações são salvas no banco de dados                    | Especificação OK                                 |
-| Resultado:                                                    | Alterar cardápio OK                              |
+| Descrição                                             | Especificação 								   |
+| ----------------------------------------------------- | ------------------------------------------------ |
+| B1-Ator seleciona o cardápio para alteração           | A função deve alterar um prato já existente no   |
+| B2-Ator edita os campos requeridos para alteração     | cardápio, de forma válida.                       |
+| B3-O sistema salva os dados alterados                 |                                                  |
+| B4-O sistema retorna para a pagina "Cardápio"         |                                                  |
+| B5-Fim do fluxo                                       | A especificação está de acordo com o UserStorie. |
+| Resultado:                                            | Cardápio alterado                                |
 
-### Teste 01:Deletar cardápio
-| Descrição                                                     | Especificação 								   |
-| ------------------------------------------------------------- | ------------------------------------------------ |
-| C1-Usúario não pode deletar cardápio                          | Especificação OK								   |
-| C2-Alterações são salvas no banco de dados                    | Especificação OK                                 |
-| Resultado:                                                    | Deletar cardápio OK                              |
+### Teste 01:Excluir cardápio
+| Descrição                                             | Especificação 								   |
+| ----------------------------------------------------- | ------------------------------------------------ |
+| C1-Ator executa o fluxo de Listar cardápio            | A função deve excluir um prato do cardápio do    |
+| C2-Ator seleciona a opção "Excluir"                   | sistema.                                         |
+| C3-O sistema retorna a pagina "Cardápio"              |                                                  |
+| C5-Fim do fluxo                                       | A especificação está de acordo com o UserStorie. |
+| Resultado:                                            | Cardápio excluido                                |
 
 
 ## US003-Manter Estoque
 ### Teste 01:Adicionar estoque
-| Descrição                                                     | Especificação 								   |
-| ------------------------------------------------------------- | ------------------------------------------------ |
-| A1-Lista itens com permissão                                  | Especificação OK                                 |
-| A2-Mostra itens com permissão                                 | Especificação OK                                 |
-| A3-Usúario pode ver lista de estoque                          | Especificação OK                                 |
-| A4-Usuário não pode criar estoque                             | Especificação OK								   |
-| A5-Item, quantidade e data são necessários                    | Especificação OK                                 |
-| A6-quantidade não pode númerico                               | Especificação OK                                 |
-| A7-Informações são salvas no banco de dados                   | Especificação OK                                 |
-| Resultado:                                                    | Adicionar estoque OK                             |
+| Descrição                                             | Especificação 								   |
+| ----------------------------------------------------- | ------------------------------------------------ |
+| A1-Ator preenche os dados requeridos                  | A função deve adicionar um item ao estoque do    |
+| A2-Ator seleciona a opção "Adicionar"                 | sistema, com suas informações, como, quantidade, |
+| A3-O sistema salva os dados                           | estado, válidade e nome.                         |
+| A4-O sistema retorna para a pagina "Estoque"          |               								   |
+| A5-Fim do fluxo                                       | A especificação está de acordo com o UserStorie. |
+| Resultado:                                            | Estoque adicionado                               |
 
 ### Teste 01:Alterar estoque
-| Descrição                                                     | Especificação 								   |
-| ------------------------------------------------------------- | ------------------------------------------------ |
-| B1-Altera item com permissão                                  | Especificação OK                                 |
-| B2-Usuário não pode alterar estoque                           | Especificação OK								   |
-| B3-Item, quantidade e data devem validos                      | Especificação OK                                 |
-| B4-quantidade não pode númerico                               | Especificação OK                                 |
-| B5-Informações são salvas no banco de dados                   | Especificação OK                                 |
-| Resultado:                                                    | Alterar estoque OK                               |
+| Descrição                                             | Especificação 								   |
+| ----------------------------------------------------- | ------------------------------------------------ |
+| B1-Ator seleciona o estoque para alteração            | A função deve alterar um item no estoque do      |
+| B2-Ator edita os campos requeridos para alteração     | sistema, de forma válida.                        |
+| B3-O sistema salva os dados alterados                 |                                                  |
+| B4-O sistema retorna para a pagina "Estoque"          |                                                  |
+| B5-Fim do fluxo                                       | A especificação está de acordo com o UserStorie. |
+| Resultado:                                            | Estoque alterado                                 |
 
-### Teste 01:Deletar estoque
-| Descrição                                                     | Especificação 								   |
-| ------------------------------------------------------------- | ------------------------------------------------ |
-| C1-Usuário não pode Deletar estoque                           | Especificação OK								   |
-| C2-Informações são salvas no banco de dados                   | Especificação OK                                 |
-| Resultado:                                                    | Deletar estoque OK                               |
+### Teste 01:Excluir estoque
+| Descrição                                            | Especificação 		     						  |
+| ---------------------------------------------------- | ------------------------------------------------ |
+| C1-Ator executa o fluxo de Listar estoque            | A função deve excluir um item no estoque do      |
+| C2-Ator seleciona a opção "Excluir"                  | sistema.                                         |
+| C3-O sistema retorna a pagina "Estoque"              |                                                  |
+| C5-Fim do fluxo                                      | A especificação está de acordo com o UserStorie. |
+| Resultado:                                           | Cardápio excluido                                |
