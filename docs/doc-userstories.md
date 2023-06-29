@@ -65,9 +65,9 @@
 | **Tempo Gasto (real):** |              |
 | **Tamanho Funcional**   | 7 PF         |
 | **Analista**            | Israel Costa |
-| **Desenvolvedor**       | ---          |
-| **Revisor**             | ---          |
-| **Testador**            | ---          |
+| **Desenvolvedor**       | Isadora Luana|
+| **Revisor**             | Anna Karoline|
+| **Testador**            | Jonatas      |
 
 | Testes de Aceitação (TA) |                                                                                                                                                                                                |
 | ------------------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -98,9 +98,9 @@
 | **Tempo Gasto (real):** |               |
 | **Tamanho Funcional**   | 7 PF          |
 | **Analista**            | Isadora Luana |
-| **Desenvolvedor**       | ---           |
-| **Revisor**             | ---           |
-| **Testador**            | ---           |
+| **Desenvolvedor**       | Jonatas       |
+| **Revisor**             | Israel Costa  |
+| **Testador**            | Anna Karoline |
 
 | Testes de Aceitação (TA) |                                                                                                                                                                                                        |
 | ------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
@@ -135,9 +135,9 @@
 | **Tempo Gasto (real):** |               |
 | **Tamanho Funcional**   | 7 PF          |
 | **Analista**            | Anna Karoline |
-| **Desenvolvedor**       | ---           |
-| **Revisor**             | ---           |
-| **Testador**            | ---           |
+| **Desenvolvedor**       | Israel Costa  |
+| **Revisor**             | Jonatas       |
+| **Testador**            | Isadora Luana |
 
 | Testes de Aceitação (TA) |                                           |
 | ------------------------ | ----------------------------------------- |
