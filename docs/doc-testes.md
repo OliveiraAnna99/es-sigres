@@ -42,7 +42,7 @@
 | A5-Fim do fluxo                                       | A especificação está de acordo com o UserStorie. |
 | Resultado:                                            | Cardápio adicionado                              |
 
-### Teste 01:Alterar cardápio
+### Teste 02:Alterar cardápio
 | Descrição                                             | Especificação 								   |
 | ----------------------------------------------------- | ------------------------------------------------ |
 | B1-Ator seleciona o cardápio para alteração           | A função deve alterar um prato já existente no   |
@@ -52,7 +52,7 @@
 | B5-Fim do fluxo                                       | A especificação está de acordo com o UserStorie. |
 | Resultado:                                            | Cardápio alterado                                |
 
-### Teste 01:Excluir cardápio
+### Teste 03:Excluir cardápio
 | Descrição                                             | Especificação 								   |
 | ----------------------------------------------------- | ------------------------------------------------ |
 | C1-Ator executa o fluxo de Listar cardápio            | A função deve excluir um prato do cardápio do    |
@@ -73,7 +73,7 @@
 | A5-Fim do fluxo                                       | A especificação está de acordo com o UserStorie. |
 | Resultado:                                            | Estoque adicionado                               |
 
-### Teste 01:Alterar estoque
+### Teste 02:Alterar estoque
 | Descrição                                             | Especificação 								   |
 | ----------------------------------------------------- | ------------------------------------------------ |
 | B1-Ator seleciona o estoque para alteração            | A função deve alterar um item no estoque do      |
@@ -83,7 +83,7 @@
 | B5-Fim do fluxo                                       | A especificação está de acordo com o UserStorie. |
 | Resultado:                                            | Estoque alterado                                 |
 
-### Teste 01:Excluir estoque
+### Teste 03:Excluir estoque
 | Descrição                                            | Especificação 		     						  |
 | ---------------------------------------------------- | ------------------------------------------------ |
 | C1-Ator executa o fluxo de Listar estoque            | A função deve excluir um item no estoque do      |
