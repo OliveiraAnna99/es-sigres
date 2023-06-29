@@ -163,8 +163,8 @@
 | **Estimativa**          | 3 h           |
 | **Tempo Gasto (real):** |               |
 | **Tamanho Funcional**   | 3 PF          |
-| **Analista**            | Jônatas       |
-| **Desenvolvedor**       | -Ana Karoline |
+| **Analista**            | Isadora Luana |
+| **Desenvolvedor**       | Anna Karoline |
 | **Revisor**             | Jônatas       |
 | **Testador**            | Israel Costa  |
 
@@ -173,3 +173,31 @@
 | **Código**               | **Descrição**                                                                                                                                                                                      |
 | **TA01.01**              | O usuário informa, na tela de Login, os dados para logar incorretamente, ao clicar em Entrar, ele é notificado com uma mensagem de erro Mensagem: Login ou senha inválidos                         |
 | **TA01.02**              | O usuário informa, na tela de Login, os dados para logar corretamente, ao clicar em Entrar, ele é encaminhado para a tela principal do sistema. É exibida a mensagem: Login realizado com sucesso. |
+
+
+### User Story US06 - Logout
+
+|               |                                                                                         |
+| ------------- | :-------------------------------------------------------------------------------------- |
+| **Descrição** | Ato de sair do sistema. |
+
+| **Requisitos envolvidos** |                  |
+| ------------------------- | :--------------- |
+| RF01                      | Sistema de Logout |
+
+|                         |               |
+| ----------------------- | ------------- |
+| **Prioridade**          | Essencial     |
+| **Estimativa**          | 3 h           |
+| **Tempo Gasto (real):** |               |
+| **Tamanho Funcional**   | 3 PF          |
+| **Analista**            | Israel Costa  |
+| **Desenvolvedor**       | Anna Karoline |
+| **Revisor**             | Jônatas       |
+| **Testador**            | Isadora Luana |
+
+| Testes de Aceitação (TA) |                                                                                                                                                                                                    |
+| ------------------------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **Código**               | **Descrição**                                                                                                                                                                                      |
+| **TA01.01**              | O usuário, já logado clica para voltar, usando a funcionalidade do navegador e o sistema redireciona o usuário para a tela de login ou para uma página de acesso restrito, indicando que o logout foi realizado com sucesso.  |
+| **TA01.02**              | O usuário, já logado clica para em 'Logout' e voltará para a tela de Login. |
