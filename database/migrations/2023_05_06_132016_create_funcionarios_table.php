@@ -22,7 +22,9 @@ class CreateFuncionariosTable extends Migration
             $table->timestamp('dataNascimento')->nullable();
             $table->string('rg', 15);
             $table->string('funcao', 150);
-            $table->foreignUuid('login');
+            $table->string('email');
+            $table->string('senha');
+            $table->boolean('funcionario')->default(0);
             $table->timestamps();
         });
     }

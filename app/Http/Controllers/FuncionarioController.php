@@ -3,9 +3,11 @@
 namespace App\Http\Controllers;
 
 use App\Models\Funcionario;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Validation\Rule;
+use Illuminate\Support\Facades\Hash;
 
 class FuncionarioController extends Controller
 {
@@ -42,30 +44,36 @@ class FuncionarioController extends Controller
      * @return \Illuminate\Routing\Redirector
      */
 
-    public function store(Request $request)
-    {
+     public function store(Request $request)
+     {
+         $request->validate([
+             'nome'             => 'required|max:60',
+             'cpf'              => 'required|min:11|max:14',
+             'endereco'         => 'required|max:200',
+             'contato'          => 'required|max:15',
+             'rg'               => 'required|max:14',
+             'dataNascimento'   => 'required|max:14',
+             'funcao'           => 'required|max:60',
+             'email'            => 'required|max:100',
+             'senha'            => 'required'
+         ]);
      
-        $request->validate([
-            'nome'             => 'required|max:60',
-            'cpf'              => 'required|min:11|max:14',
-            'endereco'         => 'required|max:200',
-            'contato'          => 'required|max:15',
-            'rg'               => 'required|max:14',
-            'dataNascimento'   => 'required|max:14',
-            'funcao'           => 'required|max:60',
-            'login'            => 'required|max:100',
-        ]);
-
-
-
-        $newFuncionario = $request->all();
-        $newFuncionario['creator_id'] = auth()->id();
-
-        $funcionario = Funcionario::create($newFuncionario);
-
-        return redirect()->route('funcionarios.show', $funcionario);
-    }
-
+         $newFuncionario = $request->all();
+         $newFuncionario['creator_id'] = auth()->id();
+     
+         $funcionario = Funcionario::create($newFuncionario);
+     
+         $user = new User;
+         $user->email = $funcionario->email;
+         $user->password = Hash::make($funcionario->senha);
+         $user->name = $funcionario->nome;
+         $user->save();
+     
+         $user->assignRole("Funcionario");
+     
+         return redirect()->route('funcionarios.show', $funcionario);
+     }
+     
     /**
      * Display the specified funcionario.
      *
