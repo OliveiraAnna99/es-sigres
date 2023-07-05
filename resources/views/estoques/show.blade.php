@@ -22,10 +22,7 @@
       </table>
     </div>
     <div class="btnShowStock">
-      @can('estoque.update')
-      <a href="{{ route('estoques.edit', $estoque) }}" id="edit-estoque-{{ $estoque->id }}"
-        class="btn">{{ __('estoque.edit') }}</a>
-      @endcan
+
       @can('estoque.read')
 
       <a href="{{ route('estoques.index') }}" class="btn btnSecondary">{{ __('estoque.back_to_index') }}</a>
