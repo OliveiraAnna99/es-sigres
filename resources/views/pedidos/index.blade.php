@@ -18,6 +18,7 @@
   <div>
     <div>
       <div class="containerTable">
+        @foreach($pedidos as $pedido)
         <table class="table">
           <tr>
             <th>{{ __('pedido.item') }}</th>
@@ -25,24 +26,23 @@
             <th>{{ __('pedido.numero_mesa') }}</th>
           </tr>
           <tr>
-            @foreach($pedidos as $pedido)
             <td>
-        
+
               @foreach($cardapios as $cardapio)
-                  @if($cardapio->id == $pedido->cardapio_id)
-                  {{ $cardapio->nome}}
-                  @endif
+              @if($cardapio->id == $pedido->cardapio_id)
+              {{ $cardapio->nome}}
+              @endif
               @endforeach
             </td>
             <td>
               @if($pedido->status == 1)
-                  Em Andamento
+              Em Andamento
               @elseif($pedido->status == 2)
-                  Concluído
+              Concluído
               @else
-                  Não Encontrado
+              Não Encontrado
               @endif
-          </td>
+            </td>
 
             <td>{{ $pedido->numero_mesa }}</td>
             <td>
