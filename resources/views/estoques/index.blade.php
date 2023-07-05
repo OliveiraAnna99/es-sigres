@@ -39,7 +39,6 @@
                 @endcan
 
                 @can('estoque.delete')
-
                 <form method="POST" action="{{ route('estoques.destroy', $estoque) }}" accept-charset="UTF-8">
                   {{ csrf_field() }} {{ method_field('delete') }}
                   <input name="estoque_id" type="hidden" value="{{ $estoque->id }}">

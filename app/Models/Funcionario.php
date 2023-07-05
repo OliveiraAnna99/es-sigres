@@ -18,6 +18,12 @@ class Funcionario extends Model
         'dataNascimento',
         'rg',
         'funcao',
-        'login'
+        'email',
+        'senha'
     ];
+
+    public function user()
+    {
+        return $this->hasOne(User::class);
+    }
 }
