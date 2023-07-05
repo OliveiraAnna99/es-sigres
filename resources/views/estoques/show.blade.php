@@ -4,7 +4,7 @@
 
 @section('content')
 <div class="cardContainerShow">
-  <div class="cardShow">{{ __('estoque.detail') }}
+  <div class="cardShowStock"> {{ __('estoque.detail') }}
     <div class="containerShowTable">
       <table class="table">
         <tbody>
