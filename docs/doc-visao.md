@@ -55,6 +55,8 @@ problemas causados pelos ruídos de comunicação provocados por falha humana.
 | RF015 - Excluir Pedido            | Os dados de um item anteriormente cadastrado é removido do sistema                                                                                                               | Gerente ou Funcionário |
 | RF016 - Listar Pedidos            | É feito uma listagem de pedidos que estão cadastrados no sistema                                                                                                                 | Gerente ou Funcionário |
 | RF017 - Sistema Login             | O usuário realiza login no sistema de modo que este passa por um processo de validação dos campos e dos dados para assim dar acesso ao sistema                                   | Gerente e Funcionário  |
+| RF018 - Sistema Logout             | O usuário realiza logout no sistema                                   | Gerente e Funcionário  |
+
 
 
 ## Lista de Requisitos Não-Funcionais

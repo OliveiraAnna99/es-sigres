@@ -74,6 +74,12 @@ docker compose up -d
 
 docker exec -it es-sigres-laravel.test-1 bash
 
+php artisan migrate:fresh
+
+php artisan db:seed
+
+php artisan route:cache
+
 php artisan serve
 ```
 

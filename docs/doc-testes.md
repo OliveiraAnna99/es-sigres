@@ -1,90 +1,48 @@
 # Relatório de Testes de Módulo/Sistema
 
-## US001-Manter Funcionário
-### Teste 01:Adicionar funcionário
-| Descrição                                             | Especificação 								   |
-| ----------------------------------------------------- | ------------------------------------------------ |
-| A1-Lista funcionários com permissão                   | Especificação OK                                 |
-| A2-Lista funcionários com permissão                   | Especificação OK                                 |
-| A3-Usuário pode ver lista de funcionários             | Especificação OK                                 |
-| A4-Usúario não pode adicionar funcionário             | Especificação OK								   |
-| A5-Nome e CPF são necessários                         | Especificação OK                                 |
-| A6-Nome e CPF devem ser validos                       | Especificação OK                                 |
-| A7-Informações são salvas no banco de dados           | Especificação OK                                 |
-| Resultado:                                            | Adicionar funcionário OK                         |
+Documento construido a partir do modelo **Modelo BSI - Doc 008 - Relatório de Testes de Módulo/Sistema**.
+Link para o documento modelo: https://docs.google.com/document/d/11hLKf0FcspQrDRfo3gRMXzuY1028cUeniv_Aob8DX_0/edit?usp=sharing
 
-### Teste 02:Alterar funcionário
-| Descrição                                             | Especificação 						           |
-| ----------------------------------------------------- | ------------------------------------------------ |
-| B1-Usúario não pode alterar funcionário               | Especificação OK                                 |
-| B2-Novos dados devem ser validos                      | Especificação OK                                 |
-| B3-Alterações são salvas no banco de dados            | Especificação OK                                 |
-| Resultado:                                            | Alterar funcionário OK                           |
+### Legenda
+| Nome       | Descrição     |
+| ---------- | ------------- |
+| Teste      | Código do Teste. |
+| Descrição  | Descrição dos passos do teste executado. |
+| Especificação | Informações sobre a função testada, estando ela de acordo ou não com a especificação do caso de uso. |
+| Resultado  |  Resultado do teste, modificações sugeridas ou erros. No caso de erro na execução do teste, descreve-se o erro em detalhes. |
 
-### Teste 03:Excluir funcionário
-| Descrição                                             | Especificação 							   	   |
-| ----------------------------------------------------- | ------------------------------------------------ |
-| C1-Usúario não pode deletar funcionário               | Especificação OK                                 |
-| C2-Alterações salvas no banco de dados                | Especificação OK                                 |
-| Resultado:                                            | Deletar funcionário OK                           |
+## US001-Manter Funcionários
 
+| Teste          | Descrição                                                                                  | Especificação 					| Resultado          |
+| -------------- | ------------------------------------------------------------------------------------------ | ----------------------- | ------------------ |
+| Teste 01:Adicionar funcionário. | A1-Adicionar Funcionário.<br> A1.1-O ator Preenche os dados nescessários.<br> A1.2-O ator clica no botão "Cadastrar Funcionário".<br> A1.3-O sistema salva os dados.<br> A1.4-O sistema retorna para a página de "Funcionários".<br> A1.5-Fim do fluxo. | Especificação OK. | Ao cadastrar um funcionário é nescessário informar um CPF válido, caso contrário o cadastro não ocorre e a menssagem "CPF inválido" aparece. |
+| Teste 02:Editar funcionário. | A2-Editar funcionário.<br> A2.1-O ator executa o fluxo "Listar funcionários".<br> A2.2-O ator clica no botão "Editar Funcionário".<br> A2.3-O sistema redireciona o ator para a página "Editar Funcionário".<br> A2.4-O ator preenche os dados a serem editados.<br> A2.5-O ator clica no botão "Atualizar Funcionário".<br> A2.6-O sistema salva os dados.<br> A2.7-O sistema retorna para a página "Funcionários".<br> A2.8-Fim do fluxo. | Especificação OK. | OK |
+| Teste 03:Excluir funcionário. | A3-Excluir funcionário.<br> A3.1-O ator executa o fluxo "Listar funcionários".<br> A3.2-O ator clica no botão "Excluir funcionário".<br> A3.3-O sistema exclui os dados do funcionário.<br> A3.4-Fim do fluxo. | Especificação Ok | OK |
+| Teste 04:Listar funcionários. | A4-Listar funcionário.<br> A4.1-O ator clica no botão "Funcionários".<br> A4.2-O sistema direciona o ator para a página de "Funcionários"<br> A4.3-O sistema consulta os dados de funcionários cadastrados.<br> A4.4-O sistema lista funcionários na página.<br> A4.5-Fim do fluxo. | Especificação OK | OK |
 
-## US002-Manter Cardápio
-### Teste 01:Adicionar cardápio
-| Descrição                                                     | Especificação 								   |
-| ------------------------------------------------------------- | ------------------------------------------------ |
-| A1-Lista itens com permissão                                  | Especificação OK                                 |
-| A2-Mostra itens com permissão                                 | Especificação OK                                 |
-| A3-Usúario pode ver cardápio                                  | Especificação OK                                 |
-| A4-Usúario não pode adicionar itens                           | Especificação OK								   |
-| A5-Nome, ingredientes, valor, imagem e status são necessários | Especificação OK                                 |
-| A6-Nome deve cónter menos de 60 caracteres                    | Especificação OK                                 |
-| A7-Informações são salvas no banco de dados                   | Especificação OK                                 |
-| Resultado:                                                    | Adicionar cardápio Ok                            |
+## US002-Manter Estoques
 
-### Teste 01:Alterar cardápio
-| Descrição                                                     | Especificação 								   |
-| ------------------------------------------------------------- | ------------------------------------------------ |
-| B1-usúario não pode alterar cardápio                          | Especificação OK								   |
-| B2-Nome, ingredientes, valor e status devem ser atualizados   | Especificação OK                                 |
-| B3-Nome deve cónter menos de 60 caracteres                    | Especificação OK                                 |
-| B4-Alterações são salvas no banco de dados                    | Especificação OK                                 |
-| Resultado:                                                    | Alterar cardápio OK                              |
+| Teste          | Descrição                                                                                  | Especificação 					| Resultado          |
+| -------------- | ------------------------------------------------------------------------------------------ | ----------------------- | ------------------ |
+| Teste 01:Adicionar estoque. | A1-Adicionar estoque.<br> A1.1-O ator Preenche os dados nescessários.<br> A1.2-O ator clica no botão "Cadastrar Estoques".<br> A1.3-O sistema salva os dados.<br> A1.4-O sistema redireciona o ator para a página do item adicionado.<br> A1.6-Fim do fluxo. | O campo "Quantidade" deve ser preenchido com um número inteiro maior que 0, caso contrário, dará um erro e mansagem "O valor deve ser maior ou igual a 1." ou "Insirá um valor válido." aparecerá na tela.<br> A data deve ser válida, caso contrário, dará um erro na página. (mensagem pro erro deve ser adicionada) | OK |
+| Teste 02:Editar estoque. | A2-Editar estoque.<br> A2.1-O ator executa o fluxo "Listar estoques".<br> A2.2-O ator clica no botão "Editar" ou "Editar Estoque" na página do item recém cadastrado.<br> A2.3-O sistema redireciona o ator para a página "Editar estoque".<br> A2.4-O ator preenche os dados a serem editados.<br> A2.5-O ator clica no botão "Atualizar Item".<br> A2.6-O sistema salva os dados.<br> A2.7-O sistema retorna para a página "Estoques".<br> A2.8-Fim do fluxo. | Esta especificação condiz com a do "Teste 01". | OK |
+| Teste 03:Excluir estoque. | A3-Excluir estoque.<br> A3.1-O ator executa o fluxo "Listar estoques".<br> A3.2-O ator clica no botão com o ícone de "Lixeira".<br> A3.3-O sistema exclui os dados do "Item" em "Estoques".<br> A3.4-O sistema retorna para a página "Estoqueos".<br> A3.5-Fim do fluxo. | Especificação OK | OK |
+| Teste 04:Listar estoques. | A4-Listar estoques.<br> A4.1-O ator clica no botão "Estoques".<br> A4.2-O sistema direciona o ator para a página de "Estoques"<br> A4.3-O sistema consulta os dados de estoques cadastrados.<br> A4.4-O sistema lista estoques na página.<br> A4.5-Fim do fluxo. | Especificação OK | OK |
 
-### Teste 01:Deletar cardápio
-| Descrição                                                     | Especificação 								   |
-| ------------------------------------------------------------- | ------------------------------------------------ |
-| C1-Usúario não pode deletar cardápio                          | Especificação OK								   |
-| C2-Alterações são salvas no banco de dados                    | Especificação OK                                 |
-| Resultado:                                                    | Deletar cardápio OK                              |
+## US003-Manter Cardápios
 
+| Teste          | Descrição                                                                                  | Especificação 					| Resultado          |
+| -------------- | ------------------------------------------------------------------------------------------ | ----------------------- | ------------------ |
+| Teste 01:Adicionar cardápio. | A1-Adicionar cardápio.<br> A1.1-O ator Preenche os dados nescessários.<br> A1.2-O ator clica no botão "Cadastrar Cardápio".<br> A1.3-O sistema salva os dados.<br> A1.4-O sistema retorna para a página de "Cardápios".<br> A1.5-Fim do fluxo. | Especificação OK | OK |
+| Teste 02:Editar cardápio. | A2-Editar cardápio.<br> A2.1-O ator executa o fluxo "Listar cardápios".<br> A2.2-O ator clica no botão "Editar Cardápio".<br> A2.3-O sistema redireciona o ator para a página "Editar Cardápio".<br> A2.4-O ator preenche os dados a serem editados.<br> A2.5-O ator clica no botão "Atualizar Cardápio".<br> A2.6-O sistema salva os dados.<br> A2.7-O sistema retorna para a página "Cardápios".<br> A2.8-Fim do fluxo. | O "Preço" deve ter "," e não "." em sua formatação, caso o contrário dará erro e exibirá a mensagem "The valor format is invalid.".<br> Ao editar, a formatação do "Preço" irá mudar automaticamente de "," para "." devido a um erro. | OK |
+| Teste 03:Excluir Cardápio. | A3-Excluir cardápio.<br> A3.1-O ator executa o fluxo "Listar cardápios".<br> A3.2-O ator clica no botão "Excluir cardápio".<br> A3.3-O sistema exclui os dados do cardápio.<br> A3.4-O sistema retorna para a página "Cardápio".<br> A3.5-Fim do fluxo. | Especificação OK | OK |
+| Teste 04:Listar cardápios. | A4-Listar cardápios.<br> A4.1-O ator clica no botão "Cardápios".<br> A4.2-O sistema direciona o ator para a página de "Cardápios"<br> A4.3-O sistema consulta os dados de cardápios cadastrados.<br> A4.4-O sistema lista cardápios na página.<br> A4.5-Fim do fluxo. | Especificação OK | OK |
 
-## US003-Manter Estoque
-### Teste 01:Adicionar estoque
-| Descrição                                                     | Especificação 								   |
-| ------------------------------------------------------------- | ------------------------------------------------ |
-| A1-Lista itens com permissão                                  | Especificação OK                                 |
-| A2-Mostra itens com permissão                                 | Especificação OK                                 |
-| A3-Usúario pode ver lista de estoque                          | Especificação OK                                 |
-| A4-Usuário não pode criar estoque                             | Especificação OK								   |
-| A5-Item, quantidade e data são necessários                    | Especificação OK                                 |
-| A6-quantidade não pode númerico                               | Especificação OK                                 |
-| A7-Informações são salvas no banco de dados                   | Especificação OK                                 |
-| Resultado:                                                    | Adicionar estoque OK                             |
+## US004-Manter Pedidos
 
-### Teste 01:Alterar estoque
-| Descrição                                                     | Especificação 								   |
-| ------------------------------------------------------------- | ------------------------------------------------ |
-| B1-Altera item com permissão                                  | Especificação OK                                 |
-| B2-Usuário não pode alterar estoque                           | Especificação OK								   |
-| B3-Item, quantidade e data devem validos                      | Especificação OK                                 |
-| B4-quantidade não pode númerico                               | Especificação OK                                 |
-| B5-Informações são salvas no banco de dados                   | Especificação OK                                 |
-| Resultado:                                                    | Alterar estoque OK                               |
-
-### Teste 01:Deletar estoque
-| Descrição                                                     | Especificação 								   |
-| ------------------------------------------------------------- | ------------------------------------------------ |
-| C1-Usuário não pode Deletar estoque                           | Especificação OK								   |
-| C2-Informações são salvas no banco de dados                   | Especificação OK                                 |
-| Resultado:                                                    | Deletar estoque OK                               |
+| Teste          | Descrição                                                                                  | Especificação 					| Resultado          |
+| -------------- | ------------------------------------------------------------------------------------------ | ----------------------- | ------------------ |
+| Teste 01:Adicionar pedido. | A1-Adicionar pedido.<br> A1.1-O ator Preenche os dados nescessários.<br> A1.2-O ator clica no botão "Realizar Pedido".<br> A1.3-O sistema salva os dados.<br> A1.4-O sistema retorna para a página do pedido cadastrado.<br> A1.5-Fim do fluxo. | Especificação OK | OK |
+| Teste 02:Editar pedido. | A2-Editar cardápio.<br> A2.1-O ator executa o fluxo "Listar pedidos".<br> A2.2-O ator clica no botão "Editar" ou "Editar Pedidos" na página do pedido recém cadastrado.<br> A2.3-O sistema redireciona o ator para a página "Editar Pedidos".<br> A2.4-O ator preenche os dados a serem editados.<br> A2.5-O ator clica no botão "Cadastrar Pedido".<br> A2.6-O sistema salva os dados.<br> A2.7-O sistema retorna para a página "Pedidos".<br> A2.8-Fim do fluxo. | Especificação OK | OK |
+| Teste 03:Excluir pedido. | A3-Excluir pedido.<br> A3.1-O ator executa o fluxo "Listar pedidos".<br> A3.2-O ator clica no botão "Excluir cardápio".<br> A3.3-O sistema exclui os dados do pedido.<br> A3.4-O sistema retorna para a página "Pedidos".<br> A3.5-Fim do fluxo. | Especificação OK | OK |
+| Teste 04:Listar pedidos. | A4.1-O ator clica no botão "Pedidos".<br> A4.2-O sistema direciona o ator para a página de "Pedidos"<br> A4.3-O sistema consulta os dados de pedidos cadastrados.<br> A4.4-O sistema lista pedidos na página.<br> A4.5-Fim do fluxo. | Especificação OK | OK |

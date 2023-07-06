@@ -17,6 +17,7 @@
   <div>
     <div>
       <div class="containerTable">
+        @foreach($estoques as $key => $estoque)
         <table class="table">
           <tr>
             <th>{{ __('estoque.item') }}</th>
@@ -24,7 +25,6 @@
             <th>{{ __('estoque.date') }}</th>
           </tr>
           <tr>
-            @foreach($estoques as $key => $estoque)
             <td>{{ $estoque->item }}</td>
             <td>{{ $estoque->quant }}</td>
             <td>{{ $estoque->date }}</td>
