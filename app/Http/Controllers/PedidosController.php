@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\PedidoRequest;
 use App\Models\Pedidos;
 use App\Models\Cardapio;
 use Illuminate\Http\Request;
@@ -39,25 +40,25 @@ class PedidosController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Routing\Redirector
      */
-    public function store(Request $request)
+    public function store(PedidoRequest $request)
     {
-        //$this->authorize('create', new Pedidos);
-        
-        $pedidosData = $request->validate([
-            'numero_mesa' => 'required',
-            'status' => 'required',
-            'cardapio_id' => 'required',
-            'obs' => 'required|max:500',
-        ]);
-    
-        $newPedidos = $pedidosData; // Atribui os valores validados a $newPedidos
-    
    
-        $pedido = Pedidos::create($newPedidos);
+        $cardapioIds = $request->input('cardapio_id');
+        foreach ($cardapioIds as $cardapioId) {
+
+            $pedido = new Pedidos();
+            $pedido->numero_mesa = $request->input('numero_mesa');
+            $pedido->cardapio_id = intval($cardapioId);
+            $pedido->status = $request->input('status');
+            $pedido->obs = $request->input('obs');
+            $pedido->save();
+        }
+
+    
         return redirect()->route('pedidos.show', $pedido);
     }
     
-
+    
     /**
      * Display the specified pedidos.
      *
@@ -91,18 +92,16 @@ class PedidosController extends Controller
      * @param  \App\Models\Pedidos  $pedidos
      * @return \Illuminate\Routing\Redirector
      */
-    public function update(Request $request, Pedidos $pedido)
+    public function update(PedidoRequest $request,  $id)
     {
-        //$this->authorize('update', $pedidos);
+            $cardapioIds = $request->input('cardapio_id');
+            $pedido = Pedidos::findOrFail($id);
+            $pedido->numero_mesa = $request->input('numero_mesa');
+            $pedido->cardapio_id = intval(implode(',', $cardapioIds));
+            $pedido->status = $request->input('status');
+            $pedido->obs = $request->input('obs');
 
-        $pedidosData = $request->validate([
-            'numero_mesa' => 'required',
-            'status' => 'required',
-            'cardapio_id' => 'required',
-            'obs' => 'required|max:500',
-
-        ]);
-        $pedido->update($pedidosData);
+            $pedido->save();
 
         return redirect()->route('pedidos.show', $pedido);
     }
