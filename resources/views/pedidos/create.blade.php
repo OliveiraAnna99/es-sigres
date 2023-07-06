@@ -11,17 +11,17 @@
 
 
       <div class="cardBody">
-        <div class="formGroup">
-          <label for="cardapio_id">{{ __('pedido.cardapio_id') }} <span>*</span></label>
-          <select id="cardapio_id" class="form-control{{ $errors->has('cardapio_id') ? ' is-invalid' : '' }}"
-            name="cardapio_id" required>
-            <option value="">Selecione um cardápio</option>
-            @foreach($cardapios as $cardapio)
-            <option value="{{$cardapio->id}}">{{$cardapio->nome}}</option>
-            @endforeach
-          </select>
-          {!! $errors->first('cardapio_id', '<span class="invalid-feedback" role="alert">:message</span>') !!}
+      <div class="formGroup">
+        <label for="cardapio_id">{{ __('pedido.cardapio_id') }} <span>*</span></label>
+        @foreach($cardapios as $cardapio)
+        <div>
+          <input type="checkbox" id="cardapio_{{$cardapio->id}}" class="{{ $errors->has('cardapio_id') ? ' is-invalid' : '' }}"
+            name="cardapio_id[]" value="{{intval($cardapio->id)}}" {{ old('cardapio_id') && in_array($cardapio->id, old('cardapio_id')) ? 'checked' : '' }} required>
+          <label for="cardapio_{{$cardapio->id}}">{{$cardapio->nome}}</label>
         </div>
+        @endforeach
+        {!! $errors->first('cardapio_id', '<span class="invalid-feedback" role="alert">:message</span>') !!}
+      </div>
 
 
         <div class="formGroup">
