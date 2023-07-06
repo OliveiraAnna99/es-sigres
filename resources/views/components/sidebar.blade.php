@@ -1,12 +1,10 @@
 <div class="sidebarContainer">
-    <div class="profileSection">
-        <p>SigRestaurant</p>
-    </div>
+    <p class="logo-sidebar"><span>Sig</span>Restaurant</p>
 
     <nav class="selectContainer">
         @can('pedido.all')
-        <a class="navContainer"  href="{{ route('pedidos.index') }}">
-            <x-bi-cart-fill class="icon"  />
+        <a class="navContainer" href="{{ route('pedidos.index') }}">
+            <x-bi-cart-fill class="icon" />
             <p>Pedidos</p>
         </a>
         @endcan
@@ -32,7 +30,7 @@
             <p>Cardápios</p>
         </a>
         @endcan
-        <a class="navContainer" href="{{ route('logout') }}"  onclick="event.preventDefault();
+        <a class="navContainer" href="{{ route('logout') }}" onclick="event.preventDefault();
                 document.getElementById('logout-form').submit();">
             <x-bi-door-closed-fill class="icon" />
             <p>Sair</p>
