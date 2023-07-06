@@ -242,11 +242,12 @@ input {
     border-radius: 0.5rem;
     font-size: 18px;
     width: 100%;
+    border-collapse: collapse;
 }
 
 th,
 td {
-    border-bottom: 1px solid #ddd;
+    border: 1px solid #ddd;
     padding: 1rem;
     text-align: center;
 }
@@ -266,7 +267,24 @@ button {
     display: flex;
     flex-direction: row;
     justify-content: center;
-    gap: 2rem;
+    align-items: center;
+    gap: 10px;
+}
+
+.btn-edit {
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 8px;
+    transition: opacity 0.4s;
+    cursor: pointer;
+
+    height: 40px;
+}
+
+.btn-edit:hover {
+    opacity: 0.8;
 }
 
 .trash {
