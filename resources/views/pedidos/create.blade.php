@@ -34,6 +34,19 @@
           </div>
         </div>
 
+        <div class="formGroup">
+          <div>
+            <label for="forma_pagamento">Forma de Pagamento<span>*</span></label>
+            <select id="forma_pagamento" class="form-control{{ $errors->has('forma_pagamento') ? ' is-invalid' : '' }}" name="forma_pagamento" required>
+            
+            @foreach($fps as $fp)
+                <option value="{{$fp->id}}">{{$fp->nome}}</option>
+             
+             @endforeach
+            </select>
+            {!! $errors->first('forma_pagamento', '<span class="invalid-feedback" role="alert">:message</span>') !!}
+          </div>
+        </div>
 
         <div class="formGroup ">
           <div>
