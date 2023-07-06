@@ -17,7 +17,7 @@
   <div class="card">
     @foreach($cardapios as $key => $cardapio)
     <div class="funcSection">
-      <p class="funcName">{{$cardapio->nome}}</´>
+      <p class="funcName">{{$cardapio->nome}}</p>
       <a href="{{ route('cardapios.show', $cardapio) }}" class="btn btnPrimary btnShow">
         <p>ver</p>
       </a>
