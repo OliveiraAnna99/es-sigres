@@ -11,6 +11,10 @@ body {
     background-color: #ede5ed;
 }
 
+textarea {
+    padding: 8px;
+}
+
 a {
     text-decoration: none;
     color: inherit;
