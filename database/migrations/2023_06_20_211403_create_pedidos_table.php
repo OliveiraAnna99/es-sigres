@@ -17,6 +17,7 @@ class CreatePedidosTable extends Migration
             $table->id();
             $table->integer('numero_mesa');
             $table->integer('status');
+            $table->string('obs');
             $table->unsignedBigInteger('cardapio_id');
             $table->timestamps();
 

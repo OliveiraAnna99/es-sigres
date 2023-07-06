@@ -13,7 +13,9 @@ class Pedidos extends Model
     protected $fillable = [
         'numero_mesa',
         'status',
+        'obs',
         'cardapio_id',
+        
        
         
     ];

@@ -47,6 +47,7 @@ class PedidosController extends Controller
             'numero_mesa' => 'required',
             'status' => 'required',
             'cardapio_id' => 'required',
+            'obs' => 'required|max:500',
         ]);
     
         $newPedidos = $pedidosData; // Atribui os valores validados a $newPedidos
@@ -98,6 +99,8 @@ class PedidosController extends Controller
             'numero_mesa' => 'required',
             'status' => 'required',
             'cardapio_id' => 'required',
+            'obs' => 'required|max:500',
+
         ]);
         $pedido->update($pedidosData);
 

@@ -21,18 +21,7 @@
                     {!! $errors->first('valor', '<span class="invalid-feedback" role="alert">:message</span>') !!}
                 </div>
 
-                <div class="formGroup">
-                    <label for="status">{{ __('cardapio.status') }} <span>*</span></label>
-                    <select name="status" class="form-select form-select-lg mb-3" aria-label=".form-select-lg example">
-                        <option selected>Selecione o status</option>
-                        <option value="pendente">Pendente</option>
-                        <option value="pronto">Pronto</option>
-                    </select>
-                    @error('status')
-                        <span class="invalid-feedback" role="alert">{{ $message }}</span>
-                    @enderror
-                </div>
-
+               
 
            
                 <div class="formGroup">
