@@ -37,8 +37,12 @@
                     <p>{{ $funcionario->funcao }}</p>
                 </div>
                 <div>
-                    <p class="funcTitle">{{ __('funcionario.login') }}</p>
-                    <p>{{ $funcionario->login }}</p>
+                    <p class="funcTitle">Email:</p>
+                    <p>{{ $funcionario->email }}</p>
+                </div>
+                <div>
+                    <p class="funcTitle">Senha: </p>
+                    <p>{{ $funcionario->senha }}</p>
                 </div>
             </div>
             <div class="cardFooter">

@@ -10,6 +10,6 @@ class LoginController extends Controller
     $this->middleware('auth');
     }
     public function logar(){
-        return view('auth.login');
+        return redirect()->route('login');
     }
 }

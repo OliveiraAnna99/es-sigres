@@ -48,9 +48,15 @@
                 </div>
 
                 <div class="formGroup">
-                    <label for="login">{{ __('funcionario.login') }} <span>*</span></label>
-                    <input id="login" type="text" class="form-control{{ $errors->has('login') ? ' is-invalid' : '' }} " name="login" value="{{ old('login') }}" required>
-                    {!! $errors->first('login', '<span class="invalid-feedback" role="alert">:message</span>') !!}
+                    <label for="email">Email<span>*</span></label>
+                    <input id="email" type="email" class="form-control{{ $errors->has('email') ? ' is-invalid' : '' }} " name="email" value="{{ old('email') }}" required>
+                    {!! $errors->first('email', '<span class="invalid-feedback" role="alert">:message</span>') !!}
+                </div>
+                
+                <div class="formGroup">
+                    <label for="senha">Senha para login <span>*</span></label>
+                    <input id="senha" type="password" class="form-control{{ $errors->has('senha') ? ' is-invalid' : '' }} " name="senha" value="{{ old('senha') }}" required>
+                    {!! $errors->first('senha', '<span class="invalid-feedback" role="alert">:message</span>') !!}
                 </div>
             </div>
             <div class="cardFooter">
