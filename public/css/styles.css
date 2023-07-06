@@ -93,6 +93,7 @@ button {
 }
 
 form {
+    max-width: 90%;
     height: 90%;
     display: flex;
     flex-direction: column;
@@ -121,26 +122,34 @@ input {
     background-color: #22252f;
 }
 
-.profileSection {
+.logo-sidebar {
     display: flex;
     align-items: center;
-    gap: 16px;
-    height: 110px;
+    height: 90px;
     color: #fff;
-    padding-left: 20px;
+    padding: 20px;
     font-size: 24px;
+}
+
+.logo-sidebar span {
+    font-size: 24px;
+    color: #ff3c3c;
 }
 
 .navContainer {
     height: 60px;
     color: #fff;
-    background: red;
     font-size: 16px;
     display: flex;
     align-items: center;
     justify-content: flex-start;
     gap: 16px;
     border-radius: 0;
+    transition: background 0.3s;
+}
+
+.navContainer:hover {
+    background: #ff3c3c;
 }
 
 .section {
