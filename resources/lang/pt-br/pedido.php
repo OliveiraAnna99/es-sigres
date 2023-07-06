@@ -35,5 +35,5 @@ return [
     'status'         => 'Status',
     'numero_mesa'    => 'Nº da Mesa',
     'cardapio_id'    => 'Item',
-
+    'obs'            => 'Observação'
 ];

@@ -45,6 +45,15 @@
       </div>
     </div>
 
+    <div class="formGroup ">
+      <div>
+        <label for="obs">{{ __('pedido.obs') }} <span>*</span></label>
+        <input id="obs" type="text" rows="4" cols="50" class="form-control{{ $errors->has('obs') ? ' is-invalid' : '' }}"
+          name="obs" value="{{ old('obs') }}" required>
+        {!! $errors->first('obs', '<span class="invalid-feedback" role="alert">:message</span>') !!}
+      </div>
+    </div>
+
     <div class="cardFooter">
       <input type="submit" value="{{ __('pedido.create') }}" class="btn btnSecondary addStock">
       <a href="{{ route('pedidos.index') }}" class="btn btnPrimary">{{ __('pedido.cancel') }}</a>

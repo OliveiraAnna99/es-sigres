@@ -16,10 +16,7 @@
                 <p class="funcTitle">{{ __('cardapio.ingredientes') }}</p>
                 <p>{{ $cardapio->ingredientes }}</p>
             </div>
-            <div>
-                <p class="funcTitle">{{ __('cardapio.status') }}</p>
-                <p>{{ $cardapio->status }}</p>
-            </div>
+           
             <div>
                 <p class="funcTitle">{{ __('cardapio.valor') }}</p>
                 <p>{{ $cardapio->valor }}</p>

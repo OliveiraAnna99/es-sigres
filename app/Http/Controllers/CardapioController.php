@@ -31,7 +31,6 @@ class CardapioController extends Controller
             'nome'         => 'required|max:60',
             'valor'        => 'required|regex:/\d{1,6}(\,\d{0,2})/',
             'ingredientes' => 'required|max:500',
-            'status'       => 'required|in:pendente,pronto',
         ]);
         
         $newCardapio['valor'] = str_replace(',', '.', $newCardapio['valor']);
@@ -60,7 +59,6 @@ class CardapioController extends Controller
             'nome'         => 'required|max:60',
             'valor'        => 'required|regex:/\d{1,6}(\,\d{0,2})/',
             'ingredientes' => 'required|max:500',
-            'status'       => 'required|in:pendente,pronto',
         ]);
 
         $cardapioData['valor'] = str_replace(',', '.', $cardapioData['valor']);

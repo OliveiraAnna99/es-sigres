@@ -14,7 +14,6 @@ class CreateCardapiosTable extends Migration
             $table->string('nome', 60);
             $table->string('ingredientes', 500);
             $table->double('valor');
-            $table->string('status')->default('pendente');
             $table->timestamps();
         });
     }

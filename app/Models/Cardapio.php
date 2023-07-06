@@ -10,7 +10,7 @@ class Cardapio extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['nome', 'imagem', 'status', 'ingredientes', 'valor'];
+    protected $fillable = ['nome', 'imagem',  'ingredientes', 'valor'];
 
     public function getNameLinkAttribute()
     {
