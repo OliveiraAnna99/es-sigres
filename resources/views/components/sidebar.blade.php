@@ -3,19 +3,19 @@
 
     <nav class="selectContainer">
         @can('pedido.all')
-        <a class="navContainer" href="{{ route('pedidos.index') }}">
+        <a class="navContainer {{request()->routeIs('pedidos*') ? 'active' : ''}}" href="{{ route('pedidos.index') }}">
             <x-bi-cart-fill class="icon" />
             <p>Pedidos</p>
         </a>
         @endcan
         @can('funcionario.all')
-        <a class="navContainer" href="{{ route('funcionarios.index') }}">
+        <a class="navContainer {{request()->routeIs('funcionarios*') ? 'active' : ''}}" href="{{ route('funcionarios.index') }}">
             <x-bi-person-fill class="icon" />
             <p>Funcionários</p>
         </a>
         @endcan
         @can('estoque.all')
-        <a class="navContainer" href="{{ route('estoques.index') }}">
+        <a class="navContainer {{request()->routeIs('estoques*') ? 'active' : ''}}" href="{{ route('estoques.index') }}">
             <!-- <x-bi-bag-fill class="icon" /> -->
             <!-- <x-bi-box-fill class="icon" /> -->
             <x-bi-boxes class="icon" />
@@ -23,7 +23,7 @@
         </a>
         @endcan
         @can('cardapio.all')
-        <a class="navContainer" href="{{ route('cardapios.index') }}">
+        <a class="navContainer {{request()->routeIs('cardapios*') ? 'active' : ''}}" href="{{ route('cardapios.index') }}">
             <!-- <x-bi-bag-fill class="icon" /> -->
             <!-- <x-bi-box-fill class="icon" /> -->
             <x-bi-book-fill class="icon" />

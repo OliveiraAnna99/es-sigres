@@ -16,6 +16,10 @@ a {
     color: inherit;
 }
 
+.active {
+    background-color: #ff3c3c;
+}
+
 button {
     border: none;
     font-size: 16px;
