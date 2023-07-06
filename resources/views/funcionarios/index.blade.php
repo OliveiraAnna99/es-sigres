@@ -16,10 +16,10 @@
   <div class="card">
     @foreach($funcionarios as $key => $funcionario)
     <div class="funcSection">
-      <p class="funcName">{{$funcionario->nome}}</´>
+      <p class="funcName">#{{$funcionario->id}} - {{$funcionario->nome}}</´>
       <p class="subTitle">{{$funcionario->funcao}}</p>
       <a href="{{ route('funcionarios.show', $funcionario) }}" class="btn btnPrimary btnShow">
-        <p>ver</p>
+        <p>Ver</p>
       </a>
     </div>
     @endforeach

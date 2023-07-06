@@ -9,7 +9,7 @@
     @can('estoque.create')
     <a href="{{ route('estoques.create') }}" class="btn btnPrimary btnAdd">
       <x-bi-plus-circle class="icon" />
-      <p>Adicionar produto</p>
+      <p>Adicionar item</p>
     </a>
     @endcan
   </div>
@@ -17,13 +17,14 @@
   <div>
     <div>
       <div class="containerTable">
-        @foreach($estoques as $key => $estoque)
         <table class="table">
           <tr>
-            <th>{{ __('estoque.item') }}</th>
-            <th>{{ __('estoque.quant') }}</th>
-            <th>{{ __('estoque.date') }}</th>
+            <th>Item</th>
+            <th>Quantidade</th>
+            <th>Data de Validade</th>
           </tr>
+
+          @foreach($estoques as $key => $estoque)
           <tr>
             <td>{{ $estoque->item }}</td>
             <td>{{ $estoque->quant }}</td>
@@ -31,11 +32,11 @@
             <td>
               <div class="buttons">
                 @can('estoque.update')
-                <button class="btnSecondary">
-                  <a href="{{ route('estoques.edit', $estoque) }}">
-                    Editar
-                  </a>
-                </button>
+                <a href="{{ route('estoques.edit', $estoque) }}">
+                  <button class="btnSecondary">
+                    <x-bi-pen></x-bi-pen>
+                  </button>
+                </a>
                 @endcan
 
                 @can('estoque.delete')
@@ -43,7 +44,7 @@
                   {{ csrf_field() }} {{ method_field('delete') }}
                   <input name="estoque_id" type="hidden" value="{{ $estoque->id }}">
                   <button type="submit" class="btnPrimary trash">
-                    <x-bi-trash class="trash" />
+                    <x-bi-trash />
                   </button>
                 </form>
                 @endcan
