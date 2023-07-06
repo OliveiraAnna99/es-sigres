@@ -43,13 +43,15 @@
                   </button>
                 </a>
 
+                @can('cardapio.delete')
                 <form method="POST" action="{{ route('cardapios.destroy', $cardapio) }}" accept-charset="UTF-8">
                   {{ csrf_field() }} {{ method_field('delete') }}
-                  <input name="estoque_id" type="hidden" value="{{ $cardapio->id }}">
+                  <input name="cardapio_id" type="hidden" value="{{ $cardapio->id }}">
                   <button type="submit" class="btnPrimary trash">
                     <x-bi-trash />
                   </button>
                 </form>
+                @endcan
 
               </div>
             </td>

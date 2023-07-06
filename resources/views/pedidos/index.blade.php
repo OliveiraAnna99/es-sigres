@@ -40,24 +40,25 @@
 
                         <td>
                             <div class="buttons">
+                                <a href="{{ route('pedidos.show', $pedido) }}">
+                                    <button class="btnSecondary">
+                                        Ver
+                                    </button>
+                                </a>
                                 @can('pedido.update')
-                                <button class="btnSecondary">
-                                    <a href="{{ route('pedidos.show', $pedido) }}">Ver</a>
-                                </button>
-                                <button class="btnSecondary">
-                                    <a href="{{ route('pedidos.edit', $pedido) }}">
-                                        Editar
-                                    </a>
-                                </button>
+                                <a href="{{ route('pedidos.edit', $pedido) }}">
+                                    <button class="btnSecondary">
+                                        <x-bi-pen></x-bi-pen>
+                                    </button>
+                                </a>
                                 @endcan
 
                                 @can('pedido.delete')
-
                                 <form method="POST" action="{{ route('pedidos.destroy', $pedido) }}" accept-charset="UTF-8">
                                     {{ csrf_field() }} {{ method_field('delete') }}
                                     <input name="pedido_id" type="hidden" value="{{ $pedido->id }}">
                                     <button type="submit" class="btnPrimary trash">
-                                        <x-bi-trash class="trash" />
+                                        <x-bi-trash />
                                     </button>
                                 </form>
                                 @endcan

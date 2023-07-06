@@ -19,7 +19,7 @@
             <!-- <x-bi-bag-fill class="icon" /> -->
             <!-- <x-bi-box-fill class="icon" /> -->
             <x-bi-boxes class="icon" />
-            <p>Estoques</p>
+            <p>Estoque</p>
         </a>
         @endcan
         @can('cardapio.all')
@@ -27,7 +27,7 @@
             <!-- <x-bi-bag-fill class="icon" /> -->
             <!-- <x-bi-box-fill class="icon" /> -->
             <x-bi-book-fill class="icon" />
-            <p>Cardápios</p>
+            <p>Cardápio</p>
         </a>
         @endcan
         <a class="navContainer" href="{{ route('logout') }}" onclick="event.preventDefault();
