@@ -7,11 +7,11 @@ use Illuminate\Http\Request;
 
 class FormaPagamentoController extends Controller
 {
-   
+
     public function index()
     {
         $formaPagamentoQuery = FormaPagamento::query();
-        $formaPagamentoQuery->where('nome', 'like', '%'.request('q').'%');
+        $formaPagamentoQuery->where('nome', 'like', '%' . request('q') . '%');
         $formaPagamentos = $formaPagamentoQuery->paginate(25);
 
         return view('forma_pagamentos.index', compact('formaPagamentos'));
@@ -23,10 +23,10 @@ class FormaPagamentoController extends Controller
         return view('forma_pagamentos.create');
     }
 
-   
+
     public function store(Request $request)
     {
-      //  $this->authorize('create', new FormaPagamento);
+        //  $this->authorize('create', new FormaPagamento);
 
         $newFormaPagamento = $request->validate([
             'nome'        => 'required|max:60',
@@ -35,7 +35,7 @@ class FormaPagamentoController extends Controller
 
         $formaPagamento = FormaPagamento::create($newFormaPagamento);
 
-        return redirect()->route('forma_pagamentos.show', $formaPagamento);
+        return redirect()->route('forma_pagamentos.index');
     }
 
     /**
@@ -61,7 +61,7 @@ class FormaPagamentoController extends Controller
         return view('forma_pagamentos.edit', compact('formaPagamento'));
     }
 
-  
+
     public function update(Request $request, FormaPagamento $formaPagamento)
     {
 
@@ -70,16 +70,15 @@ class FormaPagamentoController extends Controller
         ]);
         $formaPagamento->update($formaPagamentoData);
 
-        return redirect()->route('forma_pagamentos.show', $formaPagamento);
+        return redirect()->route('forma_pagamentos.index');
     }
 
-   
+
     public function destroy(Request $request, FormaPagamento $formaPagamento)
     {
         $formaPagamento->delete();
 
 
-            return redirect()->route('forma_pagamentos.index');
-
+        return redirect()->route('forma_pagamentos.index');
     }
 }

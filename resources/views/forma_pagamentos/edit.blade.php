@@ -10,8 +10,13 @@
       <div class="cardBody">
         <div class="formGroup">
           <label for="nome" class="form-label">{{ __('forma_pagamento.nome') }} <span class="form-required">*</span></label>
-          <input id="nome" type="text" class="form-control{{ $errors->has('nome') ? ' is-invalid' : '' }}" name="nome" value="{{ $formaPagamento->nome }}" required>
-          {!! $errors->first('nome', '<span class="invalid-feedback" role="alert">:message</span>') !!}
+          <select name="nome" id="nome" class="forma-pagamento-select form-control{{ $errors->has('nome') ? ' is-invalid' : '' }}" name="nome" value="{{ $formaPagamento->nome }}" required>
+            <option value="Espécie">Espécie</option>
+            <option value="Débito">Débito</option>
+            <option value="Débito">Débito</option>
+            <option value="Crédito">Crédito</option>
+          </select>
+
         </div>
       </div>
       <div class="cardFooter">
