@@ -20,6 +20,13 @@ a {
     color: inherit;
 }
 
+.empty {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 .active {
     background-color: #ff3c3c;
 }
@@ -108,6 +115,8 @@ form {
 }
 
 label {
+    display: flex;
+    align-items: center;
     font-size: 18px;
 }
 input {
@@ -161,6 +170,8 @@ input {
 }
 
 .section {
+    display: flex;
+    flex-direction: column;
     width: 100%;
     padding: 24px;
 }
@@ -235,10 +246,6 @@ input {
 .formGroup > div {
     display: flex;
     gap: 20px;
-}
-
-.formGroup > div input {
-    width: 44px;
 }
 
 /* Create Estoque */
@@ -376,4 +383,35 @@ cardContainerShow > .cardShowStock {
         flex-direction: row;
         gap: 10px;
     }
+}
+
+/* Pedidos */
+
+.items-cardapio {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.checkbox {
+    width: 20px;
+    height: 20px;
+    box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.25);
+}
+
+#numero_mesa {
+    width: 50px;
+    background-color: transparent;
+    border: 1px solid #22252f;
+    border-radius: 8px;
+    box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.25);
+}
+
+#status {
+    padding: 8px;
+    cursor: pointer;
+    background-color: transparent;
+    border: 1px solid #22252f;
+    border-radius: 8px;
+    box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.25);
 }
