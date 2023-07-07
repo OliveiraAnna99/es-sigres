@@ -16,6 +16,7 @@ class CreatePedidosTable extends Migration
         Schema::create('pedidos', function (Blueprint $table) {
             $table->id();
             $table->integer('numero_mesa');
+            $table->string('forma_pagamento');
             $table->integer('status');
             $table->string('obs');
             $table->unsignedBigInteger('cardapio_id');

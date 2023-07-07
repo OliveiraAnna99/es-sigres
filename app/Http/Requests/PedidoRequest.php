@@ -25,6 +25,7 @@ class PedidoRequest extends FormRequest
     {
         return [
             'numero_mesa' => 'required',
+            'forma_pagamento' => 'required',
             'status' => 'required',
             'cardapio_id' => 'required|array',
             'cardapio_id.*' => 'exists:cardapios,id',

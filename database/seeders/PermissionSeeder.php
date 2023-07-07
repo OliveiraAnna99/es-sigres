@@ -31,7 +31,11 @@ class PermissionSeeder extends Seeder
                 'funcionario.create',
                 'funcionario.update',
                 'funcionario.delete',
-                
+                'forma_pagamento.all',
+                'forma_pagamento.read',
+                'forma_pagamento.create',
+                'forma_pagamento.update',
+                'forma_pagamento.delete',
             ]
         ]
     ];
