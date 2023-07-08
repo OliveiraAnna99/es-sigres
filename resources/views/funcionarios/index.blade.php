@@ -13,6 +13,11 @@
     </a>
     @endcan
   </div>
+  @if($funcionarios->isEmpty())
+  <div class="empty">
+    <h1>Não há funcionários cadastrados</h1>
+  </div>
+  @else
   <div class="card">
     @foreach($funcionarios as $key => $funcionario)
     <div class="funcSection">
@@ -24,6 +29,7 @@
     </div>
     @endforeach
   </div>
+  @endif
 </div>
 
 @endsection

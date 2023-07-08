@@ -31,7 +31,7 @@
         </a>
         @endcan
         @can('cardapio.all')
-        <a class="navContainer {{request()->routeIs('formas_pagamentos*') ? 'active' : ''}}" href="{{ route('forma_pagamentos.index') }}">
+        <a class="navContainer {{request()->routeIs('forma_pagamentos*') ? 'active' : ''}}" href="{{ route('forma_pagamentos.index') }}">
             <!-- <x-bi-bag-fill class="icon" /> -->
             <!-- <x-bi-box-fill class="icon" /> -->
             <x-bi-cash-coin class="icon" />
