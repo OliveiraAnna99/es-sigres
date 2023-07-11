@@ -42,15 +42,16 @@ jobs:
         run: chmod -R 777 storage bootstrap/cache
 
       - name: Run Migrations
-  env:
-    SESSION_DRIVER: array
-    DB_CONNECTION: mysql
-    DB_HOST: ${{ secrets.DB_HOST }}
-    DB_PORT: ${{ secrets.DB_PORT }}
-    DB_DATABASE: ${{ secrets.DB_DATABASE }}
-    DB_USERNAME: ${{ secrets.DB_USERNAME }}
-    DB_PASSWORD: ${{ secrets.DB_PASSWORD }}
-  run: php artisan migrate
+
+      env:
+        SESSION_DRIVER: array
+        DB_CONNECTION: mysql
+        DB_HOST: ${{ secrets.DB_HOST }}
+        DB_PORT: ${{ secrets.DB_PORT }}
+        DB_DATABASE: ${{ secrets.DB_DATABASE }}
+        DB_USERNAME: ${{ secrets.DB_USERNAME }}
+        DB_PASSWORD: ${{ secrets.DB_PASSWORD }}
+      run: php artisan migrate
 
 
       - name: Install Dependencies (Node.js)
