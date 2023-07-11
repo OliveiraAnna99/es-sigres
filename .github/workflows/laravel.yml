@@ -51,9 +51,8 @@ jobs:
       - name: Install Dependencies (Node.js)
         run: npm install
 
-      # VER SE PRECISA DESSE MESMO
-      # - name: Povoar o DB
-      #   run: php artisan db:seed
+      - name: Povoar o DB
+        run: php artisan db:seed
 
       - name: Build assets
         run: php artisan serve
