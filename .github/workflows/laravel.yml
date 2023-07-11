@@ -45,8 +45,8 @@ jobs:
         env:
           SESSION_DRIVER: array
           DB_CONNECTION: mysql
-          DB_DATABASE: ":memory:"
-        run: php artisan migrate:fresh
+          DB_DATABASE: "sigres"
+        run: php artisan migrate
 
       - name: Install Dependencies (Node.js)
         run: npm install
@@ -61,7 +61,7 @@ jobs:
         env:
           SESSION_DRIVER: array
           DB_CONNECTION: mysql
-          DB_DATABASE: ":memory:"
+          DB_DATABASE: "sigres"
         run: vendor/bin/pest --coverage-clover=clover.xml
 
       - name: SonarQube Scan
