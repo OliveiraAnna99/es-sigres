@@ -1,4 +1,4 @@
-name: Test Laravel Github action
+name: Laravel SonarQube
 
 on:
   push:
@@ -9,70 +9,46 @@ on:
       - main
 
 jobs:
-  laravel-tests:
+  sonarqube:
     runs-on: ubuntu-latest
-
-    strategy:
-      matrix:
-        operating-system: [ubuntu-latest]
-        php-versions: ["8.2"]
-        dependency-stability: [prefer-stable]
-
-    name: P${{ matrix.php-versions }} - L${{ matrix.laravel }} - ${{ matrix.dependency-stability }} - ${{ matrix.operating-system }}
 
     steps:
       - uses: actions/checkout@v2
 
-      - name: Install PHP versions
+      - name: Set up PHP
         uses: shivammathur/setup-php@v2
         with:
-          php-version: ${{ matrix.php-versions }}
+          php-version: "8.2"
 
       - name: Copy .env
         run: cp .env.example .env
 
-      - name: Install Dependencies (Laravel)
-        if: steps.vendor-cache.outputs.cache-hit != 'true'
-        run: composer install -q --no-ansi --no-interaction --no-scripts --no-progress --prefer-dist
+      - name: Install Dependencies
+        run: composer install --no-scripts --no-progress --prefer-dist
 
       - name: Generate key
         run: php artisan key:generate
 
-      - name: Directory Permissions
+      - name: Set directory permissions
         run: chmod -R 777 storage bootstrap/cache
 
       - name: Run Migrations
-
-      env:
-        SESSION_DRIVER: array
-        DB_CONNECTION: mysql
-        DB_HOST: ${{ secrets.DB_HOST }}
-        DB_PORT: ${{ secrets.DB_PORT }}
-        DB_DATABASE: ${{ secrets.DB_DATABASE }}
-        DB_USERNAME: ${{ secrets.DB_USERNAME }}
-        DB_PASSWORD: ${{ secrets.DB_PASSWORD }}
-      run: php artisan migrate
-
-
-      - name: Install Dependencies (Node.js)
-        run: npm install
-
-      - name: Seed Database
-        run: php artisan db:seed
-
-      - name: Build Assets
-        run: php artisan serve
-
-      - name: Execute tests (Unit and Feature tests) via PestPHP
         env:
           SESSION_DRIVER: array
           DB_CONNECTION: mysql
-          DB_HOST: ${{ secrets.DB_HOST }}
-          DB_PORT: ${{ secrets.DB_PORT }}
-          DB_DATABASE: ${{ secrets.DB_DATABASE }}
-          DB_USERNAME: ${{ secrets.DB_USERNAME }}
-          DB_PASSWORD: ${{ secrets.DB_PASSWORD }}
-        run: vendor/bin/pest --coverage-clover=clover.xml
+          DB_DATABASE: ":memory:"
+        run: php artisan migrate
+
+      - name: Install Node.js and NPM
+        uses: actions/setup-node@v2
+        with:
+          node-version: "14"
+
+      - name: Install Node.js Dependencies
+        run: npm install
+
+      - name: Build assets
+        run: npm run production
 
       - name: SonarQube Scan
         uses: sonarsource/sonarqube-scan-action@master
