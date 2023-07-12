@@ -1,4 +1,4 @@
-name: Test Laravel Github action
+name: Laravel Github action
 
 on:
   push:
@@ -44,21 +44,6 @@ jobs:
       - name: Directory Permissions
         run: chmod -R 777 storage bootstrap/cache
 
-      # - name: Set up Docker Compose
-      #   run: sudo apt-get install docker-compose -y
-
-      # - name: Build and run Docker containers
-      #   run: docker-compose up -d --build
-
-      #  - name: Install dependencies
-      #   run: docker-compose exec app composer install --no-interaction
-
-      # - name: Generate application key
-      #   run: docker-compose exec app php artisan key:generate
-
-      # - name: Run database migrations
-      #   run: docker-compose exec app php artisan migrate --no-interaction
-
       - name: Run Migrations
         env:
           SESSION_DRIVER: array
@@ -68,9 +53,6 @@ jobs:
 
       - name: Install Dependencies (Node.js)
         run: npm install
-
-      # - name: Povoar o DB
-      #   run: php artisan db:seed
 
       - name: Build assets
         run: php artisan serve
