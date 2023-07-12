@@ -1,4 +1,4 @@
-name: Laravel Github action
+name: Test Laravel Github action
 
 on:
   push:
@@ -18,7 +18,7 @@ jobs:
         php-versions: ["8.2"]
         dependency-stability: [prefer-stable]
 
-      name: P${{ matrix.php-versions }} - L${{ matrix.laravel }} - ${{ matrix.dependency-stability }} - ${{ matrix.operating-system }}
+    name: P${{ matrix.php-versions }} - L${{ matrix.laravel }} - ${{ matrix.dependency-stability }} - ${{ matrix.operating-system }}
 
     steps:
       - uses: actions/checkout@v2
@@ -27,9 +27,6 @@ jobs:
         uses: shivammathur/setup-php@v2
         with:
           php-version: ${{ matrix.php-versions }}
-
-      - name: Checkout code
-        uses: actions/checkout@v2
 
       - name: Copy .env
         run: php -r "file_exists('.env') || copy('.env.example', '.env');"
@@ -53,6 +50,9 @@ jobs:
 
       - name: Install Dependencies (Node.js)
         run: npm install
+
+      - name: Povoar o DB
+        run: php artisan db:seed
 
       - name: Build assets
         run: php artisan serve
