@@ -46,7 +46,7 @@ jobs:
           SESSION_DRIVER: array
           DB_CONNECTION: mysql
           DB_DATABASE: ":memory:"
-        run: php artisan migrate:fresh
+        run: php artisan migrate
 
       - name: Install Dependencies (Node.js)
         run: npm install
