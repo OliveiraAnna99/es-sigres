@@ -45,7 +45,7 @@ jobs:
         env:
           SESSION_DRIVER: array
           DB_CONNECTION: mysql
-          DB_DATABASE: ":sigres:"
+          DB_DATABASE: ${{ secrets.DB_DATABASE }}
         run: php artisan migrate
 
       - name: Install Dependencies (Node.js)
