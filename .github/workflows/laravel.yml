@@ -41,6 +41,10 @@ jobs:
           echo "DB_PASSWORD=password" >> $GITHUB_ENV
           echo "SESSION_DRIVER=array" >> $GITHUB_ENV
 
+      - name: Check Database Connectivity
+        run: |
+          mysql --host=$DB_HOST --port=$DB_PORT --user=$DB_USERNAME --password=$DB_PASSWORD --execute="SELECT 1"
+
       - name: Install Dependencies (Laravel)
         if: steps.vendor-cache.outputs.cache-hit != 'true'
         run: |
