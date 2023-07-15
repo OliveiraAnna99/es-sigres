@@ -48,7 +48,7 @@ jobs:
         if: steps.vendor-cache.outputs.cache-hit != 'true'
         run: |
           composer config platform.php 8.2
-          composer install -q --no-ansi --no-interaction --no-scripts --no-progress
+          composer install -q --no-ansi --no-interaction --no-scripts --no-progress --no-suggest
 
       - name: Generate key
         run: php artisan key:generate
