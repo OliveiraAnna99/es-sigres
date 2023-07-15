@@ -57,8 +57,11 @@ jobs:
 
       - name: Check MySQL Service
         run: |
-          sudo systemctl status mysql
-          sudo systemctl start mysql
+          sudo systemctl status mysql || true
+
+      - name: Start MySQL Service if inactive
+        run: |
+          sudo systemctl is-active --quiet mysql || sudo systemctl start mysql
 
       - name: Wait for MySQL to start
         run: |
