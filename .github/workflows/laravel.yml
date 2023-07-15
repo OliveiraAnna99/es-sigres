@@ -41,7 +41,7 @@ jobs:
           echo "SESSION_DRIVER=array" >> $GITHUB_ENV
 
       - name: Validate Composer File
-        run: composer validate --no-strict
+        run: composer validate --no-check-all
 
       - name: Install Dependencies (Laravel)
         if: steps.vendor-cache.outputs.cache-hit != 'true'
