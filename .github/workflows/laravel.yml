@@ -56,7 +56,15 @@ jobs:
         run: chmod -R 777 storage bootstrap/cache
 
       - name: Check MySQL Service
-        run: sudo systemctl status mysql
+        run: |
+          sudo systemctl status mysql
+          sudo systemctl start mysql
+
+      - name: Wait for MySQL to start
+        run: |
+          while ! mysqladmin ping -h127.0.0.1 -u${{ secrets.DB_USERNAME }} -p${{ secrets.DB_PASSWORD }} --silent; do
+            sleep 5
+          done
 
       - name: Run Migrations
         env:
