@@ -55,10 +55,10 @@ jobs:
       - name: Directory Permissions
         run: chmod -R 777 storage bootstrap/cache
 
-      - name: Create Database
-        run: |
-          php artisan db:create
-          php artisan migrate
+      - name: Run Migrations
+        env:
+          SESSION_DRIVER: array
+        run: php artisan migrate
 
       - name: Install Dependencies (Node.js)
         run: npm install
