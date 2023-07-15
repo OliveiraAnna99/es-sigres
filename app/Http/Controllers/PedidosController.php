@@ -43,26 +43,19 @@ class PedidosController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Routing\Redirector
      */
-    public function store(PedidoRequest $request)
-    {
-   
-        $cardapioIds = $request->input('cardapio_id');
-        foreach ($cardapioIds as $cardapioId) {
+ 
+     public function store(PedidoRequest $request)
+     {
+         $validatedData = $request->validated();
+         $pedido = Pedidos::create($validatedData);
+     
+         $cardapioIds = $request->input('cardapio_id');
+         $pedido->cardapios()->attach($cardapioIds);
 
-            $pedido = new Pedidos();
-            $pedido->numero_mesa = $request->input('numero_mesa');
-            $pedido->forma_pagamento = $request->input('forma_pagamento');
-            $pedido->cardapio_id = intval($cardapioId);
-            $pedido->status = $request->input('status');
-            $pedido->obs = $request->input('obs');
-            $pedido->save();
-        }
-
-    
-        return redirect()->route('pedidos.show', $pedido);
-    }
-    
-    
+     
+         return redirect()->route('pedidos.show', compact('pedido'));
+     }
+     
     /**
      * Display the specified pedidos.
      *

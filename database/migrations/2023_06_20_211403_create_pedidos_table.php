@@ -1,38 +1,42 @@
 <?php
-
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
 class CreatePedidosTable extends Migration
 {
-    /**
-     * Run the migrations.
-     *
-     * @return void
-     */
     public function up()
     {
         Schema::create('pedidos', function (Blueprint $table) {
-            $table->id();
+            $table->bigIncrements('id');
             $table->integer('numero_mesa');
-            $table->string('forma_pagamento');
             $table->integer('status');
-            $table->string('obs');
-            $table->unsignedBigInteger('cardapio_id');
+            $table->string('obs')->nullable();
             $table->timestamps();
 
-            $table->foreign('cardapio_id')->references('id')->on('cardapios');
+        });
+
+        Schema::create('pedidos_cardapio', function (Blueprint $table) {
+            $table->unsignedBigInteger('pedidos_id');
+            $table->unsignedBigInteger('cardapio_id');
+
+            $table->foreign('pedidos_id')->references('id')->on('pedidos')->onDelete('cascade');
+            $table->foreign('cardapio_id')->references('id')->on('cardapios')->onDelete('cascade');
+        });
+
+        Schema::create('pedido_pagamento', function (Blueprint $table) {
+            $table->unsignedBigInteger('pedidos_id');
+            $table->unsignedBigInteger('forma_pagamento_id');
+
+            $table->foreign('pedidos_id')->references('id')->on('pedidos')->onDelete('cascade');
+            $table->foreign('forma_pagamento_id')->references('id')->on('forma_pagamentos')->onDelete('cascade');
         });
     }
 
-    /**
-     * Reverse the migrations.
-     *
-     * @return void
-     */
     public function down()
     {
+        Schema::dropIfExists('pedidos_cardapio');
+
         Schema::dropIfExists('pedidos');
     }
 }

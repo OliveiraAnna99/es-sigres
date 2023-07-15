@@ -10,11 +10,10 @@
                 <div>
                     <p class="funcTitle">{{ __('pedido.item') }}</p>
                     <p>
-                        @foreach($cardapios as $cardapio)
-                        @if($cardapio->id == $pedido->cardapio_id)
-                        {{ $cardapio->nome}}
-                        @endif
+                        @foreach ($pedido->cardapios as $cardapio)
+                            <li>{{ $cardapio->nome }}</li>
                         @endforeach
+
                     </p>
                 </div>
                 <div>
