@@ -57,11 +57,12 @@ jobs:
 
       - name: Run Migrations
         env:
-          SESSION_DRIVER: array
+          SESSION_DRIVER: file
         run: php artisan migrate
 
       - name: Install Dependencies (Node.js)
         run: npm install
+
 
       - name: Execute tests (Unit and Feature tests) via PHPUnit
         env:
