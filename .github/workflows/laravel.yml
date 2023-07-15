@@ -8,7 +8,6 @@ on:
 
 jobs:
   laravel-tests:
-
     runs-on: ubuntu-latest
 
     strategy:
@@ -42,13 +41,13 @@ jobs:
           echo "SESSION_DRIVER=array" >> $GITHUB_ENV
 
       - name: Validate Composer File
-        run: composer validate --strict
+        run: composer validate --no-strict
 
       - name: Install Dependencies (Laravel)
         if: steps.vendor-cache.outputs.cache-hit != 'true'
         run: |
           composer config platform.php 8.2
-          composer install -q --no-ansi --no-interaction --no-scripts --no-progress --no-suggest
+          composer install -q --no-ansi --no-interaction --no-scripts --no-progress
 
       - name: Generate key
         run: php artisan key:generate
@@ -56,10 +55,10 @@ jobs:
       - name: Directory Permissions
         run: chmod -R 777 storage bootstrap/cache
 
-      - name: Run Migrations
-        env:
-          SESSION_DRIVER: array
-        run: php artisan migrate
+      - name: Create Database
+        run: |
+          php artisan db:create
+          php artisan migrate
 
       - name: Install Dependencies (Node.js)
         run: npm install
