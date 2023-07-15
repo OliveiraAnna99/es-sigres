@@ -38,11 +38,21 @@ class CardapioController extends Controller
         $validatedData['valor'] = str_replace(',', '.', $validatedData['valor']);
     
         $cardapio = Cardapio::create($validatedData);
-        $cardapio->estoques()->attach($request->input('estoque_id'));
+        $estoqueIds = $request->input('estoque_id');
+        
+        foreach ($estoqueIds as $estoqueId) {
+            // Obter o estoque pelo ID
+            $estoque = Estoque::find($estoqueId);
+            
+            if ($estoque) {
+                // Diminuir a quantidade disponível em 1
+                $estoque->quant -= 1;
+                $estoque->save();
+            }
+        }
     
         return redirect()->route('cardapios.show', $cardapio);
     }
-    
     
 
     public function show(Cardapio $cardapio)
@@ -54,27 +64,41 @@ class CardapioController extends Controller
   
     public function edit(Cardapio $cardapio)
     {
-        return view('cardapios.edit', compact('cardapio'));
+        $estoques = Estoque::all();
+
+        return view('cardapios.edit', compact('cardapio', 'estoques'));
     }
 
 
-    public function update(Request $request, Cardapio $cardapio)
-    {
-        $cardapioData = $request->validate([
-            'nome'         => 'required|max:60',
-            'valor'        => 'required|regex:/\d{1,6}(\,\d{0,2})/',
-            'ingrediente_id' => 'required|array',
-            'ingrediente_id.*' => 'exists:estoques,id',
-        ]);
+    public function update(CardapioRequest $request, Cardapio $cardapio)
+{
+    $validatedData = $request->validated();
 
-        $cardapioData['valor'] = str_replace(',', '.', $cardapioData['valor']);
+    // Substitui ',' por '.' em 'valor'
+    $validatedData['valor'] = str_replace(',', '.', $validatedData['valor']);
 
-      
+    $cardapio->update($validatedData);
+    $estoqueIds = $request->input('estoque_id');
 
-        $cardapio->update($cardapioData);
-
-        return redirect()->route('cardapios.show', $cardapio);
+    // Restaura as quantidades originais dos estoques associados ao cardápio
+    foreach ($cardapio->estoques as $estoque) {
+        $estoque->quant += 1;
+        $estoque->save();
     }
+
+    // Atualiza os estoques associados ao cardápio com as novas seleções
+    foreach ($estoqueIds as $estoqueId) {
+        $estoque = Estoque::find($estoqueId);
+
+        if ($estoque) {
+            $estoque->quant -= 1;
+            $estoque->save();
+        }
+    }
+
+    return redirect()->route('cardapios.show', $cardapio);
+}
+
 
 
     public function destroy(Request $request, Cardapio $cardapio)
