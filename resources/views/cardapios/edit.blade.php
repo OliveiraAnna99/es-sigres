@@ -20,12 +20,15 @@
                     {!! $errors->first('valor', '<span class="invalid-feedback" role="alert">:message</span>') !!}
                 </div>
 
-
-
                 <div class="formGroup">
-                    <label for="ingredientes">{{ __('cardapio.ingredientes') }} <span>*</span></label>
-                    <input id="ingredientes" type="text" class="form-control {{ $errors->has('ingredientes') ? ' is-invalid' : '' }}" name="ingredientes" value="{{ old('ingredientes',  $cardapio->ingredientes) }}" required>
-                    {!! $errors->first('ingredientes', '<span class="invalid-feedback" role="alert">:message</span>') !!}
+                    <label for="estoque_id">{{ __('pedido.estoque_id') }} <span>*</span></label>
+                    @foreach($estoques as $estoque)
+                    <div>
+                        <input type="checkbox" id="ingrediente_{{$estoque->id}}" class="{{ $errors->has('estoque_id') ? ' is-invalid' : '' }}" name="estoque_id[]" value="{{intval($estoque->id)}}" {{ old('estoque_id') && in_array($estoque->id, old('estoque_id')) ? 'checked' : '' }} required>
+                        <label for="estoque_{{$estoque->id}}">{{$estoque->item}}</label>
+                    </div>
+                    @endforeach
+                    {!! $errors->first('estoque_id', '<span class="invalid-feedback" role="alert">:message</span>') !!}
                 </div>
             </div>
             <div class="cardFooter">

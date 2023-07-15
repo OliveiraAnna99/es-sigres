@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Http\Requests\PedidoRequest;
 use App\Models\Pedidos;
 use App\Models\Cardapio;
+use App\Models\FormaPagamento;
+
 use Illuminate\Http\Request;
 
 class PedidosController extends Controller
@@ -31,7 +33,8 @@ class PedidosController extends Controller
     {
         //$this->authorize('create', new Pedidos);
         $cardapios = Cardapio::all();
-        return view('pedidos.create', compact('cardapios'));
+        $fps = FormaPagamento::all();
+        return view('pedidos.create', compact('cardapios', 'fps'));
     }
 
     /**
@@ -40,25 +43,19 @@ class PedidosController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Routing\Redirector
      */
-    public function store(PedidoRequest $request)
-    {
-   
-        $cardapioIds = $request->input('cardapio_id');
-        foreach ($cardapioIds as $cardapioId) {
+ 
+     public function store(PedidoRequest $request)
+     {
+         $validatedData = $request->validated();
+         $pedido = Pedidos::create($validatedData);
+     
+         $cardapioIds = $request->input('cardapio_id');
+         $pedido->cardapios()->attach($cardapioIds);
 
-            $pedido = new Pedidos();
-            $pedido->numero_mesa = $request->input('numero_mesa');
-            $pedido->cardapio_id = intval($cardapioId);
-            $pedido->status = $request->input('status');
-            $pedido->obs = $request->input('obs');
-            $pedido->save();
-        }
-
-    
-        return redirect()->route('pedidos.show', $pedido);
-    }
-    
-    
+     
+         return redirect()->route('pedidos.show', compact('pedido'));
+     }
+     
     /**
      * Display the specified pedidos.
      *
@@ -97,6 +94,7 @@ class PedidosController extends Controller
             $cardapioIds = $request->input('cardapio_id');
             $pedido = Pedidos::findOrFail($id);
             $pedido->numero_mesa = $request->input('numero_mesa');
+            $pedido->forma_pagamento = $request->input('forma_pagamento');
             $pedido->cardapio_id = intval(implode(',', $cardapioIds));
             $pedido->status = $request->input('status');
             $pedido->obs = $request->input('obs');

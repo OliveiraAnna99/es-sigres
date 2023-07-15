@@ -1,12 +1,11 @@
 <?php
-
 namespace App\Models;
 
-use App\Models\User;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use App\Models\Cardapio;
+use App\Models\FormaPagamento;
+
 class Pedidos extends Model
 {
     use HasFactory;
@@ -14,18 +13,17 @@ class Pedidos extends Model
     protected $fillable = [
         'numero_mesa',
         'status',
+        'forma_pagamento_id',
         'obs',
-        
-       
-        
     ];
 
-
-    protected $casts = [
-        'cardapio_id' => 'array',
-    ];
     public function cardapios()
     {
-        return $this->belongsToMany(Cardapios::class, 'cardapio_id');
+        return $this->belongsToMany(Cardapio::class, 'pedidos_cardapio');
+    }
+
+    public function forma_pagamentos()
+    {
+        return $this->belongsTo(FormaPagamento::class, 'forma_pagamento_id');
     }
 }

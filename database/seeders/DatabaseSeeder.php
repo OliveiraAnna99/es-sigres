@@ -18,6 +18,8 @@ class DatabaseSeeder extends Seeder
             PermissionSeeder::class,
             RoleSeeder::class,
             UserSeeder::class,
+            EstoqueSeeder::class,
+            FormaPagamentoSeeder::class,
         ]);
     }
 }

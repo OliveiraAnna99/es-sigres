@@ -2,8 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\CardapioRequest;
 use App\Models\Cardapio;
+use App\Models\Estoque;
 use Illuminate\Http\Request;
+
 
 class CardapioController extends Controller
 {
@@ -21,29 +24,31 @@ class CardapioController extends Controller
     public function create()
     {
 
-        return view('cardapios.create');
+        $estoques = Estoque::all();
+        return view('cardapios.create', compact('estoques'));
     }
 
    
-    public function store(Request $request)
+  
+    public function store(CardapioRequest $request)
     {
-        $newCardapio = $request->validate([
-            'nome'         => 'required|max:60',
-            'valor'        => 'required|regex:/\d{1,6}(\,\d{0,2})/',
-            'ingredientes' => 'required|max:500',
-        ]);
-        
-        $newCardapio['valor'] = str_replace(',', '.', $newCardapio['valor']);
-        $cardapio = Cardapio::create($newCardapio);
-        
+        $validatedData = $request->validated();
+    
+        // Substitui ',' por '.' em 'valor'
+        $validatedData['valor'] = str_replace(',', '.', $validatedData['valor']);
+    
+        $cardapio = Cardapio::create($validatedData);
+        $cardapio->estoques()->attach($request->input('estoque_id'));
+    
         return redirect()->route('cardapios.show', $cardapio);
-        
     }
+    
     
 
     public function show(Cardapio $cardapio)
     {
-        return view('cardapios.show', compact('cardapio'));
+        $estoques = Estoque::all();
+        return view('cardapios.show', compact('cardapio', 'estoques'));
     }
 
   
@@ -58,7 +63,8 @@ class CardapioController extends Controller
         $cardapioData = $request->validate([
             'nome'         => 'required|max:60',
             'valor'        => 'required|regex:/\d{1,6}(\,\d{0,2})/',
-            'ingredientes' => 'required|max:500',
+            'ingrediente_id' => 'required|array',
+            'ingrediente_id.*' => 'exists:estoques,id',
         ]);
 
         $cardapioData['valor'] = str_replace(',', '.', $cardapioData['valor']);
@@ -73,14 +79,19 @@ class CardapioController extends Controller
 
     public function destroy(Request $request, Cardapio $cardapio)
     {
-        //$this->authorize('delete', $cardapio);
-
         $request->validate(['cardapio_id' => 'required']);
-
-        if ($request->get('cardapio_id') == $cardapio->id && $cardapio->delete()) {
+    
+        if ($request->get('cardapio_id') == $cardapio->id) {
+            // Remover as referências na tabela 'cardapio_estoque'
+            $cardapio->estoques()->detach();
+    
+            // Excluir o cardápio
+            $cardapio->delete();
+    
             return redirect()->route('cardapios.index');
         }
-
+    
         return back();
     }
+    
 }

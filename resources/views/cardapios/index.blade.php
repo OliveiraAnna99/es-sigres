@@ -28,6 +28,7 @@
           <tr>
             <td>{{ $cardapio->nome }}</td>
             <td>R$ {{ $cardapio->valor }}</td>
+       
             <td>
               <div class="buttons">
 

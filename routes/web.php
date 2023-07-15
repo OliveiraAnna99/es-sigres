@@ -42,4 +42,11 @@ Route::resource('cardapios', App\Http\Controllers\CardapioController::class);
 Route::resource('pedidos', App\Http\Controllers\PedidosController::class);
 
 
+
+/*
+ * Forma_pagamentos Routes
+ */
+Route::resource('forma_pagamentos', App\Http\Controllers\FormaPagamentoController::class);
+
 require_once __DIR__ . '/auth.php';
+

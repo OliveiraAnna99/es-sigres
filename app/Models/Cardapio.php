@@ -2,7 +2,6 @@
 
 namespace App\Models;
 
-use App\Models\User;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
@@ -10,23 +9,10 @@ class Cardapio extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['nome', 'imagem',  'ingredientes', 'valor'];
+    protected $fillable = ['nome', 'valor'];
 
-    public function getNameLinkAttribute()
+    public function estoques()
     {
-        $title = __('app.show_detail_title', [
-            'name' => $this->name, 'type' => __('cardapio.cardapio'),
-        ]);
-        $link = '<a href="' . route('cardapios.show', $this) . '"';
-        $link .= ' title="' . $title . '">';
-        $link .= $this->name;
-        $link .= '</a>';
-
-        return $link;
-    }
-
-    public function creator()
-    {
-        return $this->belongsTo(User::class);
+        return $this->belongsToMany(Estoque::class, 'cardapio_estoque');
     }
 }

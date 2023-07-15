@@ -20,12 +20,17 @@
                     <input id="valor" data-inputmask="'alias': 'numeric', 'groupSeparator': ',', 'autoGroup': true, 'digits': 2, 'digitsOptional': false, 'placeholder': '0'" type="text" class="form-control{{ $errors->has('valor') ? ' is-invalid' : '' }} " name="valor" value="{{ old('valor') }}" required>
                     {!! $errors->first('valor', '<span class="invalid-feedback" role="alert">:message</span>') !!}
                 </div>
-
                 <div class="formGroup">
-                    <label for="ingredientes">{{ __('cardapio.ingredientes') }} <span>*</span></label>
-                    <textarea rows="10" id="ingredientes" type="text" class="form-control {{ $errors->has('ingredientes') ? ' is-invalid' : '' }}" name="ingredientes" value="{{ old('ingredientes') }}" required>
-                    {!! $errors->first('ingredientes', '<span class="invalid-feedback" role="alert">:message</span>') !!}</textarea>
+                    <label for="estoque_id">{{ __('pedido.estoque_id') }} <span>*</span></label>
+                    @foreach($estoques as $estoque)
+                        <div>
+                            <input type="checkbox" id="estoque_{{ $estoque->id }}" name="estoque_id[]" value="{{ $estoque->id }}">
+                            <label for="estoque_{{ $estoque->id }}">{{ $estoque->item }}</label>
+                        </div>
+                    @endforeach
+                    {!! $errors->first('estoque_id', '<span class="invalid-feedback" role="alert">:message</span>') !!}
                 </div>
+
 
             </div>
             <div class="cardFooter">

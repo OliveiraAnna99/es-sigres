@@ -30,6 +30,14 @@
             <p>Cardápio</p>
         </a>
         @endcan
+        @can('cardapio.all')
+        <a class="navContainer {{request()->routeIs('formas_pagamentos*') ? 'active' : ''}}" href="{{ route('forma_pagamentos.index') }}">
+            <!-- <x-bi-bag-fill class="icon" /> -->
+            <!-- <x-bi-box-fill class="icon" /> -->
+            <x-bi-cash-coin class="icon" />
+            <p>Formas de Pagamento</p>
+        </a>
+        @endcan
         <a class="navContainer" href="{{ route('logout') }}" onclick="event.preventDefault();
                 document.getElementById('logout-form').submit();">
             <x-bi-door-closed-fill class="icon" />

@@ -10,11 +10,10 @@
                 <div>
                     <p class="funcTitle">{{ __('pedido.item') }}</p>
                     <p>
-                        @foreach($cardapios as $cardapio)
-                        @if($cardapio->id == $pedido->cardapio_id)
-                        {{ $cardapio->nome}}
-                        @endif
+                        @foreach ($pedido->cardapios as $cardapio)
+                            <li>{{ $cardapio->nome }}</li>
                         @endforeach
+
                     </p>
                 </div>
                 <div>
@@ -33,10 +32,7 @@
                     <p class="funcTitle">{{ __('pedido.numero_mesa') }}</p>
                     <p>{{ $pedido->numero_mesa }}</p>
                 </div>
-                <div>
-                    <p class="funcTitle">{{ __('pedido.obs') }}</p>
-                    <p>{{ $pedido->obs }}</p>
-                </div>
+             
             </div>
             <div class="cardFooter">
                 <a href="{{ route('pedidos.index') }}" class="btn btnPrimary">{{ __('Voltar') }}</a>
