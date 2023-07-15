@@ -14,9 +14,10 @@
                 </div>
                 <div>
                     <p class="funcTitle">{{ __('cardapio.ingredientes') }}</p>
-                    @foreach ($cardapio->estoques as $estoque)
-                        <li>{{ $estoque->item }}</li>
+                    @foreach($cardapio->estoques as $estoque)
+                        {{ $estoque->item }}
                     @endforeach
+
 
                 </div>
 

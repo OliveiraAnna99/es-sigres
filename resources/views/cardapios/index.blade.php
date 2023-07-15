@@ -21,6 +21,7 @@
           <tr>
             <th>Nome</th>
             <th>Valor</th>
+            <th>Itens</th>
             <th>Ações</th>
           </tr>
 
@@ -28,6 +29,11 @@
           <tr>
             <td>{{ $cardapio->nome }}</td>
             <td>R$ {{ $cardapio->valor }}</td>
+            <td>
+              @foreach($cardapio->estoques as $estoque)  
+                 {{ $estoque->item }}
+              @endforeach
+            </td>
        
             <td>
               <div class="buttons">
