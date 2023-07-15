@@ -40,10 +40,6 @@ jobs:
           echo "DB_PASSWORD=password" >> $GITHUB_ENV
           echo "SESSION_DRIVER=file" >> $GITHUB_ENV
 
-      - name: Check MySQL Service
-        run: |
-          sudo systemctl status mysql
-
       - name: Validate Composer File
         run: composer validate --no-check-all
 
@@ -58,6 +54,9 @@ jobs:
 
       - name: Directory Permissions
         run: chmod -R 777 storage bootstrap/cache
+
+      - name: Check MySQL Service
+        run: sudo systemctl status mysql
 
       - name: Run Migrations
         env:
