@@ -5,18 +5,22 @@
 @section('content')
 <div class="cardContainer">
   <div class="cardContainerContent cardCreate">
-    <form method="POST" action="{{ route('pedidos.update', $pedido) }}" accept-charset="UTF-8">
-      {{ csrf_field() }} {{ method_field('patch') }}
+    <form method="POST" action="{{ route('pedidos.store') }}">
+      {{ csrf_field() }}
+
+
 
       <div class="cardBody">
-        <div class="formGroup">
+        <div class="formGroup" style="gap: 10px">
           <label for="cardapio_id">{{ __('pedido.cardapio_id') }} <span>*</span></label>
-          @foreach($cardapios as $cardapio)
-          <div>
-            <input type="checkbox" id="cardapio_{{$cardapio->id}}" class="{{ $errors->has('cardapio_id') ? ' is-invalid' : '' }}" name="cardapio_id[]" value="{{intval($cardapio->id)}}" {{ old('cardapio_id') && in_array($cardapio->id, old('cardapio_id', $cardapio->id)) ? 'checked' : '' }} required>
-            <label for="cardapio_{{$cardapio->id}}">{{$cardapio->nome}}</label>
+          <div class="items-cardapio">
+            @foreach($cardapios as $cardapio)
+            <div style="display: flex; align-items: center; gap: 10px">
+              <input type="checkbox" id="cardapio_{{$cardapio->id}}" class="checkbox {{ $errors->has('cardapio_id') ? ' is-invalid' : '' }}" name="cardapio_id[]" value="{{intval($cardapio->id)}}" {{ old('cardapio_id') && in_array($cardapio->id, old('cardapio_id')) ? 'checked' : '' }}>
+              <label for="cardapio_{{$cardapio->id}}">{{$cardapio->nome}}</label>
+            </div>
+            @endforeach
           </div>
-          @endforeach
           {!! $errors->first('cardapio_id', '<span class="invalid-feedback" role="alert">:message</span>') !!}
         </div>
 
@@ -41,12 +45,11 @@
           </div>
         </div>
 
-        <div class="formGroup ">
-          <div>
-            <label for="obs">{{ __('pedido.obs') }} <span>*</span></label>
-            <input id="obs" type="text" rows="4" cols="50" class="form-control{{ $errors->has('obs') ? ' is-invalid' : '' }}" name="obs" value="{{ old('obs') }}" required>
-            {!! $errors->first('obs', '<span class="invalid-feedback" role="alert">:message</span>') !!}
-          </div>
+
+        <div class="formGroup">
+          <label for="obs">{{ __('pedido.obs') }} <span>*</span></label>
+          <textarea id="obs" type="text" rows="10" name="obs" value="{{ old('obs') }}">
+          </textarea>
         </div>
       </div>
       <div class="cardFooter">
