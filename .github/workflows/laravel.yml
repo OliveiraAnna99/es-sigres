@@ -56,18 +56,17 @@ jobs:
         run: chmod -R 777 storage bootstrap/cache
 
       - name: Check MySQL Service
-        run: |
-          sudo systemctl status mysql || true
+        run: sudo systemctl status mysql
 
-      - name: Start MySQL Service if inactive
-        run: |
-          sudo systemctl is-active --quiet mysql || sudo systemctl start mysql
-
-      - name: Wait for MySQL to start
-        run: |
-          while ! mysqladmin ping -h127.0.0.1 -u${{ secrets.DB_USERNAME }} -p${{ secrets.DB_PASSWORD }} --silent; do
-            sleep 5
-          done
+      - name: Verify Database Connection
+        env:
+          DB_CONNECTION: mysql
+          DB_HOST: 127.0.0.1
+          DB_PORT: 3306
+          DB_DATABASE: sigres
+          DB_USERNAME: sail
+          DB_PASSWORD: password
+        run: php artisan migrate:check
 
       - name: Run Migrations
         env:
