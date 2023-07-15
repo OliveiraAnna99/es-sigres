@@ -38,7 +38,7 @@ jobs:
           echo "DB_DATABASE=sigres" >> $GITHUB_ENV
           echo "DB_USERNAME=${{ secrets.DB_USERNAME }}" >> $GITHUB_ENV
           echo "DB_PASSWORD=${{ secrets.DB_PASSWORD }}" >> $GITHUB_ENV
-          echo "SESSION_DRIVER=array" >> $GITHUB_ENV
+          echo "SESSION_DRIVER=file" >> $GITHUB_ENV
 
       - name: Validate Composer File
         run: composer validate --no-check-all
