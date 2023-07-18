@@ -5,7 +5,7 @@
 @section('content')
 
 <div class="section">
-    <div>
+    <div class="topSection">
         @can('pedido.create')
         <a href="{{ route('pedidos.create') }}" class="btn btnPrimary btnAdd">
             <x-bi-plus-circle class="icon" />
@@ -13,6 +13,7 @@
             </p>
         </a>
         @endcan
+
     </div>
 
     <div>
