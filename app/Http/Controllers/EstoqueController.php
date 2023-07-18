@@ -64,7 +64,10 @@ class EstoqueController extends Controller
      */
     public function show(Estoque $estoque)
     {
-        return view('estoques.show', compact('estoque'));
+        $estoqueQuery = Estoque::query();
+        $estoqueQuery->where('item', 'like', '%' . request('q') . '%');
+        $estoques = $estoqueQuery->paginate(25);
+        return view('estoques.index', compact('estoques'));
     }
 
     /**

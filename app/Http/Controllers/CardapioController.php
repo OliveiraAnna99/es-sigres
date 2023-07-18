@@ -6,6 +6,7 @@ use App\Http\Requests\CardapioRequest;
 use App\Models\Cardapio;
 use App\Models\Estoque;
 use Illuminate\Http\Request;
+use App\Models\CardapioEstoque;
 
 
 class CardapioController extends Controller
@@ -57,7 +58,8 @@ class CardapioController extends Controller
 
     public function show(Cardapio $cardapio)
     {
-        $estoques = Estoque::all();
+
+        $estoques = CardapioEstoque::all();
         return view('cardapios.show', compact('cardapio', 'estoques'));
     }
 

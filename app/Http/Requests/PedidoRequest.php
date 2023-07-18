@@ -29,7 +29,7 @@ class PedidoRequest extends FormRequest
             'status' => 'required',
             'cardapio_id' => 'required|array',
             'cardapio_id.*' => 'exists:cardapios,id',
-            'obs' => 'required|max:500',
+            'obs' => 'nullable|max:500',
         ];
     }
 }
