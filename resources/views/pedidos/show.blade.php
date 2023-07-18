@@ -32,6 +32,11 @@
                     <p class="funcTitle">{{ __('pedido.numero_mesa') }}</p>
                     <p>{{ $pedido->numero_mesa }}</p>
                 </div>
+
+                <div>
+                    <p class="funcTitle">Observação</p>
+                    <p>{{$pedido->obs}}</p>
+                </div>
              
             </div>
             <div class="cardFooter">
