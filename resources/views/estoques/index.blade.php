@@ -5,13 +5,20 @@
 @section('content')
 
 <div class="section">
-  <div>
+  <div class="topSection">
     @can('estoque.create')
     <a href="{{ route('estoques.create') }}" class="btn btnPrimary btnAdd">
       <x-bi-plus-circle class="icon" />
       <p>Adicionar item</p>
     </a>
     @endcan
+    <form class='form-search' method="GET" action="" accept-charset="UTF-8" class="form-inline">
+      <div class="formGroup">
+        <input class="input-search" placeholder="Pesquise por um item..." name="q" type="text" id="q" class="form-control mx-sm-2" value="{{ request('q') }}">
+      </div>
+      <button type="submit" class="btnSecondary btn btnReset"><x-bi-search class="m-1"></x-bi-search></button>
+      <a href="{{ route('estoques.index') }}" class="btnReset btn btnPrimary">Limpar</a>
+    </form>
   </div>
 
   <div>
