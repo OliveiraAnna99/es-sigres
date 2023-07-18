@@ -135,7 +135,6 @@ input {
 
 /* Sidebar Component */
 .sidebarContainer {
-    width: 25%;
     background-color: #22252f;
 }
 
@@ -375,6 +374,9 @@ cardContainerShow > .cardShowStock {
 
     .navContainer .icon {
         margin-right: 20px;
+    }
+    .logo-sidebar{
+        display: none;
     }
 }
 

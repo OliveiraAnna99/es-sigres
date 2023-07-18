@@ -2,16 +2,16 @@
     <p class="logo-sidebar"><span>Sig</span>Restaurant</p>
 
     <nav class="selectContainer">
-        @can('pedido.all')
-        <a class="navContainer {{request()->routeIs('pedidos*') ? 'active' : ''}}" href="{{ route('pedidos.index') }}">
-            <x-bi-cart-fill class="icon" />
-            <p>Pedidos</p>
-        </a>
-        @endcan
         @can('funcionario.all')
         <a class="navContainer {{request()->routeIs('funcionarios*') ? 'active' : ''}}" href="{{ route('funcionarios.index') }}">
             <x-bi-person-fill class="icon" />
             <p>Funcionários</p>
+        </a>
+        @endcan
+        @can('pedido.all')
+        <a class="navContainer {{request()->routeIs('pedidos*') ? 'active' : ''}}" href="{{ route('pedidos.index') }}">
+            <x-bi-cart-fill class="icon" />
+            <p>Pedidos</p>
         </a>
         @endcan
         @can('estoque.all')
