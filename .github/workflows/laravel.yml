@@ -51,8 +51,7 @@ jobs:
       - name: Install Dependencies (Node.js)
         run: npm install
 
-      - name: Build assets (npm run prod)
-        run: npm run prod
+    
 
       - name: Execute tests (Unit and Feature tests) via PestPHP
         env:
