@@ -22,7 +22,6 @@
                     <tr>
                         <th>{{ __('pedido.numero_mesa') }}</th>
                         <th>{{ __('pedido.status') }}</th>
-                        <th> Pedido </th>
                         <th>Ações</th>
                     </tr>
                     @foreach($pedidos as $pedido)
@@ -37,12 +36,6 @@
                             @else
                             Não Encontrado
                             @endif
-                        </td>
-                        <td>
-
-                        @foreach ($pedido->cardapios as $cardapio)
-                            {{ $cardapio->nome }},
-                        @endforeach
                         </td>
 
                         <td>
