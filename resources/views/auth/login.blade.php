@@ -23,13 +23,6 @@
         </span>
         @enderror
 
-        <div class="forgot-password">
-            @if (Route::has('password.request'))
-            <a href="{{ route('password.request') }}">
-                {{ __('Esqueceu a senha?') }}
-            </a>
-            @endif
-        </div>
         </div>
         <div class="btn-login">
             <button type="submit">Acessar</button>
