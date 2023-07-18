@@ -24,7 +24,7 @@
                     <label for="estoque_id">{{ __('pedido.estoque_id') }} <span>*</span></label>
                     @foreach($estoques as $estoque)
                         <div>
-                            <input type="checkbox" id="estoque_{{ $estoque->id }}" name="estoque_id[]" value="{{ $estoque->id }}">
+                            <input type="checkbox" id="estoque_{{ $estoque->id }}" name="estoque_id[]" value="{{ $estoque->id }}" class="checkbox">
                             <label for="estoque_{{ $estoque->id }}">{{ $estoque->item }}</label>
                         </div>
                     @endforeach
