@@ -48,11 +48,6 @@ jobs:
           DB_DATABASE: ":memory:"
         run: php artisan migrate
 
-      - name: Install Dependencies (Node.js)
-        run: npm install
-
-    
-
       - name: Execute tests (Unit and Feature tests) via PestPHP
         env:
           SESSION_DRIVER: array
