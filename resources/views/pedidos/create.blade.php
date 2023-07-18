@@ -13,12 +13,14 @@
       <div class="cardBody">
       <div class="formGroup">
           <label for="cardapio">Cardápios</label>
+          <div class="item-select">
           @foreach($cardapios as $cardapio)
-          <div>
-              <input type="checkbox" id="cardapio_{{ $cardapio->id }}" name="cardapio_id[]" value="{{ $cardapio->id }}">
+          <div class="item-checkbox">
+              <input type="checkbox" id="cardapio_{{ $cardapio->id }}" name="cardapio_id[]" value="{{ $cardapio->id }}" class="checkbox" >
               <label for="cardapio_{{ $cardapio->id }}">{{ $cardapio->nome }}</label>
           </div>
           @endforeach
+          </div>
       </div>
 
 

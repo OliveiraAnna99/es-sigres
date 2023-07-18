@@ -245,7 +245,7 @@ input {
 /* Estoque */
 .formGroup > div {
     display: flex;
-    gap: 20px;
+    gap: 10px;
 }
 
 /* Create Estoque */
@@ -395,7 +395,6 @@ cardContainerShow > .cardShowStock {
 
 .checkbox {
     width: 20px;
-    height: 20px;
     box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.25);
 }
 
@@ -414,4 +413,25 @@ cardContainerShow > .cardShowStock {
     border: 1px solid #22252f;
     border-radius: 8px;
     box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.25);
+}
+
+#forma_pagamento{
+    padding: 8px;
+    cursor: pointer;
+    background-color: transparent;
+    border: 1px solid #22252f;
+    border-radius: 8px;
+    box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.25);
+}
+
+.item-select{
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.item-checkbox{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
 }
