@@ -21,20 +21,22 @@
                     {!! $errors->first('valor', '<span class="invalid-feedback" role="alert">:message</span>') !!}
                 </div>
                 <div class="formGroup">
-                    <label for="estoque_id">{{ __('pedido.estoque_id') }} <span>*</span></label>
+                    <label for="estoque_id">Ingredientes<span>*</span></label>
+                    <div class="item-select">
                     @foreach($estoques as $estoque)
-                        <div>
+                        <div class="item-checkbox">
                             <input type="checkbox" id="estoque_{{ $estoque->id }}" name="estoque_id[]" value="{{ $estoque->id }}" class="checkbox">
                             <label for="estoque_{{ $estoque->id }}">{{ $estoque->item }}</label>
                         </div>
                     @endforeach
+                    </div>
                     {!! $errors->first('estoque_id', '<span class="invalid-feedback" role="alert">:message</span>') !!}
                 </div>
 
 
             </div>
             <div class="cardFooter">
-                <input type="submit" value="{{ __('cardapio.create') }}" class="btn btnSecondary">
+                <input type="submit" value="Cadastrar prato" class="btn btnSecondary">
                 <a href="{{ route('cardapios.index') }}" class="btn btnPrimary">{{ __('cardapio.cancel') }}</a>
             </div>
         </form>

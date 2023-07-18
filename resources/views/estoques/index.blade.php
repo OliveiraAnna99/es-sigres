@@ -22,6 +22,7 @@
             <th>Item</th>
             <th>Quantidade</th>
             <th>Data de Validade</th>
+            <th>Ações</th>
           </tr>
 
           @foreach($estoques as $key => $estoque)

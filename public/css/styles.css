@@ -49,6 +49,11 @@ button {
     cursor: pointer;
 }
 
+.btnReset {
+    width: 50px;
+    padding: 0 8px;
+}
+
 .btn:hover {
     opacity: 0.8;
 }
@@ -72,6 +77,30 @@ button {
     margin-left: 20px;
     width: 25px;
     height: 25px;
+}
+
+.input-search {
+    background-color: white;
+    height: 40px;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+.input-search::placeholder {
+    font-size: 14px;
+}
+
+.topSection {
+    display: flex;
+    justify-content: space-between;
+}
+
+.form-search {
+    flex-direction: row;
+    gap: 10px;
+}
+
+.btnSubmit {
+    height: 40px;
 }
 
 .cardContainer {
@@ -375,7 +404,7 @@ cardContainerShow > .cardShowStock {
     .navContainer .icon {
         margin-right: 20px;
     }
-    .logo-sidebar{
+    .logo-sidebar {
         display: none;
     }
 }
@@ -417,7 +446,7 @@ cardContainerShow > .cardShowStock {
     box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.25);
 }
 
-#forma_pagamento{
+#forma_pagamento {
     padding: 8px;
     cursor: pointer;
     background-color: transparent;
@@ -426,12 +455,12 @@ cardContainerShow > .cardShowStock {
     box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.25);
 }
 
-.item-select{
+.item-select {
     display: flex;
     flex-wrap: wrap;
 }
 
-.item-checkbox{
+.item-checkbox {
     display: flex;
     justify-content: center;
     align-items: center;
